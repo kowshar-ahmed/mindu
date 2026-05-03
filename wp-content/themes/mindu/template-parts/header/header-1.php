@@ -1,0 +1,103 @@
+
+
+
+<header class="tp-header-height">
+    <!-- header-area-start -->
+    <div id="header-sticky" class="tp-header-area tp-header-lg-spacing">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xxl-2 col-xl-2 col-5">
+                    <div class="tp-header-logo">
+                        <a href="index.html">
+                            <img width="85" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xxl-8 col-xl-7 d-none d-xl-block">
+                    <div class="tp-header-left d-flex align-items-center justify-content-center">
+                        <div class="tp-main-menu tp-main-menu-2 tp-menu-dropdown">
+                            <nav class="tp-mobile-menu-active">
+                                <ul>
+                                    <li class="has-dropdown">
+                                        <a href="index.html">Home</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="index.html">Online Academy</a></li>
+                                            <li><a href="index-2.html">Online Course</a></li>
+                                            <li><a href="index-3.html">Online Mentor</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a href="#">Pages</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="about.html">About</a></li>
+                                            <li><a href="service.html">Service</a></li>
+                                            <li><a href="service-details.html">Service Details</a></li>
+                                            <li><a href="team.html">Team</a></li>
+                                            <li><a href="team-details.html">Team Details</a></li>
+                                            <li><a href="testimonial.html">Testimonial</a></li>
+                                            <li><a href="faq.html">Faq</a></li>
+                                            <li class="menu-item-has-children">
+                                                <a href="shop.html">Shop</a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="shop.html">Shop</a></li>
+                                                    <li><a href="shop-details.html">Shop Details</a></li>
+                                                    <li><a href="cart.html">Cart</a></li>
+                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="login.html">Login</a></li>
+                                            <li><a href="register.html">Register</a></li>
+                                            <li><a href="error.html">Error</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a href="course.html">Courses</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="course.html">Courses</a></li>
+                                            <li><a href="course-details.html">Courses Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a href="blog.html">Blog</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog-standard.html">Blog Standard</a></li>
+                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-2 col-xl-3 col-7">
+                    <div class="tp-header-option tp-header-2-option d-flex align-items-center justify-content-end">
+                        <button class="tp-header-search tp-search-click d-none d-sm-block">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.6389 11.6389L14.7499 14.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M13.1941 6.97222C13.1941 3.53578 10.4084 0.75 6.97206 0.75C3.53571 0.75 0.75 3.53578 0.75 6.97222C0.75 10.4087 3.53571 13.1944 6.97206 13.1944C10.4084 13.1944 13.1941 10.4087 13.1941 6.97222Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <a href="login.html" class="tp-btn ml-15 d-none d-sm-block">Login
+                            <span class="ml-8">
+                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.70151 0.20932C5.83044 0.0752924 6.00528 0 6.18758 0C6.36989 0 6.54472 0.0752924 6.67365 0.20932L10.7987 4.49886C10.9276 4.63293 11 4.81474 11 5.00432C11 5.19389 10.9276 5.3757 10.7987 5.50977L6.67365 9.79931C6.54399 9.92954 6.37032 10.0016 6.19006 9.99997C6.00979 9.99834 5.83736 9.92316 5.70989 9.7906C5.58242 9.65805 5.51011 9.47874 5.50855 9.29129C5.50698 9.10384 5.57628 8.92325 5.70151 8.78841L8.65299 5.71924H0.687509C0.50517 5.71924 0.3303 5.64392 0.201367 5.50984C0.0724338 5.37577 0 5.19393 0 5.00432C0 4.81471 0.0724338 4.63286 0.201367 4.49879C0.3303 4.36471 0.50517 4.28939 0.687509 4.28939H8.65299L5.70151 1.22022C5.57263 1.08615 5.50022 0.904344 5.50022 0.714771C5.50022 0.525199 5.57263 0.343388 5.70151 0.20932Z" fill="white" />
+                                </svg>
+                            </span>
+                        </a>
+                        <div class="tp-header-toogle-wrapper d-xl-none ml-10">
+                            <button class="tp-header-toogle"><i class="far fa-bars"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header-area-end -->
+</header>
+
+
+
+<?php echo get_template_part('template-parts/header/header-search', '3'); ?>
+<?php echo get_template_part('template-parts/header/header-offcanvas', '3'); ?>

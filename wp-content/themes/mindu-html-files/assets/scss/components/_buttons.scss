@@ -1,0 +1,63 @@
+@use '../utils' as *;
+
+/*----------------------------------------*/
+/*  2.5 Buttons
+/*----------------------------------------*/
+
+.#{$theme-prifix}-btn{
+    border-radius: 50px;
+    padding: 6px 32px 8px 32px;
+    background: var(--tp-theme-1);
+    font-family: var(--tp-ff-heading);
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    color: var(--tp-common-white);
+    display: inline-flex;
+    align-items: center;
+    &:hover{
+        background: var(--tp-common-red);
+        color: var(--tp-common-white);
+    }
+    & .ml-8{
+        margin-left: 8px;
+    }
+    &-square{
+        border-radius: 12px;
+        padding: 14px 32px;
+    }
+    &-xl{
+        padding: 11px 24px 13px 24px;
+    }
+    &-xxl{
+        padding: 11px 31px 13px 31px;
+    }
+    &-border{
+        border: 1px solid rgba(31, 36, 46, 0.2);
+        background: transparent;
+        color: var(--tp-common-black);
+        &:hover{
+            border-color: var(--tp-theme-1);
+        }
+    }
+    &-transparent{
+        background: transparent;
+        padding: 0;
+        &:hover{
+            color: var(--tp-theme-1);
+            background: transparent;
+        }
+    }
+    &-white{
+        background: var(--tp-common-white);
+        color: var(--tp-common-black);
+    }
+    &-black{
+        background: var(--tp-common-black);
+        color: var(--tp-common-white);
+    }
+    &-grey{
+        background: #faf8f1;
+        color: var(--tp-common-black);
+    }
+}

@@ -1,0 +1,219 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  5.2 Postbox css
+/*----------------------------------------*/
+
+.postbox{
+    &-wrapper{
+        @media #{$lg,$md,$sm,$xs}{
+            margin-right: 0;
+        }
+    }
+    &-video{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: 2;
+        & a{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 70px;
+            width: 70px;
+            line-height: 70px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 100%;
+            background-color: #fcfcfc;
+            box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.3);
+            &::after{
+                position: absolute;
+                content: "";
+                left: 50%;
+                top: 50%;
+                width: 90%;
+                height: 90%;
+                transform: scale(1);
+                border: 1px solid var(--tp-common-white);
+                animation: video-border 1.5s linear infinite;
+                border-radius: 50%;
+            }
+        }
+    }
+    &-overly{
+        z-index: 1;
+        &:before{
+            position: absolute;
+            content: "";
+            background: rgba(0, 0, 0, 0.4);
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+        }
+    }
+    &-gallery{
+        &-navigation{
+            & button{
+                position: absolute;
+                top: 50%;
+                left: 32px;
+                transform: translateY(-50%);
+                z-index: 3;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 25px;
+                height: 50px;
+                width: 50px;
+                backdrop-filter: blur(20px);
+                background: rgba(0, 0, 0, 0.05);
+                border-radius: 30px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--tp-common-white);
+                &:hover{
+                    color: var(--tp-common-white);
+                    background-color: var(--tp-theme-1);
+                }
+                &.postbox-gallery-arrow-next{
+                    left: auto;
+                    right: 32px;
+                }
+            }
+        }
+    }
+    &-qoute{
+        &-box{
+            position: relative;
+            padding: 67px 62px;
+            border-radius: 16px;
+            background-color: var(--tp-grey-3);
+            @media #{$sm,$xs} {
+                padding: 30px;
+                flex-wrap: wrap;
+            }
+        }
+        &-title{
+            margin: 0;
+            font-size: 38px;
+            font-weight: 600;
+            line-height:  44px;
+            @media #{$lg,$sm,$xs}{
+                font-size: 28px;
+            }
+        }
+        &-subtitle{
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--tp-common-black);
+        }
+        &-icon{
+            margin-right: 34px;
+            @media #{$xs} {
+            margin-bottom: 10px;
+            }
+        }
+        &-shape{
+            position: absolute;
+            bottom: 0;
+            right: 45px;
+        }
+    }
+    &-comment{
+        &-box{
+            padding-bottom: 47px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #dce0ec;
+        }
+        & ul{
+            & li{
+                list-style: none;
+            }
+            & .children{
+                padding-left: 100px;
+                @media #{$sm,$xs} {
+                    padding-left: 0;
+                }
+            }
+        }
+        &-name{
+            margin-bottom: 15px;
+            & h2{
+                font-size: 18px;
+                font-family: var(--tp-ff-body);
+                margin-bottom: 0;
+            }
+            & span{
+                font-size: 14px;
+                font-weight: 500;
+                color: #6c7275;
+            }
+        }
+        &-reply{
+            & a{
+                font-weight: 400;
+                font-size: 15px;
+                color: #031f42;
+                padding: 4px 14px;
+                border-radius: 100px;
+                border: 1px solid #e6e8f0;
+                box-shadow: 0 1px 1px 0 rgba(48, 54, 81, 0.06);
+                & svg{
+                    display: inline-block;
+                    margin-right: 5px;
+                    transform: translateY(-2px);
+                }
+                &:hover{
+                    color: var(--tp-common-white);
+                    background-color: var(--tp-theme-1);
+                    border: 1px solid var(--tp-theme-1);
+                }
+            }
+        }
+        &-text{
+            & p{
+                & br{
+                    @media #{$xl,$lg,$md,$sm,$xs} {
+                        display: none; 
+                    }
+                }
+            }
+        }
+        &-info{
+            flex: 0 0 auto;
+        }
+        &-avater{ 
+            & img{
+                width: 50px;
+                border-radius: 100px;
+            }
+        }
+        &-from{
+            @media #{$md,$sm,$xs} {
+                margin-bottom: 30px;
+            }
+            & .contact-input{
+                &-form {
+                    & label{
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+                }
+                &-remeber{
+                    & label{
+                        font-size: 15px;
+                        font-weight: 300;
+                        &::after{
+                            top: 4px;
+                        }
+                        &::before{
+                            top: 4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

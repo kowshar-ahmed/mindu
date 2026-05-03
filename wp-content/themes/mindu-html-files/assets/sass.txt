@@ -1,0 +1,3 @@
+sass --watch D:\running-project\mindu\assets\scss\main.scss:D:\running-project\mindu\assets\css\main.css
+
+sass --watch "C:\Users\Salim Rana\Dropbox\Harun Pure\mindu-main\mindu-prev\assets\scss\main.scss":"C:\Users\Salim Rana\Dropbox\Harun Pure\mindu-main\mindu-prev\assets\css\main.css"

@@ -1,0 +1,27 @@
+@use './mixins' as *;
+
+%bg-position{
+	@include background();
+}
+
+%transition{
+	@include transition();
+}
+
+// svg
+
+%svg-1{
+	@include transform(translateY(-1px));
+}
+
+%svg-2{
+	@include transform(translateY(-2px));
+}
+
+%svg-3{
+	@include transform(translateY(-3px));
+}
+
+%svg-4{
+	@include transform(translateY(-4px));
+}

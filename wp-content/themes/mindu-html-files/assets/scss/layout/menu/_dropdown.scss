@@ -1,0 +1,127 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  4.1 dropdown menu css
+/*----------------------------------------*/
+
+.#{$theme-prifix}-menu-dropdown{
+    & nav{
+        & ul{
+            & li{
+                position: relative;
+                &.has-dropdown{
+                    & > a{
+                        position: relative;
+                        &::after {
+                            position: absolute;
+                            top: 42%;
+                            right: -15px;
+                            display: block;
+                            content: "";
+                            height: 8px;
+                            width: 8px;
+                            -webkit-transform-origin: 66% 66%;
+                            -ms-transform-origin: 66% 66%;
+                            transform-origin: 66% 66%;
+                            -webkit-transform: rotate(45deg) ;
+                            -ms-transform: rotate(45deg);
+                            transform: rotate(45deg);
+                            -webkit-transition: all 0.15s ease-in-out;
+                            transition: all 0.15s ease-in-out;
+                            border-bottom: 1.3px solid currentColor;
+                            border-right: 1.3px solid currentColor;
+                        }
+                    }
+                }
+                &.active{
+                    & > a{
+                        color: var(--tp-theme-1);
+                        &::after {
+                            transform: rotate(-135deg);
+                            color: var(--tp-theme-1);
+                        }
+                    }
+                }
+                &:hover {
+                    &.has-dropdown {
+                        & a{
+                            &::after {
+                                transform: rotate(-135deg);
+                                color: var(--tp-theme-1);
+                            }
+                        }
+                    }
+                    & > .sub-menu{
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translateY(0);
+                    }
+                }
+                & .sub-menu {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    transform: translateY(10px);
+                    background: var(--tp-common-white);
+                    width: 220px;
+                    padding: 18px 0;
+                    @include transition(); 
+                    opacity: 0;
+                    visibility: hidden;
+                    border-radius: 6px;
+                    z-index: 9;
+                    box-shadow: 0 20px 30px rgb(3 4 28 / .1);
+                    & li{
+                        margin-right: 0px;
+                        display: block;
+                        & a{
+                            padding: 10px 28px;
+                            display: block;
+                            text-transform: capitalize;
+                            color: var(--tp-common-black);
+                            &:hover{
+                                color: var(--tp-theme-1);
+                            }
+                        }
+                        & .sub-menu {
+                            left: 100%;
+                            top: 0;
+                            transform: translateX(10px);
+                        }
+                        &.menu-item-has-children{
+                            &:hover{
+                                & > a{
+                                    &:after{
+                                        transform: rotate(0deg);
+                                        color: var(--tp-theme-1);
+                                    }
+                                }
+                            }
+                            & > a{
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                &:after{
+                                    content: "\f107";
+                                    font-size: 16px;
+                                    font-weight: 400;
+                                    margin-left: 2px;
+                                    color: var(--tp-common-black);
+                                    display: inline-block;
+                                    transform: rotate(-90deg);
+                                    transition: all 0.3s 0s ease-out;
+                                    font-family: var(--tp-ff-fontawesome);
+                                }
+                            }
+                        }
+                        &:hover{
+                            & > .sub-menu{
+                                transform: translateX(0);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
