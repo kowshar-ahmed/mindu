@@ -1,0 +1,73 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.2 banner
+/*----------------------------------------*/
+
+.#{$theme-prifix}-banner {
+    &-item{
+        background: #c8eaf7;
+        border: 1px solid #1f242e;
+        border-radius: 20px;
+        box-shadow: 8px 8px 0px 0px #000;
+        padding: 40px 40px 40px 50px;
+        transition: all .4s ease;
+        @media #{$xs}{
+            padding: 30px;
+        }
+        &:hover{
+            transform: translateY(-3px);
+            box-shadow: 0px 0px 0px 0px #000;
+        }
+        &-2{
+            background: #f1d7ec;
+            & .tp-banner-thumb {
+                background: #e3b6da;
+            }
+            & .tp-banner-title .banner-line {
+                margin-left: 0;
+            }
+        }
+    }
+    &-subtitle{
+        font-size: 13px;
+        color: var(--tp-common-black);
+    }
+    &-btn{
+        padding: 5px 18px 7px 18px;
+    }
+    &-shape{
+        position: absolute;
+        right: 0;
+    }
+    &-title{
+        font-size: 38px;
+        line-height: 105%;
+        @media #{$sm,$xs}{
+            margin-bottom: 15px!important;
+        }
+        & span{
+            font-weight: 400;
+            font-size: 34px;
+        }
+        & .banner-line{
+            line-height: 1;
+            display: inline-block;
+            transform: translateY(-19px);
+            margin-left: 18px;
+            @media #{$sm,$xs}{
+                display: none;
+            }
+        }
+    }
+    &-thumb{
+        background: #9bdbf3;
+        border-radius: 20px;
+        padding: 13px 17px 0px 17px;
+    }
+    &-content{
+        @media #{$sm,$xs}{
+            margin-bottom: 30px;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.7 community
+/*----------------------------------------*/
+
+.#{$theme-prifix}-community {
+    &-wrap{
+        display: flex;
+        gap: 20px;
+        @media #{$md,$sm,$xs}{
+            gap: 10px;
+        }
+    }
+    &-item{
+        @media #{$md,$sm,$xs}{
+            margin-bottom: 10px;
+        }
+        &:hover{
+            & img{
+                transform: rotateY(180deg);
+            }
+        }
+        & img{
+            border-radius: 16px;
+            transition: all 0.4s ease;
+        }
+    }
+    &-border{
+        border-bottom: 1px solid rgba(31, 36, 46, 0.2);
+    }
+    &-col{
+        @media #{$md,$sm,$xs}{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+    &-title{
+        &-wrap{
+            margin-top: -110px;
+            @media #{$xl,$lg,$md,$sm,$xs}{
+                margin-top: -50px;
+            }
+            @media #{$md,$sm,$xs}{
+                margin-top: 0;
+            }
+        }
+    }
+}

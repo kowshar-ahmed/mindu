@@ -1,0 +1,21 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.12 error
+/*----------------------------------------*/
+
+.#{$theme-prifix}-error{
+    &-title{
+        font-size: 32px;
+        color: var(--tp-grey-1);
+    }
+    &-btn{
+        padding: 31px 60px 33px 60px;
+        font-weight: 700;
+        font-size: 24px;
+        @media #{$xs} {
+            font-size: 20px;
+            padding: 21px 40px 23px 40px;
+        }
+    }
+}

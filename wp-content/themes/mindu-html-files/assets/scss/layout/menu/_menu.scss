@@ -1,0 +1,105 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  4.2 Main menu css
+/*----------------------------------------*/
+
+
+.#{$theme-prifix}-main{
+    &-menu{
+        & nav{
+            & ul{
+                & li{
+                    list-style-type: none;
+                    display: inline-block;
+                    white-space: nowrap;
+                    text-align: left;
+                    &:not(:last-child){
+                        margin-right: 35px;
+                    }
+                    &:hover{
+                        & > a{
+                            color: var(--tp-theme-1);
+                        }
+                    }
+                    & a{
+                        font-weight: 500;
+                        font-size: 15px;
+                        color: var(--tp-common-white);
+                        padding: 24px 0;
+                        display: inline-block;
+                        line-height: 1;
+                    }
+                }
+            }
+        }
+        &-2{
+            & nav{
+                & ul{
+                    & li{
+                        & a{
+                            color: var(--tp-common-black);
+                            font-size: 16px;
+                            text-transform: capitalize;
+                            padding: 31px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.header-sticky {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	opacity: 1;
+	width: 100%;
+	z-index: 10;
+	visibility: visible;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 6px 0 rgba(19, 19, 22, 0.08);
+	animation: 0.95s ease 0s normal forwards 1 running headerSlideDown;
+	-webkit-animation: 0.95s ease 0s normal forwards 1 running headerSlideDown;
+    & .tp-main-menu > nav > ul > li > a {
+        padding: 22px 0;
+    }
+    &.tp-transparent{
+        & .tp-main-menu nav ul li a {
+            color: var(--tp-common-black);
+            &:hover{
+                color: var(--tp-theme-1);
+            }
+        }
+        & .tp-header-search {
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            color: var(--tp-common-black);
+            &:hover{
+                color: var(--tp-common-white);
+                border-color: var(--tp-theme-1);
+            }
+        }
+    }
+    &.tp-header-blur{
+        &::after{
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(40px);
+            z-index: -1;
+        }
+    }
+     & .tp-header-logo{
+        & .logo-1{
+            display: none;
+        }
+        & .logo-2{
+            display: block!important;
+        }
+    }
+}

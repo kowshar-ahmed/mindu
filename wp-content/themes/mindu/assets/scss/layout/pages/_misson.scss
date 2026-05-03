@@ -1,0 +1,64 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  7.17 misson
+/*----------------------------------------*/
+
+.#{$theme-prifix}-misson{
+    &-thumb{
+        @media #{$md,$sm,$xs}{
+            margin-left: 0;
+            margin-right: 0;
+        }
+        & img{
+            border-radius: 24px;
+        }
+    }
+    &-help{
+        &-icon{
+            color: var(--tp-common-black);
+        }
+        &-title{
+            font-size: 24px;
+            letter-spacing: -0.02em;
+        }
+        &-dec{
+            font-size: 16px;
+            line-height: 163%;
+            letter-spacing: -0.01em;
+        }
+    }
+    &-list{
+        border: 1px solid rgba(31, 36, 46, 0.1);
+        padding: 45px 40px;
+        & ul{
+            & li{
+                font-weight: 500;
+                font-size: 16px;
+                color: var(--tp-grey-1);
+                list-style: none;
+                position: relative;
+                padding-left: 15px;
+                &:not(:last-child){
+                    margin-bottom: 10px;
+                }
+                &::before{
+                    position: absolute;
+                    content: "";
+                    width: 5px;
+                    height: 5px;
+                    background-color: var(--tp-grey-1);
+                    border-radius: 50%;
+                    top: 11px;
+                    left: 0;
+                }
+            }
+        }
+    }
+    &-content{
+        @media #{$xl,$lg,$md,$sm,$xs}{
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}
