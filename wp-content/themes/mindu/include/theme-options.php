@@ -33,6 +33,13 @@ Redux::set_section(
                 'hint'     => array(
                     'content' => 'If you remove the text, the button will be hidden.',
                 )
+            ),
+            array(
+                'id'       => 'header-button-url',
+                'type'     => 'text',
+                'title'    => esc_html__('Button URL', 'mindu'),
+                'desc'     => esc_html__('Button URL here.', 'mindu'),
+                'subtitle' => esc_html__('Button URL here.', 'mindu'),
             )
         )
     )
