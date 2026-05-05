@@ -72,3 +72,28 @@ Redux::set_section(
         )
     )
 );
+
+
+
+Redux::set_section(
+    $opt_name,
+    array(
+        'title'  => esc_html__('Header Offcanvas', 'mindu'),
+        'id'     => 'header-offcanvas-options',
+        'desc'   => esc_html__('All header offcanvas settings available here.', 'mindu'),
+        'icon'   => 'el el-home',
+        'fields' => array(
+            array(
+                'id'       => 'header-button-text',
+                'type'     => 'text',
+                'title'    => esc_html__('Button Text', 'mindu'),
+                'desc'     => esc_html__('Button text here.', 'mindu'),
+                'subtitle' => esc_html__('Button text here.', 'mindu'),
+                'default'  => esc_html__('Login', 'mindu'),
+                'hint'     => array(
+                    'content' => 'If you remove the text, the button will be hidden.',
+                )
+            ),
+        )
+    )
+);

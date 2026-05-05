@@ -4,7 +4,7 @@
 function header_logo(){ 
     
     global $mindu; // Same as your opt_name
-    $header_logo = $mindu['header-logo']['url'] ?? "";
+    $header_logo = $mindu['header-logo']['url'] ?? get_template_directory_uri() . '/assets/img/logo/logo.png';
 
     ?>
 

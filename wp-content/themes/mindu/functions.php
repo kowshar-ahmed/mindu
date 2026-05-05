@@ -108,8 +108,13 @@ function mindu_theme_scripts()
 add_action('wp_enqueue_scripts', 'mindu_theme_scripts');
 
 
-if (class_exists('Redux')) {
-    require_once('include/theme-options.php');
+function redux_option(){
+    if (class_exists('Redux')) {
+        require_once('include/theme-options.php');
+    }
 }
+
+add_action('after_setup_theme', 'redux_option');
+
 require get_template_directory() . '/include/nav-walker.php';
 require get_template_directory() . '/include/theme-helper.php';

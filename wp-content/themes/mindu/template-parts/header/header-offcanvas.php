@@ -2,7 +2,7 @@
 <div class="tp-offcanvas">
     <div class="tp-offcanvas-header mb-30">
         <div class="tp-offcanvas-logo">
-            <a href="index.html"><img data-width="108" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logo.png" alt="logo"></a>
+            <?php header_logo(); ?>
         </div>
         <div class="tp-offcanvas-close">
             <button class="tp-offcanvas-close-button"><i class="fal fa-times"></i></button>
@@ -10,10 +10,11 @@
     </div>
     <div class="tp-offcanvas-menu mb-50">
         <nav>
+
         </nav>
     </div>
     <div class="tp-offcanvas-content mb-40">
-        <h3 class="tp-offcanvas-title"> Hello There!</h3>
+        <h3 class="tp-offcanvas-title"> <?php echo esc_html__('Hello There!', 'mindu'); ?> </h3>
         <p>Lorem ipsum dolor sit amet, consect etur adipiscing elit. </p>
     </div>
     <div class="tp-offcanvas-gallery mb-50">
@@ -23,13 +24,13 @@
         <a class="popup-image" href="assets/img/gallery/gallery-4.jpg"><img src="assets/img/gallery/gallery-4.jpg" alt="tour"></a>
     </div>
     <div class="tp-offcanvas-info mb-50">
-        <h3 class="tp-offcanvas-title">Information</h3>
+        <h3 class="tp-offcanvas-title"><?php echo esc_html__('Information', 'mindu'); ?></h3>
         <span><a href="tel:+42077001007">+ 4 20 7700 1007</a></span>
         <span><a href="mailto:hello@mindu.com">hello@mindu.com</a></span>
         <span><a href="https://maps.google.com/?q=Avenue+de+Roma+158b,+Lisboa" target="_blank">Avenue de Roma 158b, Lisboa</a></span>
     </div>
     <div class="tp-offcanvas-social">
-        <h3 class="tp-offcanvas-title"> Follow Us</h3>
+        <h3 class="tp-offcanvas-title"> <?php echo esc_html__('Follow Us', 'mindu'); ?> </h3>
         <div class="tp-offcanvas-social-inner">
             <a href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="18" viewBox="0 0 12 18" fill="none">
