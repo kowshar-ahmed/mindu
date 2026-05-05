@@ -40,8 +40,7 @@ if (! function_exists('mindu_setup')) :
 
         // This theme uses wp_nav_menu() in two locations.
         register_nav_menus(array(
-            'primary' => __('Primary Menu', 'mindu'),
-            'social' => __('Social Links Menu', 'mindu'),
+            'main-menu' => __('Main Menu', 'mindu'),
         ));
 
         /*
@@ -109,4 +108,8 @@ function mindu_theme_scripts()
 add_action('wp_enqueue_scripts', 'mindu_theme_scripts');
 
 
-require get_template_directory() . '/include/theme-options.php';
+if (class_exists('Redux')) {
+    require_once('include/theme-options.php');
+}
+require get_template_directory() . '/include/nav-walker.php';
+require get_template_directory() . '/include/theme-helper.php';

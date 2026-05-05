@@ -3,7 +3,7 @@ if (! class_exists('Redux')) {
     return;
 }
 
-$opt_name = 'mindu-options';
+$opt_name = 'mindu';
 
 $theme = wp_get_theme(); // For use with some settings. Not necessary.
 
@@ -30,6 +30,7 @@ Redux::set_section(
                 'title'    => esc_html__('Button Text', 'mindu'),
                 'desc'     => esc_html__('Button text here.', 'mindu'),
                 'subtitle' => esc_html__('Button text here.', 'mindu'),
+                'default'  => esc_html__('Login', 'mindu'),
                 'hint'     => array(
                     'content' => 'If you remove the text, the button will be hidden.',
                 )
@@ -41,6 +42,32 @@ Redux::set_section(
                 'desc'     => esc_html__('Button URL here.', 'mindu'),
                 'subtitle' => esc_html__('Button URL here.', 'mindu'),
 
+            )
+        )
+    )
+);
+
+
+
+
+Redux::set_section(
+    $opt_name,
+    array(
+        'title'  => esc_html__('Header Logo', 'mindu'),
+        'id'     => 'header-logo-options',
+        'desc'   => esc_html__('All header logo settings available here.', 'mindu'),
+        'icon'   => 'el el-home',
+        'fields' => array(
+            array(
+                'id'       => 'header-logo',
+                'type'     => 'media',
+                'url'      => true,
+                'title'    => esc_html__('Header Logo', 'mindu'),
+                'desc'     => esc_html__('Upload your header logo here.', 'mindu'),
+                'subtitle' => esc_html__('Header logo here.', 'mindu'),
+                'default'  => array(
+                    'url' => get_template_directory_uri() . '/assets/img/logo/logo.png'
+                ),
             )
         )
     )
