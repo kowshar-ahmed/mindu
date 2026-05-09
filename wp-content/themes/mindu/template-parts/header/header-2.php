@@ -5,23 +5,27 @@ $header_button = $mindu['header-button-text'] ?? "";
 $header_button_url = $mindu['header-button-url'] ?? "";
 
 
-
 ?>
 
 
-<header class="tp-header-height">
+
+
+
+
+<header>
+
     <!-- header-area-start -->
-    <div id="header-sticky" class="tp-header-area tp-header-lg-spacing">
+    <div id="header-sticky" class="tp-header-area tp-header-bg tp-header-lg-spacing tp-transparent">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-xxl-2 col-xl-2 col-5">
                     <div class="tp-header-logo">
-                        <?php header_logo(); ?>
+                        <?php header_transparent_logo(); ?>
                     </div>
                 </div>
                 <div class="col-xxl-8 col-xl-7 d-none d-xl-block">
                     <div class="tp-header-left d-flex align-items-center justify-content-center">
-                        <div class="tp-main-menu tp-main-menu-2 tp-menu-dropdown">
+                        <div class="tp-main-menu tp-menu-dropdown">
                             <nav class="tp-mobile-menu-active">
                                 <?php header_menu(); ?>
                             </nav>
@@ -29,7 +33,7 @@ $header_button_url = $mindu['header-button-url'] ?? "";
                     </div>
                 </div>
                 <div class="col-xxl-2 col-xl-3 col-7">
-                    <div class="tp-header-option tp-header-2-option d-flex align-items-center justify-content-end">
+                    <div class="tp-header-option d-flex align-items-center justify-content-end">
                         <button class="tp-header-search tp-search-click d-none d-sm-block">
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11.6389 11.6389L14.7499 14.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -37,7 +41,8 @@ $header_button_url = $mindu['header-button-url'] ?? "";
                             </svg>
                         </button>
                         <?php if (!empty($header_button)) : ?>
-                            <a href="<?php echo esc_url($header_button_url); ?>" class="tp-btn ml-15 d-none d-sm-block"><?php echo esc_html($header_button); ?>
+                            <a href="<?php echo esc_url($header_button_url); ?>" class="tp-btn ml-15 d-none d-sm-block">
+                                <?php echo esc_html($header_button); ?>
                                 <span class="ml-8">
                                     <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M5.70151 0.20932C5.83044 0.0752924 6.00528 0 6.18758 0C6.36989 0 6.54472 0.0752924 6.67365 0.20932L10.7987 4.49886C10.9276 4.63293 11 4.81474 11 5.00432C11 5.19389 10.9276 5.3757 10.7987 5.50977L6.67365 9.79931C6.54399 9.92954 6.37032 10.0016 6.19006 9.99997C6.00979 9.99834 5.83736 9.92316 5.70989 9.7906C5.58242 9.65805 5.51011 9.47874 5.50855 9.29129C5.50698 9.10384 5.57628 8.92325 5.70151 8.78841L8.65299 5.71924H0.687509C0.50517 5.71924 0.3303 5.64392 0.201367 5.50984C0.0724338 5.37577 0 5.19393 0 5.00432C0 4.81471 0.0724338 4.63286 0.201367 4.49879C0.3303 4.36471 0.50517 4.28939 0.687509 4.28939H8.65299L5.70151 1.22022C5.57263 1.08615 5.50022 0.904344 5.50022 0.714771C5.50022 0.525199 5.57263 0.343388 5.70151 0.20932Z" fill="white" />
@@ -54,7 +59,10 @@ $header_button_url = $mindu['header-button-url'] ?? "";
         </div>
     </div>
     <!-- header-area-end -->
+
 </header>
+
+
 
 
 

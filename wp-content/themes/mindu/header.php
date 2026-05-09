@@ -10,7 +10,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body class="body-bg-3">
+<body <?php body_class('body-bg-3'); ?>>
     <!--[if lte IE 9]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
    <![endif]-->
@@ -59,10 +59,11 @@
 
 
 
-    <?php echo get_template_part('template-parts/header/header-1', '3'); ?>
+    <?php echo get_template_part('template-parts/header/header-2'); ?>
 
     <!-- tp-breadcrumb-area-start -->
-    <div class="tp-breadcrumb-area tp-breadcrumb-2 tp-breadcrumb-3 p-relative bg-grey-4">
+    <div class="tp-breadcrumb-area tp-breadcrumb-2 tp-breadcrumb-3 p-relative bg-grey-4" style="background-image: 
+    url(<?php echo get_template_directory_uri(); ?>/assets/img/hero/thumb.jpg);">
         <img class="tp-breadcrumb-3-shape d-none d-xl-block" src="<?php echo get_template_directory_uri(); ?>/assets/img/breadcrumb/shape.png" alt="">
         <img class="tp-breadcrumb-3-shape-2 d-none d-xl-block" src="<?php echo get_template_directory_uri(); ?>/assets/img/breadcrumb/shape-2.png" alt="">
         <img class="tp-breadcrumb-3-shape-3 d-none d-xl-block" src="<?php echo get_template_directory_uri(); ?>/assets/img/breadcrumb/shape-3.png" alt="">
