@@ -19,7 +19,7 @@ Redux::set_args($opt_name, $args);
 Redux::set_section(
     $opt_name,
     array(
-        'title'  => esc_html__('Header', 'mindu'),
+        'title'  => esc_html__('Header Info', 'mindu'),
         'id'     => 'header-options',
         'desc'   => esc_html__('All header settings available here.', 'mindu'),
         'icon'   => 'el el-home',
