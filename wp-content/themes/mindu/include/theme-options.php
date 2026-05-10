@@ -25,6 +25,33 @@ Redux::set_section(
         'icon'   => 'el el-home',
         'fields' => array(
             array(
+                'id'       => 'header-phone',
+                'type'     => 'text',
+                'title'    => esc_html__('Header Phone', 'mindu'),
+               'default'  => esc_html__('256856963', 'mindu'),
+                'hint'     => array(
+                    'content' => 'If you remove phone number text then number will be hidden.',
+                )
+            ),
+            array(
+                'id'       => 'header-email',
+                'type'     => 'text',
+                'title'    => esc_html__('Header Email', 'mindu'),
+                'default'  => esc_html__('mindu@gmail.com', 'mindu'),
+                'hint'     => array(
+                    'content' => 'If you remove email text then email will be hidden.',
+                )
+            ),
+            array(
+                'id'       => 'header-time',
+                'type'     => 'text',
+                'title'    => esc_html__('Header Time', 'mindu'),
+                'default'  => esc_html__('Open for Learning: Mon - Sat 8.00 - 18.00', 'mindu'),
+                'hint'     => array(
+                    'content' => 'If you remove time text then time will be hidden.',
+                )
+            ),
+            array(
                 'id'       => 'header-button-text',
                 'type'     => 'text',
                 'title'    => esc_html__('Button Text', 'mindu'),
@@ -41,7 +68,9 @@ Redux::set_section(
                 'title'    => esc_html__('Button URL', 'mindu'),
                 'desc'     => esc_html__('Button URL here.', 'mindu'),
                 'subtitle' => esc_html__('Button URL here.', 'mindu'),
-
+                'hint'     => array(
+                    'content' => 'If you remove the URL, the button will be hidden.',
+                )
             )
         )
     )
