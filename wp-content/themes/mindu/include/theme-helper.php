@@ -41,3 +41,15 @@ function header_menu()
         'walker' => new Mindu_Walker_Nav_Menu,
     ));
 }
+//language_menu
+function  language_menu()
+{
+    wp_nav_menu(array(
+        'theme_location' => 'lang-menu',
+        'container' => '',
+        'menu_class' => '',
+        'menu_id' => '',
+        'fallback_cb' => 'Mindu_Walker_Nav_Menu::fallback',
+        'walker' => new Mindu_Walker_Nav_Menu,
+    ));
+}
