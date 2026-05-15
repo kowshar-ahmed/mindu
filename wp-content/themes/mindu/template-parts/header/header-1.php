@@ -3,6 +3,7 @@
 global $mindu; // Same as your opt_name
 $header_button = $mindu['header-button-text'] ?? "";
 $header_button_url = $mindu['header-button-url'] ?? "";
+$header_right_switch = $mindu['header-right-switch'] ?? "";
 
 
 
@@ -28,6 +29,7 @@ $header_button_url = $mindu['header-button-url'] ?? "";
                         </div>
                     </div>
                 </div>
+                <?php if ($header_right_switch) : ?>
                 <div class="col-xxl-2 col-xl-3 col-7">
                     <div class="tp-header-option tp-header-2-option d-flex align-items-center justify-content-end">
                         <button class="tp-header-search tp-search-click d-none d-sm-block">
@@ -50,6 +52,7 @@ $header_button_url = $mindu['header-button-url'] ?? "";
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>

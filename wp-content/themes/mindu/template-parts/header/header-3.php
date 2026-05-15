@@ -1,6 +1,7 @@
 <?php
 
 global $mindu; // Same as your opt_name
+$header_top_switch = $mindu['header-top-switch'] ?? "";
 $header_phone = $mindu['header-phone'] ?? "";
 $header_email = $mindu['header-email'] ?? "";
 $header_time = $mindu['header-time'] ?? "";
@@ -19,6 +20,8 @@ $header_button_url = $mindu['header-button-url'] ?? "";
 <header class="tp-header-height">
 
     <!-- header-area-start -->
+
+    <?php if($header_top_switch == true) : ?>
     <div class="tp-header-top-spacing d-none d-lg-block">
         <div class="container">
             <div class="row">
@@ -30,7 +33,7 @@ $header_button_url = $mindu['header-button-url'] ?? "";
                                     <path d="M9.43652 4V6.8C9.43652 8.73298 7.89749 10.3 5.99902 10.3C4.10055 10.3 2.56152 8.73298 2.56152 6.8V4C2.56152 2.06701 4.10055 0.5 5.99902 0.5C7.89749 0.5 9.43652 2.06701 9.43652 4Z" stroke="currentColor" />
                                     <path d="M11.5 6.8C11.5 9.89281 9.03758 12.4 6 12.4M6 12.4C2.96243 12.4 0.5 9.89281 0.5 6.8M6 12.4V14.5M6 14.5H8.0625M6 14.5H3.9375" stroke="currentColor" stroke-linecap="round" />
                                 </svg>
-                                Call us:
+                                <?php echo esc_html__('Call Us:', 'mindu'); ?>
                                 <a href="tel:<?php echo esc_attr($header_phone); ?>"><?php echo esc_html($header_phone); ?></a>
                             </span>
                         <?php endif; ?>
@@ -40,7 +43,7 @@ $header_button_url = $mindu['header-button-url'] ?? "";
                                     <path d="M0.5 2.26472L5.37978 5.02964C7.17877 6.04896 7.93887 6.04896 9.73788 5.02964L14.6176 2.26472" stroke="currentColor" stroke-linejoin="round" />
                                     <path d="M0.511132 7.5416C0.557275 9.70555 0.580351 10.7875 1.3788 11.589C2.17723 12.3904 3.28847 12.4183 5.51094 12.4742C6.88068 12.5086 8.23696 12.5086 9.60673 12.4742C11.8292 12.4183 12.9404 12.3904 13.7389 11.589C14.5373 10.7875 14.5604 9.70555 14.6065 7.5416C14.6214 6.84581 14.6214 6.15419 14.6065 5.4584C14.5604 3.29449 14.5373 2.21253 13.7389 1.41105C12.9404 0.609575 11.8292 0.581657 9.60673 0.525815C8.23696 0.491396 6.88068 0.491396 5.51093 0.525808C3.28847 0.581643 2.17723 0.609561 1.37879 1.41105C0.580344 2.21253 0.557275 3.29448 0.511125 5.4584C0.496287 6.15419 0.496294 6.84581 0.511132 7.5416Z" stroke="currentColor" stroke-linejoin="round" />
                                 </svg>
-                                Email:
+                                <?php echo esc_html__('Email:', 'mindu'); ?>
                                 <a href="mailto:<?php echo esc_attr($header_email); ?>"><?php echo esc_html($header_email); ?></a>
                             </span>
                         <?php endif; ?>
@@ -58,46 +61,36 @@ $header_button_url = $mindu['header-button-url'] ?? "";
                                 <?php echo esc_html($header_time); ?>
                             </span>
                         <?php endif; ?>
-                        <div class="tp-header-menu-item tp-header-currency ml-25">
+
+                        <?php if (has_nav_menu('lang-menu')) : ?>
+                            <div class="tp-lang-nav ml-25">
+                                <?php language_menu(); ?>
+                            </div>
+                        <?php else : ?>
                             <div class="tp-header-menu-item tp-header-currency ml-25">
-                                <span class="tp-header-currency-toggle" id="tp-header-currency-toggle"><img src="assets/img/flag/01.png" alt=""> English</span>
+                                <span class="tp-header-currency-toggle" id="tp-header-currency-toggle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/flag/01.png" alt=""> <?php echo esc_html__('English', 'mindu'); ?></span>
                                 <ul>
                                     <li>
-                                        <a href="#"><img src="assets/img/flag/01.png" alt=""> Canada </a>
+                                        <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/flag/01.png" alt=""><?php echo esc_html__('Canada', 'mindu'); ?> </a>
                                     </li>
                                     <li>
-                                        <a href="#"><img src="assets/img/flag/02.png" alt=""> Malaysia </a>
+                                        <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/flag/02.png" alt=""><?php echo esc_html__('Malaysia', 'mindu'); ?> </a>
                                     </li>
                                     <li>
-                                        <a href="#"><img src="assets/img/flag/03.png" alt=""> Germany </a>
+                                        <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/flag/03.png" alt=""><?php echo esc_html__('German', 'mindu'); ?> </a>
                                     </li>
                                     <li>
-                                        <a href="#"><img src="assets/img/flag/04.png" alt=""> Belize </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="assets/img/flag/05.png" alt=""> United States</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="assets/img/flag/06.png" alt=""> China </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="assets/img/flag/07.png" alt=""> Georgia </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="assets/img/flag/08.png" alt=""> India </a>
-                                    </li>
-                                </ul>
-                            </div>
 
-                        </div>
-                        <div class="tp-lang-nav">
-                            <?php language_menu(); ?>
-                        </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+<?php endif; ?>
+
     </div>
     <div id="header-sticky" class="tp-header-area tp-header-2-spacing" data-bg-color="#fff">
         <div class="container">

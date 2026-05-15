@@ -25,10 +25,22 @@ Redux::set_section(
         'icon'   => 'el el-home',
         'fields' => array(
             array(
+                'id'       => 'header-top-switch',
+                'type'     => 'switch',
+                'title'    => esc_html__('Switch Topbar Switch', 'mindu'),
+                'default'  => false,
+            ),
+            array(
+                'id'       => 'header-right-switch',
+                'type'     => 'switch',
+                'title'    => esc_html__('Switch Rightbar Switch', 'mindu'),
+                'default'  => false,
+            ),
+            array(
                 'id'       => 'header-phone',
                 'type'     => 'text',
                 'title'    => esc_html__('Header Phone', 'mindu'),
-               'default'  => esc_html__('256856963', 'mindu'),
+                'default'  => esc_html__('256856963', 'mindu'),
                 'hint'     => array(
                     'content' => 'If you remove phone number text then number will be hidden.',
                 )
