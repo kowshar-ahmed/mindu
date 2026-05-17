@@ -68,11 +68,33 @@ if (! function_exists('mindu_setup')) :
             'gallery',
             'audio',
         ));
+
+        remove_theme_support('widgets-block-editor');
     }
 endif;
 
 // mindu_setup
 add_action('after_setup_theme', 'mindu_setup');
+
+
+
+
+/**
+ * Add a sidebar.
+ */
+function mindu_widgets_init()
+{
+    register_sidebar(array(
+        'name'          => __('Footer', 'mindu'),
+        'id'            => 'footer-1-widget-1',
+        'description'   => __('Widgets in this area will be shown on footer style 01.', 'mindu'),
+        'before_widget' => '<div id="%1$s" class="tp-footer-widget ml-80 mb-30 %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="tp-footer-title text-white mb-20">',
+        'after_title'   => '</h3>',
+    ));
+}
+add_action('widgets_init', 'mindu_widgets_init');
 
 
 
@@ -109,7 +131,8 @@ function mindu_theme_scripts()
 add_action('wp_enqueue_scripts', 'mindu_theme_scripts');
 
 
-function redux_option(){
+function redux_option()
+{
     if (class_exists('Redux')) {
         require_once('include/theme-options.php');
     }
