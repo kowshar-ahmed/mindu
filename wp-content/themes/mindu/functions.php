@@ -85,10 +85,37 @@ add_action('after_setup_theme', 'mindu_setup');
 function mindu_widgets_init()
 {
     register_sidebar(array(
-        'name'          => __('Footer', 'mindu'),
+        'name'          => __('Footer -1 : Widget 1', 'mindu'),
         'id'            => 'footer-1-widget-1',
         'description'   => __('Widgets in this area will be shown on footer style 01.', 'mindu'),
+        'before_widget' => '<div id="%1$s" class="tp-footer-widget mb-30 %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="tp-footer-title text-white mb-20">',
+        'after_title'   => '</h3>',
+    ));
+    register_sidebar(array(
+        'name'          => __('Footer - 1 : Widget 2', 'mindu'),
+        'id'            => 'footer-1-widget-2',
+        'description'   => __('Widgets in this area will be shown on footer style 02.', 'mindu'),
         'before_widget' => '<div id="%1$s" class="tp-footer-widget ml-80 mb-30 %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="tp-footer-title text-white mb-20">',
+        'after_title'   => '</h3>',
+    ));
+    register_sidebar(array(
+        'name'          => __('Footer - 1 : Widget 3', 'mindu'),
+        'id'            => 'footer-1-widget-3',
+        'description'   => __('Widgets in this area will be shown on footer style 03.', 'mindu'),
+        'before_widget' => '<div id="%1$s" class="tp-footer-widget ml-20 mb-30 %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="tp-footer-title text-white mb-20">',
+        'after_title'   => '</h3>',
+    ));
+    register_sidebar(array(
+        'name'          => __('Footer - 1 : Widget 4', 'mindu'),
+        'id'            => 'footer-1-widget-4',
+        'description'   => __('Widgets in this area will be shown on footer style 04.', 'mindu'),
+        'before_widget' => '<div id="%1$s" class="tp-footer-widget ml-35 mb-30 %2$s">',
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="tp-footer-title text-white mb-20">',
         'after_title'   => '</h3>',
