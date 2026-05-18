@@ -11,9 +11,8 @@ $header_button_url = $mindu['header-button-url'] ?? "";
 
 $header_right_switch = $mindu['header-right-switch'] ?? "";
 
-
-$header_col = ($header_right_switch == true) ? 'col-xxl-8 col-xl-7 d-none d-xl-block' : 'col-xxl-10 col-xl-10 d-none d-xl-block';
-$header_menu_pos = ($header_right_switch == true) ? 'justify-content-center' : 'justify-content-end';
+$header_col = ($header_right_switch == true) ? 'col-xl-9 col-5' : 'col-xl-12 col-12';
+$header_menu_pos = ($header_right_switch == true) ? '' : 'justify-content-between';
 
 
 ?>
@@ -27,82 +26,82 @@ $header_menu_pos = ($header_right_switch == true) ? 'justify-content-center' : '
 
     <!-- header-area-start -->
 
-    <?php if($header_top_switch == true) : ?>
-    <div class="tp-header-top-spacing d-none d-lg-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="tp-header-top-info d-flex align-items-center">
-                        <?php if (!empty($header_phone)) : ?>
-                            <span class="mr-30 d-inline-block">
-                                <svg width="12" height="15" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M9.43652 4V6.8C9.43652 8.73298 7.89749 10.3 5.99902 10.3C4.10055 10.3 2.56152 8.73298 2.56152 6.8V4C2.56152 2.06701 4.10055 0.5 5.99902 0.5C7.89749 0.5 9.43652 2.06701 9.43652 4Z" stroke="currentColor" />
-                                    <path d="M11.5 6.8C11.5 9.89281 9.03758 12.4 6 12.4M6 12.4C2.96243 12.4 0.5 9.89281 0.5 6.8M6 12.4V14.5M6 14.5H8.0625M6 14.5H3.9375" stroke="currentColor" stroke-linecap="round" />
-                                </svg>
-                                <?php echo esc_html__('Call Us:', 'mindu'); ?>
-                                <a href="tel:<?php echo esc_attr($header_phone); ?>"><?php echo esc_html($header_phone); ?></a>
-                            </span>
-                        <?php endif; ?>
-                        <?php if (!empty($header_email)) : ?>
-                            <span>
-                                <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0.5 2.26472L5.37978 5.02964C7.17877 6.04896 7.93887 6.04896 9.73788 5.02964L14.6176 2.26472" stroke="currentColor" stroke-linejoin="round" />
-                                    <path d="M0.511132 7.5416C0.557275 9.70555 0.580351 10.7875 1.3788 11.589C2.17723 12.3904 3.28847 12.4183 5.51094 12.4742C6.88068 12.5086 8.23696 12.5086 9.60673 12.4742C11.8292 12.4183 12.9404 12.3904 13.7389 11.589C14.5373 10.7875 14.5604 9.70555 14.6065 7.5416C14.6214 6.84581 14.6214 6.15419 14.6065 5.4584C14.5604 3.29449 14.5373 2.21253 13.7389 1.41105C12.9404 0.609575 11.8292 0.581657 9.60673 0.525815C8.23696 0.491396 6.88068 0.491396 5.51093 0.525808C3.28847 0.581643 2.17723 0.609561 1.37879 1.41105C0.580344 2.21253 0.557275 3.29448 0.511125 5.4584C0.496287 6.15419 0.496294 6.84581 0.511132 7.5416Z" stroke="currentColor" stroke-linejoin="round" />
-                                </svg>
-                                <?php echo esc_html__('Email:', 'mindu'); ?>
-                                <a href="mailto:<?php echo esc_attr($header_email); ?>"><?php echo esc_html($header_email); ?></a>
-                            </span>
-                        <?php endif; ?>
+    <?php if ($header_top_switch == true) : ?>
+        <div class="tp-header-top-spacing d-none d-lg-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="tp-header-top-info d-flex align-items-center">
+                            <?php if (!empty($header_phone)) : ?>
+                                <span class="mr-30 d-inline-block">
+                                    <svg width="12" height="15" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.43652 4V6.8C9.43652 8.73298 7.89749 10.3 5.99902 10.3C4.10055 10.3 2.56152 8.73298 2.56152 6.8V4C2.56152 2.06701 4.10055 0.5 5.99902 0.5C7.89749 0.5 9.43652 2.06701 9.43652 4Z" stroke="currentColor" />
+                                        <path d="M11.5 6.8C11.5 9.89281 9.03758 12.4 6 12.4M6 12.4C2.96243 12.4 0.5 9.89281 0.5 6.8M6 12.4V14.5M6 14.5H8.0625M6 14.5H3.9375" stroke="currentColor" stroke-linecap="round" />
+                                    </svg>
+                                    <?php echo esc_html__('Call Us:', 'mindu'); ?>
+                                    <a href="tel:<?php echo esc_attr($header_phone); ?>"><?php echo esc_html($header_phone); ?></a>
+                                </span>
+                            <?php endif; ?>
+                            <?php if (!empty($header_email)) : ?>
+                                <span>
+                                    <svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0.5 2.26472L5.37978 5.02964C7.17877 6.04896 7.93887 6.04896 9.73788 5.02964L14.6176 2.26472" stroke="currentColor" stroke-linejoin="round" />
+                                        <path d="M0.511132 7.5416C0.557275 9.70555 0.580351 10.7875 1.3788 11.589C2.17723 12.3904 3.28847 12.4183 5.51094 12.4742C6.88068 12.5086 8.23696 12.5086 9.60673 12.4742C11.8292 12.4183 12.9404 12.3904 13.7389 11.589C14.5373 10.7875 14.5604 9.70555 14.6065 7.5416C14.6214 6.84581 14.6214 6.15419 14.6065 5.4584C14.5604 3.29449 14.5373 2.21253 13.7389 1.41105C12.9404 0.609575 11.8292 0.581657 9.60673 0.525815C8.23696 0.491396 6.88068 0.491396 5.51093 0.525808C3.28847 0.581643 2.17723 0.609561 1.37879 1.41105C0.580344 2.21253 0.557275 3.29448 0.511125 5.4584C0.496287 6.15419 0.496294 6.84581 0.511132 7.5416Z" stroke="currentColor" stroke-linejoin="round" />
+                                    </svg>
+                                    <?php echo esc_html__('Email:', 'mindu'); ?>
+                                    <a href="mailto:<?php echo esc_attr($header_email); ?>"><?php echo esc_html($header_email); ?></a>
+                                </span>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="tp-header-top-info d-flex align-items-center justify-content-end">
-                        <?php if (!empty($header_time)) : ?>
-                            <span>
-                                <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.54465 0.6V3M3.65576 0.6V3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M6.71121 1.8H5.48899C3.18434 1.8 2.03202 1.8 1.31606 2.50294C0.600098 3.20589 0.600098 4.33726 0.600098 6.6V7.8C0.600098 10.0627 0.600098 11.1941 1.31606 11.897C2.03202 12.6 3.18434 12.6 5.48899 12.6H6.71121C9.01583 12.6 10.1682 12.6 10.8841 11.897C11.6001 11.1941 11.6001 10.0627 11.6001 7.8V6.6C11.6001 4.33726 11.6001 3.20589 10.8841 2.50294C10.1682 1.8 9.01583 1.8 6.71121 1.8Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M0.600098 5.4H11.6001" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                                <?php echo esc_html($header_time); ?>
-                            </span>
-                        <?php endif; ?>
+                    <div class="col-lg-6">
+                        <div class="tp-header-top-info d-flex align-items-center justify-content-end">
+                            <?php if (!empty($header_time)) : ?>
+                                <span>
+                                    <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8.54465 0.6V3M3.65576 0.6V3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M6.71121 1.8H5.48899C3.18434 1.8 2.03202 1.8 1.31606 2.50294C0.600098 3.20589 0.600098 4.33726 0.600098 6.6V7.8C0.600098 10.0627 0.600098 11.1941 1.31606 11.897C2.03202 12.6 3.18434 12.6 5.48899 12.6H6.71121C9.01583 12.6 10.1682 12.6 10.8841 11.897C11.6001 11.1941 11.6001 10.0627 11.6001 7.8V6.6C11.6001 4.33726 11.6001 3.20589 10.8841 2.50294C10.1682 1.8 9.01583 1.8 6.71121 1.8Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M0.600098 5.4H11.6001" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <?php echo esc_html($header_time); ?>
+                                </span>
+                            <?php endif; ?>
 
-                        <?php if (has_nav_menu('lang-menu')) : ?>
-                            <div class="tp-lang-nav ml-25">
-                                <?php language_menu(); ?>
-                            </div>
-                        <?php else : ?>
-                            <div class="tp-header-menu-item tp-header-currency ml-25">
-                                <span class="tp-header-currency-toggle" id="tp-header-currency-toggle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/flag/01.png" alt=""> <?php echo esc_html__('English', 'mindu'); ?></span>
-                                <ul>
-                                    <li>
-                                        <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/flag/01.png" alt=""><?php echo esc_html__('Canada', 'mindu'); ?> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/flag/02.png" alt=""><?php echo esc_html__('Malaysia', 'mindu'); ?> </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/flag/03.png" alt=""><?php echo esc_html__('German', 'mindu'); ?> </a>
-                                    </li>
-                                    <li>
+                            <?php if (has_nav_menu('lang-menu')) : ?>
+                                <div class="tp-lang-nav ml-25">
+                                    <?php language_menu(); ?>
+                                </div>
+                            <?php else : ?>
+                                <div class="tp-header-menu-item tp-header-currency ml-25">
+                                    <span class="tp-header-currency-toggle" id="tp-header-currency-toggle"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/flag/01.png" alt=""> <?php echo esc_html__('English', 'mindu'); ?></span>
+                                    <ul>
+                                        <li>
+                                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/flag/01.png" alt=""><?php echo esc_html__('Canada', 'mindu'); ?> </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/flag/02.png" alt=""><?php echo esc_html__('Malaysia', 'mindu'); ?> </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/flag/03.png" alt=""><?php echo esc_html__('German', 'mindu'); ?> </a>
+                                        </li>
+                                        <li>
 
-                            </div>
-                        <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-<?php endif; ?>
+    <?php endif; ?>
 
     </div>
     <div id="header-sticky" class="tp-header-area tp-header-2-spacing" data-bg-color="#fff">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-xl-9 col-5">
-                    <div class="tp-header-2-left d-flex align-items-center">
+                <div class="<?php echo esc_attr($header_col); ?>">
+                    <div class="tp-header-2-left d-flex align-items-center <?php echo esc_attr($header_menu_pos); ?>">
                         <div class="tp-header-logo mr-100">
                             <?php header_logo(); ?>
                         </div>
@@ -111,8 +110,17 @@ $header_menu_pos = ($header_right_switch == true) ? 'justify-content-center' : '
                                 <?php header_menu(); ?>
                             </nav>
                         </div>
+                        <?php if (!$header_right_switch) : ?>
+                            <div class="tp-header-option tp-header-2-option d-flex d-xl-none align-items-center justify-content-end">
+                                <div class="tp-header-toogle-wrapper ml-10">
+                                    <button class="tp-header-toogle"><i class="far fa-bars"></i></button>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
+            </div>
+            <?php if ($header_right_switch) : ?>
                 <div class="col-xl-3 col-7">
                     <div class="tp-header-option tp-header-2-option d-flex align-items-center justify-content-end">
                         <button class="tp-header-search tp-search-click d-none d-sm-block">
@@ -136,7 +144,9 @@ $header_menu_pos = ($header_right_switch == true) ? 'justify-content-center' : '
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php endif; ?>
+
+
         </div>
     </div>
     <!-- header-area-end -->
