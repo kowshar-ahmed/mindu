@@ -41,6 +41,7 @@ if (! function_exists('mindu_setup')) :
         // This theme uses wp_nav_menu() in two locations.
         register_nav_menus(array(
             'main-menu' => __('Main Menu', 'mindu'),
+            'footer-menu' => __('Footer Menu', 'mindu'),
             'lang-menu' => __('Language Menu', 'mindu'),
         ));
 

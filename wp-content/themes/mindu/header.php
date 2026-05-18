@@ -59,7 +59,7 @@
 
 
 
-    <?php echo get_template_part('template-parts/header/header-1'); ?>
+    <?php echo get_template_part('template-parts/header/header-3'); ?>
 
     <!-- tp-breadcrumb-area-start -->
     <div class="tp-breadcrumb-area tp-breadcrumb-2 tp-breadcrumb-3 p-relative bg-grey-4" style="background-image: 

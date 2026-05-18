@@ -28,6 +28,16 @@ function header_transparent_logo()
 <?php
 }
 
+function mindu_footer_copyright()
+{
+    global $mindu;
+
+    $footer_copyright = $mindu['footer-copyright'] ?? esc_html__('© 2023 Your Company. All rights reserved.', 'mindu');
+?>
+    <p class="mb-0"><?php echo esc_html($footer_copyright); ?></p>
+<?php
+}
+
 
 //header_menu
 function header_menu()
@@ -39,6 +49,16 @@ function header_menu()
         'menu_id' => '',
         'fallback_cb' => 'Mindu_Walker_Nav_Menu::fallback',
         'walker' => new Mindu_Walker_Nav_Menu,
+    ));
+}
+//footer-menu
+function footer_menu()
+{
+    wp_nav_menu(array(
+        'theme_location' => 'footer-menu',
+        'container' => '',
+        'menu_class' => '',
+        'menu_id' => '',
     ));
 }
 //language_menu

@@ -198,3 +198,21 @@ Redux::set_section(
         )
     )
 );
+Redux::set_section(
+    $opt_name,
+    array(
+        'title'  => esc_html__('Footer', 'mindu'),
+        'id'     => 'footer-options',
+        'desc'   => esc_html__('All footer info settings available here.', 'mindu'),
+        'icon'   => 'el el-home',
+        'fields' => array(
+            array(
+                'id'       => 'footer-copyright',
+                'type'     => 'textarea',
+                'title'    => esc_html__('Footer Copyright', 'mindu'),
+                'default'  => esc_html__('© 2023 Your Company. All rights reserved.', 'mindu'),
+            ),
+
+        )
+    )
+);

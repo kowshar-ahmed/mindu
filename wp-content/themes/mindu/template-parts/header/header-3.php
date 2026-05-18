@@ -9,7 +9,11 @@ $header_time = $mindu['header-time'] ?? "";
 $header_button = $mindu['header-button-text'] ?? "";
 $header_button_url = $mindu['header-button-url'] ?? "";
 
+$header_right_switch = $mindu['header-right-switch'] ?? "";
 
+
+$header_col = ($header_right_switch == true) ? 'col-xxl-8 col-xl-7 d-none d-xl-block' : 'col-xxl-10 col-xl-10 d-none d-xl-block';
+$header_menu_pos = ($header_right_switch == true) ? 'justify-content-center' : 'justify-content-end';
 
 
 ?>
