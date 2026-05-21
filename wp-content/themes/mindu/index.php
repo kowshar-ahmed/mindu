@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="postbox-wrapper mr-50 mb-40">
-                    
+                        <?php if ( have_posts() ) : ?>
                     <article class="postbox-item mb-45">
                         <div class="tp-blog-item mb-40">
                             <div class="tp-blog-thumb overflow-hidden mb-35">
@@ -47,7 +47,8 @@
                             </div>
                         </div>
                     </article>
-
+                    <?php endif; ?>
+                    
                     <div class="pt-5">
                         <nav class="navigation pagination wp-pagination">
                             <div class="nav-links">
