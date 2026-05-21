@@ -1,0 +1,569 @@
+/*!
+ * Pure Fields — Welcome page
+ * Scoped to body.toplevel_page_pure-fields to avoid polluting other admin pages.
+ */
+
+/* ─────────────────────────────────────────────────────────────────────────
+   WP ADMIN STRUCTURAL RESETS
+   Must target the WP wrappers by their IDs so sticky works and the page
+   fills the full viewport without extra padding.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Remove WP's default left padding so the page is truly full-width */
+.toplevel_page_pure-fields #wpcontent            { padding-left: 0 !important; }
+/* Kill default top/side padding inside the content area */
+.toplevel_page_pure-fields #wpbody-content       { padding: 0 !important; background: #f4f6fb; }
+/* overflow:hidden on these WP wrappers breaks position:sticky — all must be visible */
+.toplevel_page_pure-fields #wpwrap               { overflow: visible !important; }
+.toplevel_page_pure-fields #wpcontent            { overflow: visible !important; }
+.toplevel_page_pure-fields #wpbody               { overflow: visible !important; }
+.toplevel_page_pure-fields #wpbody-content       { overflow: visible !important; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   PAGE SHELL
+   ───────────────────────────────────────────────────────────────────────── */
+.pfw-page {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+	color: #010F1C;
+	background: #f4f6fb;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   ENTRANCE ANIMATION
+   ───────────────────────────────────────────────────────────────────────── */
+.pfw-animate {
+	opacity: 0;
+	transform: translateY(16px);
+	animation: pfwFadeUp 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+	animation-delay: var(--pfw-delay, 0s);
+	animation-play-state: paused;
+}
+.pfw-animate.is-visible { animation-play-state: running; }
+
+@keyframes pfwFadeUp {
+	to { opacity: 1; transform: translateY(0); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   STICKY NAV
+   top:32px = WP admin bar height. Works once JS fixes parent overflow.
+   ───────────────────────────────────────────────────────────────────────── */
+.pfw-nav {
+	position: sticky;
+	top: 32px;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 0 32px;
+	height: 56px;
+	background: #ffffff;
+	border-bottom: 1px solid #e8ecf2;
+	box-shadow: 0 1px 0 #e8ecf2, 0 2px 8px rgba(1,15,28,.04);
+}
+
+/* Brand */
+.pfw-nav-brand {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	flex-shrink: 0;
+	margin-right: 4px;
+}
+
+.pfw-nav-name {
+	font-size: 14px;
+	font-weight: 800;
+	letter-spacing: -.25px;
+	color: #010F1C;
+}
+
+.pfw-nav-version {
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: .03em;
+	color: #3362FF;
+	background: #eef2ff;
+	padding: 2px 7px;
+	border-radius: 50px;
+}
+
+/* Divider between brand and links */
+.pfw-nav-divider {
+	width: 1px;
+	height: 20px;
+	background: #e8ecf2;
+	flex-shrink: 0;
+}
+
+/* Nav links — HIGH SPECIFICITY to defeat WP admin's a{color} override */
+.pfw-page .pfw-nav .pfw-nav-links {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	flex: 1;
+}
+
+.pfw-page .pfw-nav a.pfw-nav-link,
+.pfw-page .pfw-nav a.pfw-nav-link:link,
+.pfw-page .pfw-nav a.pfw-nav-link:visited {
+	font-size: 13px;
+	font-weight: 500;
+	color: #4a5568 !important;
+	text-decoration: none !important;
+	padding: 7px 13px;
+	border-radius: 6px;
+	transition: color .15s, background .15s;
+	white-space: nowrap;
+	box-shadow: none !important;
+	outline: none;
+}
+
+.pfw-page .pfw-nav a.pfw-nav-link:hover,
+.pfw-page .pfw-nav a.pfw-nav-link:focus {
+	color: #3362FF !important;
+	background: #f0f4ff;
+	text-decoration: none !important;
+}
+
+/* External link pill */
+.pfw-page .pfw-nav a.pfw-nav-external,
+.pfw-page .pfw-nav a.pfw-nav-external:link,
+.pfw-page .pfw-nav a.pfw-nav-external:visited {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	font-size: 12px;
+	font-weight: 600;
+	color: #3362FF !important;
+	text-decoration: none !important;
+	padding: 6px 13px;
+	border: 1.5px solid rgba(51,98,255,.28);
+	border-radius: 50px;
+	margin-left: 4px;
+	transition: all .15s;
+	box-shadow: none !important;
+}
+
+.pfw-page .pfw-nav a.pfw-nav-external:hover {
+	background: #f0f4ff;
+	border-color: #3362FF;
+	color: #3362FF !important;
+	text-decoration: none !important;
+}
+
+/* Push external link to the right */
+.pfw-nav-spacer { flex: 1; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   HERO
+   ───────────────────────────────────────────────────────────────────────── */
+.pfw-hero {
+	position: relative;
+	padding: 72px 40px 64px;
+	text-align: center;
+	overflow: hidden;
+	background: #ffffff;
+	border-bottom: 1px solid #e8ecf2;
+}
+
+.pfw-hero::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(ellipse 70% 55% at 50% -10%, rgba(51,98,255,.08) 0%, transparent 70%),
+		radial-gradient(ellipse 45% 40% at 88% 55%, rgba(95,74,254,.06) 0%, transparent 60%),
+		radial-gradient(ellipse 40% 35% at 10% 85%, rgba(233,30,140,.05) 0%, transparent 60%);
+	pointer-events: none;
+}
+
+.pfw-orb {
+	position: absolute;
+	border-radius: 50%;
+	filter: blur(48px);
+	pointer-events: none;
+	animation: pfwFloat 9s ease-in-out infinite;
+}
+.pfw-orb-1 { width: 320px; height: 320px; background: rgba(51,98,255,.06);  top: -60px; left: -60px;  animation-delay: 0s; }
+.pfw-orb-2 { width: 240px; height: 240px; background: rgba(95,74,254,.05);  top: 30px;  right: -50px; animation-delay: -3s; }
+.pfw-orb-3 { width: 180px; height: 180px; background: rgba(233,30,140,.04); bottom: -30px; left: 42%; animation-delay: -6s; }
+
+@keyframes pfwFloat {
+	0%, 100% { transform: translateY(0) scale(1); }
+	50%       { transform: translateY(-14px) scale(1.02); }
+}
+
+.pfw-hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+
+/* Badge */
+.pfw-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	background: #eef2ff;
+	border: 1px solid rgba(51,98,255,.2);
+	color: #3362FF;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+	padding: 5px 14px;
+	border-radius: 50px;
+	margin-bottom: 22px;
+}
+
+.pfw-badge-dot {
+	width: 6px; height: 6px;
+	border-radius: 50%;
+	background: #3362FF;
+	animation: pfwPulse 2s ease-in-out infinite;
+}
+
+@keyframes pfwPulse {
+	0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(51,98,255,.5); }
+	50%       { opacity: .6; box-shadow: 0 0 0 5px rgba(51,98,255,0); }
+}
+
+/* Headline */
+.pfw-hero-headline {
+	font-size: 42px;
+	font-weight: 800;
+	line-height: 1.1;
+	letter-spacing: -.6px;
+	color: #010F1C;
+	margin: 0 0 16px;
+}
+
+.pfw-gradient-text {
+	background: linear-gradient(135deg, #3362FF 0%, #5F4AFE 50%, #e91e8c 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.pfw-hero-sub {
+	font-size: 15px;
+	color: #64748b;
+	line-height: 1.7;
+	max-width: 520px;
+	margin: 0 auto 32px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   BUTTONS (all anchors — high specificity for WP override)
+   ───────────────────────────────────────────────────────────────────────── */
+.pfw-page a.pfw-btn,
+.pfw-page a.pfw-btn:link,
+.pfw-page a.pfw-btn:visited,
+.pfw-page button.pfw-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	font-weight: 600;
+	padding: 11px 24px;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: transform .15s ease, box-shadow .15s ease, background .15s;
+	white-space: nowrap;
+	box-shadow: none;
+	border: none;
+	text-decoration: none !important;
+	font-family: inherit;
+}
+
+.pfw-page a.pfw-btn--primary,
+.pfw-page a.pfw-btn--primary:link,
+.pfw-page a.pfw-btn--primary:visited {
+	background: linear-gradient(135deg, #3362FF 0%, #5F4AFE 100%);
+	color: #fff !important;
+	box-shadow: 0 6px 22px rgba(51,98,255,.3);
+}
+.pfw-page a.pfw-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(51,98,255,.4); color: #fff !important; }
+
+.pfw-page a.pfw-btn--ghost,
+.pfw-page a.pfw-btn--ghost:link,
+.pfw-page a.pfw-btn--ghost:visited {
+	background: #ffffff;
+	color: #4a5568 !important;
+	border: 1.5px solid #e8ecf2;
+}
+.pfw-page a.pfw-btn--ghost:hover { border-color: #3362FF; color: #3362FF !important; background: #f0f4ff; }
+
+.pfw-page a.pfw-btn--sm { font-size: 12px; padding: 7px 16px; }
+
+.pfw-hero-cta { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+/* ─── Hero stats strip ────────────────────────────────────────────── */
+.pfw-hero-stats {
+	display: inline-flex;
+	align-items: center;
+	margin-top: 28px;
+	background: #ffffff;
+	border: 1.5px solid #e8ecf2;
+	border-radius: 50px;
+	overflow: hidden;
+	box-shadow: 0 2px 10px rgba(1,15,28,.06);
+}
+
+.pfw-hero-stat {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	padding: 9px 18px;
+	font-size: 12px;
+	font-weight: 500;
+	color: #4a5568;
+	border-right: 1px solid #e8ecf2;
+	white-space: nowrap;
+}
+.pfw-hero-stat:last-child { border-right: none; }
+.pfw-hero-stat strong { font-size: 15px; font-weight: 800; color: #010F1C; }
+.pfw-hero-stat .dashicons { font-size: 14px; width: 14px; height: 14px; color: #3362FF; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   FEATURE CARDS
+   ───────────────────────────────────────────────────────────────────────── */
+.pfw-features {
+	padding: 64px 40px;
+	background: #f4f6fb;
+	text-align: center;
+}
+
+.pfw-section-label {
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+	color: #5F4AFE;
+	margin-bottom: 8px;
+}
+
+.pfw-section-title {
+	font-size: 32px;
+	font-weight: 800;
+	letter-spacing: -.4px;
+	color: #010F1C;
+	margin: 0 0 44px;
+	line-height: 1.2;
+}
+
+/* ─── Feature grid: flex 3+2 layout, centered second row ───────────── */
+.pfw-feat-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	max-width: 980px;
+	margin: 0 auto;
+	justify-content: center;
+}
+
+/* Feature card — anchor tag; must override WP link styles */
+.pfw-page a.pfw-feat-card,
+.pfw-page a.pfw-feat-card:link,
+.pfw-page a.pfw-feat-card:visited {
+	background: #ffffff;
+	border: 1.5px solid #e8ecf2;
+	border-top-width: 3px;
+	border-radius: 12px;
+	padding: 22px 20px;
+	text-decoration: none !important;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	flex: 1 1 260px;
+	max-width: 300px;
+	transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+	color: inherit !important;
+	box-shadow: 0 1px 4px rgba(1,15,28,.05);
+}
+
+/* Subtle tinted top border at rest — full color on hover */
+.pfw-feat-card--blue   { border-top-color: rgba(51,98,255,.18); }
+.pfw-feat-card--purple { border-top-color: rgba(95,74,254,.18); }
+.pfw-feat-card--pink   { border-top-color: rgba(233,30,140,.18); }
+.pfw-feat-card--green  { border-top-color: rgba(26,132,85,.18); }
+.pfw-feat-card--orange { border-top-color: rgba(192,86,33,.18); }
+
+.pfw-page a.pfw-feat-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 32px rgba(1,15,28,.1);
+	text-decoration: none !important;
+	color: inherit !important;
+}
+
+.pfw-feat-card--blue:hover   { border-color: rgba(51,98,255,.35);  border-top-color: #3362FF;  box-shadow: 0 10px 28px rgba(51,98,255,.14); }
+.pfw-feat-card--purple:hover { border-color: rgba(95,74,254,.35);  border-top-color: #5F4AFE;  box-shadow: 0 10px 28px rgba(95,74,254,.14); }
+.pfw-feat-card--pink:hover   { border-color: rgba(233,30,140,.35); border-top-color: #e91e8c;  box-shadow: 0 10px 28px rgba(233,30,140,.12); }
+.pfw-feat-card--green:hover  { border-color: rgba(26,132,85,.35);  border-top-color: #1a8455;  box-shadow: 0 10px 28px rgba(26,132,85,.12); }
+.pfw-feat-card--orange:hover { border-color: rgba(192,86,33,.35);  border-top-color: #c05621;  box-shadow: 0 10px 28px rgba(192,86,33,.12); }
+
+.pfw-feat-card-top { display: flex; align-items: flex-start; justify-content: space-between; }
+
+.pfw-feat-icon {
+	width: 44px; height: 44px;
+	border-radius: 12px;
+	display: flex; align-items: center; justify-content: center;
+	transition: transform .25s cubic-bezier(.34,1.56,.64,1);
+}
+.pfw-feat-icon .dashicons { font-size: 20px; width: 20px; height: 20px; }
+.pfw-page a.pfw-feat-card:hover .pfw-feat-icon { transform: scale(1.14) rotate(-4deg); }
+
+.pfw-icon-blue   { background: #eef2ff; color: #3362FF; }
+.pfw-icon-purple { background: #ede9ff; color: #5F4AFE; }
+.pfw-icon-pink   { background: #fff0f6; color: #e91e8c; }
+.pfw-icon-green  { background: #e6f4ed; color: #1a8455; }
+.pfw-icon-orange { background: #fff3e6; color: #c05621; }
+
+.pfw-feat-arrow { color: #e2e8f0; transition: color .2s, transform .25s cubic-bezier(.34,1.56,.64,1); }
+.pfw-page a.pfw-feat-card:hover .pfw-feat-arrow { color: #94a3b8; transform: translate(3px,-3px) scale(1.1); }
+
+.pfw-feat-title { font-size: 13px; font-weight: 700; color: #010F1C; margin: 0; text-align: left; }
+.pfw-feat-desc  { font-size: 12px; color: #64748b; line-height: 1.6; margin: 0; text-align: left; flex: 1; }
+
+.pfw-feat-link {
+	font-size: 11px;
+	font-weight: 600;
+	color: #94a3b8;
+	text-align: left;
+	transition: color .2s;
+}
+/* Per-color link highlight on hover */
+.pfw-feat-card--blue:hover .pfw-feat-link   { color: #3362FF; }
+.pfw-feat-card--purple:hover .pfw-feat-link { color: #5F4AFE; }
+.pfw-feat-card--pink:hover .pfw-feat-link   { color: #e91e8c; }
+.pfw-feat-card--green:hover .pfw-feat-link  { color: #1a8455; }
+.pfw-feat-card--orange:hover .pfw-feat-link { color: #c05621; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   HOW IT WORKS — 3-step section (replaces video section)
+   ───────────────────────────────────────────────────────────────────────── */
+.pfw-steps {
+	padding: 64px 40px;
+	text-align: center;
+	background: #ffffff;
+	border-top: 1px solid #e8ecf2;
+	border-bottom: 1px solid #e8ecf2;
+}
+
+.pfw-steps-grid {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	max-width: 780px;
+	margin: 44px auto 0;
+}
+
+.pfw-step {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+	padding: 0 20px;
+}
+
+.pfw-step-badge {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #3362FF, #5F4AFE);
+	color: #fff;
+	font-size: 14px;
+	font-weight: 800;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 12px rgba(51,98,255,.32);
+	flex-shrink: 0;
+}
+
+.pfw-step-icon {
+	width: 64px;
+	height: 64px;
+	border-radius: 16px;
+	background: #f4f6fb;
+	border: 1.5px solid #e8ecf2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform .22s ease, box-shadow .22s ease;
+}
+.pfw-step:hover .pfw-step-icon {
+	transform: translateY(-4px);
+	box-shadow: 0 10px 24px rgba(1,15,28,.1);
+}
+
+.pfw-step-icon .dashicons { font-size: 26px; width: 26px; height: 26px; color: #3362FF; }
+
+.pfw-step-title { font-size: 15px; font-weight: 700; color: #010F1C; margin: 0; }
+.pfw-step-desc  { font-size: 13px; color: #64748b; line-height: 1.6; margin: 0; max-width: 180px; }
+
+.pfw-steps-line {
+	flex: 0 0 60px;
+	height: 1.5px;
+	background: linear-gradient(90deg, transparent, #d1d9e0 40%, #3362FF 50%, #d1d9e0 60%, transparent);
+	margin-top: 84px;
+	opacity: 0.5;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────
+   PROMO STRIP
+   ───────────────────────────────────────────────────────────────────────── */
+.pfw-promo { padding: 40px; background: #f4f6fb; }
+
+.pfw-promo-inner {
+	max-width: 960px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 28px;
+	flex-wrap: wrap;
+	background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
+	border: 1.5px solid rgba(51,98,255,.14);
+	border-radius: 14px;
+	padding: 24px 28px;
+}
+
+.pfw-promo-brand { display: flex; align-items: center; gap: 12px; flex: 1; }
+
+.pfw-promo-name {
+	font-size: 19px;
+	font-weight: 800;
+	color: #010F1C;
+	letter-spacing: -.3px;
+}
+.pfw-promo-dot { color: #e91e8c; }
+.pfw-promo-tagline { font-size: 11px; color: #64748b; margin-top: 2px; }
+
+.pfw-promo-stats { display: flex; gap: 24px; }
+.pfw-stat { text-align: center; }
+.pfw-stat-num { display: block; font-size: 26px; font-weight: 800; color: #3362FF; letter-spacing: -.5px; line-height: 1; }
+.pfw-stat-label { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: .05em; color: #64748b; margin-top: 3px; }
+
+/* ─────────────────────────────────────────────────────────────────────────
+   FOOTER
+   ───────────────────────────────────────────────────────────────────────── */
+.pfw-footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 18px 40px;
+	background: #ffffff;
+	border-top: 1px solid #e8ecf2;
+	font-size: 12px;
+	color: #94a3b8;
+}
+
+.pfw-page .pfw-footer a,
+.pfw-page .pfw-footer a:link,
+.pfw-page .pfw-footer a:visited {
+	color: #3362FF !important;
+	text-decoration: none !important;
+	transition: color .15s;
+}
+.pfw-page .pfw-footer a:hover { text-decoration: underline !important; }
+.pfw-footer-sep { opacity: .35; }
+.pfw-heart { color: #e91e8c; }

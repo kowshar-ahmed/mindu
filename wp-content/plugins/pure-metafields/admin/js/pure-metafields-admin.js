@@ -1,0 +1,69 @@
+(function( $, wp ) {
+	'use strict';
+
+	/**
+	 * All of the code for your admin-facing JavaScript source
+	 * should reside in this file.
+	 *
+	 * Note: It has been assumed you will write jQuery code here, so the
+	 * $ function reference has been prepared for usage within the scope
+	 * of this function.
+	 *
+	 * This enables you to define handlers, for when the DOM is ready:
+	 *
+	 * $(function() {
+	 *
+	 * });
+	 *
+	 * When the window is loaded:
+	 *
+	 * $( window ).load(function() {
+	 *
+	 * });
+	 *
+	 * ...and/or other possibilities.
+	 *
+	 * Ideally, it is not considered best practise to attach more than a
+	 * single DOM-ready or window-load handler for a particular page.
+	 * Although scripts in the WordPress core, Plugins and Themes may be
+	 * practising this, we should strive to set a better example in our own work.
+	 */
+	/**
+	 * Show/hide post-format-bound metaboxes based on the active post format.
+	 *
+	 * Symmetric: matching boxes are .show()n, non-matching are .hide()n.
+	 * Calling this on initial load (not just on change) recovers from stale
+	 * `metaboxhidden_<screen>` user-meta — without it, a matching box that was
+	 * previously hidden by WP's screen-options system stays hidden until the
+	 * user touches the radio.
+	 */
+	function applyFormatVisibility(format) {
+		jQuery('[data-post-format]').filter(function() {
+			return jQuery(this).data('post-format') !== '';
+		}).each(function() {
+			var $wrap     = jQuery(this);
+			var metaBoxId = $wrap.data('metabox-id');
+			if (!metaBoxId) return;
+			var $box = jQuery('#' + metaBoxId);
+			if (!$box.length) return;
+			if ($wrap.data('post-format') === format) {
+				$box.show();
+			} else {
+				$box.hide();
+			}
+		});
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		jQuery(function($) {
+			var initial = $('#post-formats-select input[name="post_format"]:checked').val() || '';
+			applyFormatVisibility(initial);
+		});
+	});
+
+	$(document).on('change', '#post-formats-select input[name="post_format"]', function(e) {
+		e.preventDefault();
+		applyFormatVisibility($(this).val());
+	});
+
+})( jQuery );
