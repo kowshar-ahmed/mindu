@@ -10,6 +10,7 @@
 
 <?php elseif (has_post_format('video')) :
     $video_url = function_exists('tpmeta_field') ? tpmeta_field('formate_video_url') : '';
+
 ?>
 
     <?php if (has_post_thumbnail()) : ?>
@@ -51,7 +52,7 @@
 
 
 <?php elseif (has_post_format('gallery')) :
-    $gallery_images = function_exists('tpmeta_field') ? tpmeta_gallery_field('format_gallery', 5) : '';
+    $gallery_images = function_exists('tpmeta_gallery_field') ? tpmeta_gallery_field('format_gallery') : '';
 ?>
 
     <?php if (!empty($gallery_images)) : ?>
@@ -63,7 +64,7 @@
                     <div class="swiper-slide">
                         <div class="tp-blog-thumb overflow-hidden p-relative">
                             <a href="blog-details.html">
-                                <img class="w-100" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                                <img class="w-100" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_url($image['alt']); ?>">
                             </a>
                         </div>
                     </div>
