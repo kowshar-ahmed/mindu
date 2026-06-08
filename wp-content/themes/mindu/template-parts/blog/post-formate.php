@@ -1,12 +1,21 @@
 <?php if (has_post_format('image')) : ?>
 
     <?php if (has_post_thumbnail()) : ?>
-        <div class="tp-blog-thumb overflow-hidden mb-35">s
-            <a href="<?php the_permalink(); ?>">
+        <?php if (is_single()) : ?>
+
+            <div class="tp-blog-thumb overflow-hidden mb-35">
                 <?php the_post_thumbnail(); ?>
-            </a>
-        </div>
+            </div>
+
+        <?php else : ?>
+            <div class="tp-blog-thumb overflow-hidden mb-35">
+                <a href="<?php the_permalink(); ?>">
+                    <?php the_post_thumbnail(); ?>
+                </a>
+            </div>
+        <?php endif; ?>
     <?php endif; ?>
+
 
 <?php elseif (has_post_format('video')) :
     $video_url = function_exists('tpmeta_field') ? tpmeta_field('formate_video_url') : '';
@@ -57,44 +66,52 @@
 
     <?php if (!empty($gallery_images)) : ?>
 
-    <div class="tp-postbox-slider-wrap p-relative mb-35">
-        <div class="swiper postbox-gallery-active">
-            <div class="swiper-wrapper">
-                <?php foreach ($gallery_images as $image) : ?>
-                    <div class="swiper-slide">
-                        <div class="tp-blog-thumb overflow-hidden p-relative">
-                            <a href="blog-details.html">
+        <div class="tp-postbox-slider-wrap p-relative mb-35">
+            <div class="swiper postbox-gallery-active">
+                <div class="swiper-wrapper">
+                    <?php foreach ($gallery_images as $image) : ?>
+                        <div class="swiper-slide">
+                            <div class="tp-blog-thumb overflow-hidden p-relative">
                                 <img class="w-100" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_url($image['alt']); ?>">
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <div class="postbox-gallery-navigation">
+                <button class="postbox-gallery-arrow-prev">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.75 7.75H0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M7.75 14.75L0.75 7.75L7.75 0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button class="postbox-gallery-arrow-next">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.75 7.75H14.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M7.75 14.75L14.75 7.75L7.75 0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
             </div>
         </div>
-        <div class="postbox-gallery-navigation">
-            <button class="postbox-gallery-arrow-prev">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14.75 7.75H0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M7.75 14.75L0.75 7.75L7.75 0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </button>
-            <button class="postbox-gallery-arrow-next">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.75 7.75H14.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M7.75 14.75L14.75 7.75L7.75 0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </button>
-        </div>
-    </div>
     <?php endif; ?>
+
+
+
 
 <?php else : ?>
     <?php if (has_post_thumbnail()) : ?>
+        <?php if (is_single()) : ?>
 
-        <div class="tp-blog-thumb overflow-hidden mb-35">
-            <a href="<?php the_permalink(); ?>">
+            <div class="tp-blog-thumb overflow-hidden mb-35">
                 <?php the_post_thumbnail(); ?>
-            </a>
-        </div>
+            </div>
+
+        <?php else : ?>
+            <div class="tp-blog-thumb overflow-hidden mb-35">
+                <a href="<?php the_permalink(); ?>">
+                    <?php the_post_thumbnail(); ?>
+                </a>
+            </div>
+        <?php endif; ?>
     <?php endif; ?>
 <?php endif; ?>

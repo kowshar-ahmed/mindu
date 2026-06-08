@@ -86,6 +86,15 @@ add_action('after_setup_theme', 'mindu_setup');
 function mindu_widgets_init()
 {
     register_sidebar(array(
+        'name'          => __('Blog Sidebar', 'mindu'),
+        'id'            => 'blog-sidebar',
+        'description'   => __('Widgets in this area will be shown on the blog sidebar.', 'mindu'),
+        'before_widget' => '<div id="%1$s" class="tp-sidebar-widget tp-sidebar-border pb-30 mb-35 %2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="tp-sidebar-service-title mb-20 tp-ff-body">',
+        'after_title'   => '</h3>',
+    ));
+    register_sidebar(array(
         'name'          => __('Footer -1 : Widget 1', 'mindu'),
         'id'            => 'footer-1-widget-1',
         'description'   => __('Widgets in this area will be shown on footer style 01.', 'mindu'),
