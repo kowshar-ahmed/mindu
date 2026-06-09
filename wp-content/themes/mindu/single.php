@@ -13,8 +13,12 @@
                             <?php echo get_template_part('template-parts/content'); ?>
                         <?php endwhile; ?>
                     <?php else : ?>
-                        <p>No posts found.</p>
+                        <p><?php echo esc_html__('No posts found.', 'mindu'); ?></p>
                     <?php endif; ?>
+                    <?php echo get_template_part('template-parts/blog/post-navigation'); ?>
+
+
+
                 </div>
             </div>
             <div class="col-lg-4">
