@@ -16,6 +16,7 @@
                         <p><?php echo esc_html__('No posts found.', 'mindu'); ?></p>
                     <?php endif; ?>
                     <?php echo get_template_part('template-parts/blog/post-navigation'); ?>
+                    <?php echo get_template_part('template-parts/biography'); ?>
 
 
 
