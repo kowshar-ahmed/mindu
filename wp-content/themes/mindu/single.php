@@ -18,7 +18,9 @@
                     <?php echo get_template_part('template-parts/blog/post-navigation'); ?>
                     <?php echo get_template_part('template-parts/biography'); ?>
 
-
+                    <?php if (comments_open() || get_comments_number()) :
+                        comments_template();
+                    endif; ?>
 
                 </div>
             </div>
