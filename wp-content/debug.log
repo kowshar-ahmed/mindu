@@ -20,3 +20,6 @@
 [09-Jun-2026 15:33:10 UTC] PHP Deprecated:  File Theme without comments.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a comments.php template in your theme. in C:\laragon\www\mindu\wp-includes\functions.php on line 6131
 [09-Jun-2026 15:38:23 UTC] PHP Deprecated:  File Theme without comments.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a comments.php template in your theme. in C:\laragon\www\mindu\wp-includes\functions.php on line 6131
 [09-Jun-2026 15:40:13 UTC] PHP Deprecated:  File Theme without comments.php is <strong>deprecated</strong> since version 3.0.0 with no alternative available. Please include a comments.php template in your theme. in C:\laragon\www\mindu\wp-includes\functions.php on line 6131
+[14-Jun-2026 05:22:35 UTC] PHP Warning:  Attempt to read property "ID" on string in C:\laragon\www\mindu\wp-content\themes\mindu\template-parts\blog\post-navigation.php on line 39
+[14-Jun-2026 05:22:35 UTC] PHP Warning:  Attempt to read property "ID" on string in C:\laragon\www\mindu\wp-content\themes\mindu\template-parts\blog\post-navigation.php on line 48
+[14-Jun-2026 05:22:35 UTC] PHP Warning:  Attempt to read property "ID" on string in C:\laragon\www\mindu\wp-content\themes\mindu\template-parts\blog\post-navigation.php on line 48
