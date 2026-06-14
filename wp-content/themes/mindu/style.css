@@ -15,41 +15,48 @@ Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, feature
 */
 
 .tp-transparent .admin-bar {
-    top: 32px !important;
+  top: 32px !important;
 }
 
-
-
 .tp-lang-nav ul li {
-    position: relative;
-    list-style: none;
+  position: relative;
+  list-style: none;
 }
 
 .tp-lang-nav ul li .sub-menu {
-    position: absolute;
-    top: 100%;
-    background: #ffff;
-    position: absolute;
-    top: 125%;
-    right: 0;
-    z-index: 4;
-    background-color: var(--tp-common-white);
-    padding: 10px 32px 11px 18px;
-    visibility: hidden;
-    opacity: 0;
-    min-width: max-content;
-    border-radius: 4px;
-    -webkit-transition: all 0.3s 0s ease-out;
-    -moz-transition: all 0.3s 0s ease-out;
-    -ms-transition: all 0.3s 0s ease-out;
-    -o-transition: all 0.3s 0s ease-out;
-    transition: all 0.3s 0s ease-out;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    min-width: 150px;
+  position: absolute;
+  top: 100%;
+  background: #ffff;
+  position: absolute;
+  top: 125%;
+  right: 0;
+  z-index: 4;
+  background-color: var(--tp-common-white);
+  padding: 10px 32px 11px 18px;
+  visibility: hidden;
+  opacity: 0;
+  min-width: max-content;
+  border-radius: 4px;
+  -webkit-transition: all 0.3s 0s ease-out;
+  -moz-transition: all 0.3s 0s ease-out;
+  -ms-transition: all 0.3s 0s ease-out;
+  -o-transition: all 0.3s 0s ease-out;
+  transition: all 0.3s 0s ease-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  min-width: 150px;
 }
 
-.tp-lang-nav ul li:hover .sub-menu{
-    opacity: 1; 
-    visibility: visible;
+.tp-lang-nav ul li:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.postbox__comment {
+  list-style: none;
+}
+
+.postbox__comment li ul.children {
+  margin-left: 70px;
+  list-style: none;
 }
