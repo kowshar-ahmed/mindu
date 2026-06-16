@@ -44,3 +44,94 @@
 [14-Jun-2026 06:45:02 UTC] PHP Warning:  Attempt to read property "ID" on string in C:\laragon\www\mindu\wp-content\themes\mindu\template-parts\blog\post-navigation.php on line 39
 [14-Jun-2026 06:45:02 UTC] PHP Warning:  Attempt to read property "ID" on string in C:\laragon\www\mindu\wp-content\themes\mindu\template-parts\blog\post-navigation.php on line 48
 [14-Jun-2026 06:45:02 UTC] PHP Warning:  Attempt to read property "ID" on string in C:\laragon\www\mindu\wp-content\themes\mindu\template-parts\blog\post-navigation.php on line 48
+[16-Jun-2026 10:38:53 UTC] [ERROR] : WP_CACHE constant is not present in wp-config.php
+[16-Jun-2026 10:38:55 UTC] [ERROR] : WP_CACHE constant is not present in wp-config.php
+[16-Jun-2026 10:39:00 UTC] [ERROR] : WP_CACHE constant is not present in wp-config.php
+[16-Jun-2026 10:39:00 UTC] [ERROR] : WP_CACHE constant is not present in wp-config.php
+[16-Jun-2026 10:39:02 UTC] [ERROR] : WP_CACHE constant is not present in wp-config.php
+[16-Jun-2026 10:45:04 UTC] PHP Fatal error:  Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in C:\laragon\www\mindu\wp-includes\blocks.php:2009
+Stack trace:
+#0 C:\laragon\www\mindu\wp-includes\blocks.php(2009): str_contains(Array, '<!--')
+#1 C:\laragon\www\mindu\wp-includes\formatting.php(5235): filter_block_content(Array, Array, Array)
+#2 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_pre_kses_block_attributes(Array, Array, Array)
+#3 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 C:\laragon\www\mindu\wp-includes\kses.php(1159): apply_filters('pre_kses', Array, Array, Array)
+#5 C:\laragon\www\mindu\wp-includes\kses.php(965): wp_kses_hook(Array, Array, Array)
+#6 C:\laragon\www\mindu\wp-content\plugins\mindu-core\inc\plugin-helper.php(85): wp_kses(Array, Array)
+#7 C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php(232): mc_kses(Array)
+#8 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(2374): Mindu_Banner_Practice->render()
+#9 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(636): Elementor\Controls_Stack->render_by_mode()
+#10 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(765): Elementor\Widget_Base->render_content()
+#11 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\element-base.php(649): Elementor\Widget_Base->get_raw_data(true)
+#12 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1105): Elementor\Element_Base->get_raw_data(true)
+#13 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(738): Elementor\Core\Base\Document->get_elements_raw_data(Array, true)
+#14 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(1071): Elementor\Core\Base\Document->get_initial_config()
+#15 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\loader\common\editor-common-scripts-settings.php(40): Elementor\Controls_Stack->get_config()
+#16 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\loader\v2\editor-v2-loader.php(176): Elementor\Core\Editor\Loader\Common\Editor_Common_Scripts_Settings::get()
+#17 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\editor.php(355): Elementor\Core\Editor\Loader\V2\Editor_V2_Loader->enqueue_scripts()
+#18 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Core\Editor\Editor->enqueue_scripts('')
+#19 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(365): WP_Hook->apply_filters('', Array)
+#20 C:\laragon\www\mindu\wp-includes\plugin.php(522): WP_Hook->do_action(Array)
+#21 C:\laragon\www\mindu\wp-includes\script-loader.php(2311): do_action('wp_enqueue_scri...')
+#22 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_enqueue_scripts('')
+#23 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(365): WP_Hook->apply_filters('', Array)
+#24 C:\laragon\www\mindu\wp-includes\plugin.php(522): WP_Hook->do_action(Array)
+#25 C:\laragon\www\mindu\wp-includes\general-template.php(3197): do_action('wp_head')
+#26 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\editor-templates\editor-wrapper.php(35): wp_head()
+#27 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\loader\v2\editor-v2-loader.php(226): include('C:\\laragon\\www\\...')
+#28 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\editor.php(160): Elementor\Core\Editor\Loader\V2\Editor_V2_Loader->print_root_template()
+#29 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Core\Editor\Editor->init('')
+#30 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(365): WP_Hook->apply_filters('', Array)
+#31 C:\laragon\www\mindu\wp-includes\plugin.php(522): WP_Hook->do_action(Array)
+#32 C:\laragon\www\mindu\wp-admin\admin.php(424): do_action('admin_action_el...')
+#33 C:\laragon\www\mindu\wp-admin\post.php(12): require_once('C:\\laragon\\www\\...')
+#34 {main}
+  thrown in C:\laragon\www\mindu\wp-includes\blocks.php on line 2009
+[16-Jun-2026 10:46:03 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 212
+[16-Jun-2026 10:46:03 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 10:50:01 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 244
+[16-Jun-2026 10:50:01 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 10:53:05 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 240
+[16-Jun-2026 10:53:05 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 10:53:53 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 239
+[16-Jun-2026 10:53:53 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 10:54:09 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 239
+[16-Jun-2026 10:54:09 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 10:54:13 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 239
+[16-Jun-2026 10:54:13 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 10:54:55 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 239
+[16-Jun-2026 10:54:55 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 10:55:04 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 239
+[16-Jun-2026 10:55:04 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 10:55:10 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 239
+[16-Jun-2026 10:55:10 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:08:13 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 258
+[16-Jun-2026 11:08:13 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:13:27 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 257
+[16-Jun-2026 11:13:27 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:16:02 UTC] PHP Notice:  Function Elementor\Controls_Manager::add_control_to_stack was called <strong>incorrectly</strong>. Cannot redeclare control with same name "section_title". Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 1.0.0.) in C:\laragon\www\mindu\wp-includes\functions.php on line 6131
+[16-Jun-2026 11:16:02 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 273
+[16-Jun-2026 11:16:02 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:16:07 UTC] PHP Notice:  Function Elementor\Controls_Manager::add_control_to_stack was called <strong>incorrectly</strong>. Cannot redeclare control with same name "section_title". Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 1.0.0.) in C:\laragon\www\mindu\wp-includes\functions.php on line 6131
+[16-Jun-2026 11:33:31 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 273
+[16-Jun-2026 11:33:31 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:35:37 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 273
+[16-Jun-2026 11:35:37 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:36:35 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 273
+[16-Jun-2026 11:36:35 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:36:37 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 273
+[16-Jun-2026 11:36:37 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:36:46 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 273
+[16-Jun-2026 11:36:46 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:36:52 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 273
+[16-Jun-2026 11:36:52 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:37:07 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 273
+[16-Jun-2026 11:37:07 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:37:14 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 273
+[16-Jun-2026 11:37:14 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:38:26 UTC] PHP Notice:  Function Elementor\Controls_Manager::add_control_to_stack was called <strong>incorrectly</strong>. Cannot redeclare control with same name "find_courses_button_text". Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 1.0.0.) in C:\laragon\www\mindu\wp-includes\functions.php on line 6131
+[16-Jun-2026 11:38:26 UTC] PHP Notice:  Function Elementor\Controls_Manager::add_control_to_stack was called <strong>incorrectly</strong>. Cannot redeclare control with same name "find_courses_button_link". Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 1.0.0.) in C:\laragon\www\mindu\wp-includes\functions.php on line 6131
+[16-Jun-2026 11:38:26 UTC] PHP Warning:  Undefined array key "explore_button_text" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 301
+[16-Jun-2026 11:38:26 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[16-Jun-2026 11:38:31 UTC] PHP Notice:  Function Elementor\Controls_Manager::add_control_to_stack was called <strong>incorrectly</strong>. Cannot redeclare control with same name "find_courses_button_text". Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 1.0.0.) in C:\laragon\www\mindu\wp-includes\functions.php on line 6131
+[16-Jun-2026 11:38:31 UTC] PHP Notice:  Function Elementor\Controls_Manager::add_control_to_stack was called <strong>incorrectly</strong>. Cannot redeclare control with same name "find_courses_button_link". Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 1.0.0.) in C:\laragon\www\mindu\wp-includes\functions.php on line 6131

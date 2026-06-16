@@ -21,9 +21,9 @@ function register_mindu_heading_widget($widgets_manager)
 {
 
     require_once(__DIR__ . '/widgets/heading.php');
-    // require_once(__DIR__ . '/widgets/hello-world-widget-2.php');
+    require_once(__DIR__ . '/widgets/banner-practice.php');
 
     $widgets_manager->register(new \Mindu_Heading());
-    // $widgets_manager->register(new \Elementor_Hello_World_Widget_2());
+    $widgets_manager->register(new \Mindu_Banner_Practice());
 }
 add_action('elementor/widgets/register', 'register_mindu_heading_widget');
