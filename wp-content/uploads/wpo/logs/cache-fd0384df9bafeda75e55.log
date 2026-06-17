@@ -37,3 +37,24 @@
 [2026-06-16 11:42:19 : INFO] - Cache for associated TranslatePress translation posts' feeds for Title: "Test" have been purged 
 [2026-06-16 11:42:19 : INFO] - Cache for URL: http://localhost/mindu/test/ has been purged, triggered by action: save_post 
 [2026-06-16 11:42:19 : INFO] - Cache for author page URL: http://localhost/mindu/author/admin/ associated with post_type: page and Title: "Test" has been purged, triggered by action: save_post 
+[2026-06-16 11:54:06 : INFO] - Full Cache Purge triggered by: plugin activation/deactivation 
+[2026-06-16 11:56:03 : INFO] - Cache for associated TranslatePress translation posts for Title: "Test" have been purged 
+[2026-06-16 11:56:03 : INFO] - Cache for associated TranslatePress translation posts' feeds for Title: "Test" have been purged 
+[2026-06-16 11:56:03 : INFO] - Cache for URL: http://localhost/mindu/index.php/test/ has been purged, triggered by action: save_post 
+[2026-06-16 11:56:03 : INFO] - Cache for author page URL: http://localhost/mindu/index.php/author/admin/ associated with post_type: page and Title: "Test" has been purged, triggered by action: save_post 
+[2026-06-16 11:56:13 : INFO] - Cache for associated TranslatePress translation posts for Title: "Test" have been purged 
+[2026-06-16 11:56:13 : INFO] - Cache for associated TranslatePress translation posts' feeds for Title: "Test" have been purged 
+[2026-06-16 11:56:13 : INFO] - Cache for URL: http://localhost/mindu/index.php/test/ has been purged, triggered by action: save_post 
+[2026-06-16 11:56:13 : INFO] - Cache for author page URL: http://localhost/mindu/index.php/author/admin/ associated with post_type: page and Title: "Test" has been purged, triggered by action: save_post 
+[2026-06-16 15:09:43 : INFO] - Cache for associated TranslatePress translation posts for Title: "Test" have been purged 
+[2026-06-16 15:09:43 : INFO] - Cache for associated TranslatePress translation posts' feeds for Title: "Test" have been purged 
+[2026-06-16 15:09:43 : INFO] - Cache for URL: http://localhost/mindu/index.php/test/ has been purged, triggered by action: save_post 
+[2026-06-16 15:09:43 : INFO] - Cache for author page URL: http://localhost/mindu/index.php/author/admin/ associated with post_type: page and Title: "Test" has been purged, triggered by action: save_post 
+[2026-06-16 15:09:43 : INFO] - Cache for associated TranslatePress translation posts for Title: "Test" have been purged 
+[2026-06-16 15:09:43 : INFO] - Cache for associated TranslatePress translation posts' feeds for Title: "Test" have been purged 
+[2026-06-16 15:09:43 : INFO] - Cache for URL: http://localhost/mindu/index.php/test/ has been purged, triggered by action: save_post 
+[2026-06-16 15:09:43 : INFO] - Cache for author page URL: http://localhost/mindu/index.php/author/admin/ associated with post_type: page and Title: "Test" has been purged, triggered by action: save_post 
+[2026-06-16 15:09:44 : INFO] - Cache for associated TranslatePress translation posts for Title: "Test" have been purged 
+[2026-06-16 15:09:44 : INFO] - Cache for associated TranslatePress translation posts' feeds for Title: "Test" have been purged 
+[2026-06-16 15:09:44 : INFO] - Cache for URL: http://localhost/mindu/index.php/test/ has been purged, triggered by action: save_post 
+[2026-06-16 15:09:44 : INFO] - Cache for author page URL: http://localhost/mindu/index.php/author/admin/ associated with post_type: page and Title: "Test" has been purged, triggered by action: save_post 
