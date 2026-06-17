@@ -1,4 +1,8 @@
 <?php
+
+
+
+
 class Mindu_Banner_Practice extends \Elementor\Widget_Base
 {
 
@@ -121,7 +125,6 @@ class Mindu_Banner_Practice extends \Elementor\Widget_Base
             ]
         );
 
-
         $this->add_control(
             'find_courses_button_link',
             [
@@ -138,8 +141,6 @@ class Mindu_Banner_Practice extends \Elementor\Widget_Base
         );
 
 
-
-
         $this->add_control(
             'explore_button_text',
             [
@@ -148,7 +149,6 @@ class Mindu_Banner_Practice extends \Elementor\Widget_Base
                 'default' => esc_html__('Explore Now', 'mindu-core'),
             ]
         );
-
 
         $this->add_control(
             'explore_button_link',
@@ -172,6 +172,58 @@ class Mindu_Banner_Practice extends \Elementor\Widget_Base
         $this->end_controls_section();
 
         // Button Tab End
+
+
+        // Ratings Tab Start
+
+
+        $this->start_controls_section(
+            'ratings_text_section',
+            [
+                'label' => esc_html__('Ratings Text', 'mindu-core'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $this->add_control(
+            'pre_header_icon',
+            [
+                'label' => esc_html__('Pre Header Icon', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::ICONS,
+                'default' => [
+                    'value' => 'fas fa-circle',
+                    'library' => 'fa-solid',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'ratings_text',
+            [
+                'label' => esc_html__('Ratings Text', 'mindu-core'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Trustpilot', 'mindu-core'),
+            ]
+        );
+
+        $this->add_control(
+            'ratings_count',
+            [
+                'label' => esc_html__('Filled Stars (out of 5)', 'mindu-core'),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'min' => 0,
+                'max' => 5,
+                'step' => 1,
+                'default' => 5,
+            ]
+        );
+
+
+
+
+        $this->end_controls_section();
+
+        // Ratings Tab End
 
 
         // Style Tab Start
@@ -201,9 +253,18 @@ class Mindu_Banner_Practice extends \Elementor\Widget_Base
 
     }
 
+
+
+
+
+
     protected function render(): void
     {
-        $settings = $this->get_settings_for_display();
+        $settings      = $this->get_settings_for_display();
+        $ratings_text  = $settings['ratings_text'];
+        $total_stars   = 5;
+        $filled_stars  = isset($settings['ratings_count']) ? intval($settings['ratings_count']) : $total_stars;
+
 ?>
 
 
@@ -226,37 +287,27 @@ class Mindu_Banner_Practice extends \Elementor\Widget_Base
                         <div class="tp-hero-content mb-40">
                             <div class="tp-hero-ratings-wrap d-inline-flex mb-15 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".4s">
                                 <span class="tp-hero-ratings-text mr-10 d-flex align-items-center">
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z" fill="currentColor" />
-                                    </svg>
-                                    Trustpilot
+                                    <?php
+                                    if (! empty($settings['pre_header_icon']['value'])) :
+                                        \Elementor\Icons_Manager::render_icon(
+                                            $settings['pre_header_icon'],
+                                            [
+                                                'aria-hidden' => 'true',
+                                                'style'       => 'fill:currentColor; width:14px; height:14px;',
+                                            ]
+                                        );
+                                    endif;
+                                    ?>
+                                    <?php echo mc_kses($ratings_text); ?>
                                 </span>
                                 <div class="tp-hero-ratings">
-                                    <span>
-                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
-                                        </svg>
-                                    </span>
-                                    <span>
-                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
-                                        </svg>
-                                    </span>
-                                    <span>
-                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
-                                        </svg>
-                                    </span>
-                                    <span>
-                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
-                                        </svg>
-                                    </span>
-                                    <span>
-                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
-                                        </svg>
-                                    </span>
+                                    <?php for ($i = 1; $i <= $filled_stars; $i++) : ?>
+                                        <span>
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
+                                            </svg>
+                                        </span>
+                                    <?php endfor; ?>
                                 </div>
                             </div>
                             <h2 class="tp-hero-title mb-25 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".5s"><?php echo mc_kses($settings['title']); ?> <span class="p-relative">Today

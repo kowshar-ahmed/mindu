@@ -135,3 +135,396 @@ Stack trace:
 [16-Jun-2026 11:38:26 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
 [16-Jun-2026 11:38:31 UTC] PHP Notice:  Function Elementor\Controls_Manager::add_control_to_stack was called <strong>incorrectly</strong>. Cannot redeclare control with same name "find_courses_button_text". Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 1.0.0.) in C:\laragon\www\mindu\wp-includes\functions.php on line 6131
 [16-Jun-2026 11:38:31 UTC] PHP Notice:  Function Elementor\Controls_Manager::add_control_to_stack was called <strong>incorrectly</strong>. Cannot redeclare control with same name "find_courses_button_link". Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 1.0.0.) in C:\laragon\www\mindu\wp-includes\functions.php on line 6131
+[17-Jun-2026 07:03:43 UTC] PHP Parse error:  syntax error, unexpected token "}" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 349
+[17-Jun-2026 07:10:20 UTC] PHP Fatal error:  Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in C:\laragon\www\mindu\wp-includes\blocks.php:2009
+Stack trace:
+#0 C:\laragon\www\mindu\wp-includes\blocks.php(2009): str_contains(Array, '<!--')
+#1 C:\laragon\www\mindu\wp-includes\formatting.php(5235): filter_block_content(Array, Array, Array)
+#2 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_pre_kses_block_attributes(Array, Array, Array)
+#3 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 C:\laragon\www\mindu\wp-includes\kses.php(1159): apply_filters('pre_kses', Array, Array, Array)
+#5 C:\laragon\www\mindu\wp-includes\kses.php(965): wp_kses_hook(Array, Array, Array)
+#6 C:\laragon\www\mindu\wp-content\plugins\mindu-core\inc\plugin-helper.php(85): wp_kses(Array, Array)
+#7 C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php(300): mc_kses(Array)
+#8 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(2374): Mindu_Banner_Practice->render()
+#9 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(636): Elementor\Controls_Stack->render_by_mode()
+#10 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(697): Elementor\Widget_Base->render_content()
+#11 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\db.php(203): Elementor\Widget_Base->render_plain_content()
+#12 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\db.php(209): Elementor\DB->render_element_plain_content(Array)
+#13 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\db.php(595): Elementor\DB->render_element_plain_content(Array)
+#14 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\db.php(576): Elementor\DB->get_plain_text_from_data(Array)
+#15 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\db.php(231): Elementor\DB->get_plain_text(65)
+#16 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1386): Elementor\DB->save_plain_text(65)
+#17 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(859): Elementor\Core\Base\Document->save_elements(Array)
+#18 C:\laragon\www\mindu\wp-content\plugins\elementor\core\documents-manager.php(548): Elementor\Core\Base\Document->save(Array)
+#19 [internal function]: Elementor\Core\Documents_Manager->ajax_save(Array, Object(Elementor\Core\Common\Modules\Ajax\Module))
+#20 C:\laragon\www\mindu\wp-content\plugins\elementor\core\common\modules\ajax\module.php(176): call_user_func(Array, Array, Object(Elementor\Core\Common\Modules\Ajax\Module))
+#21 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Core\Common\Modules\Ajax\Module->handle_ajax_request('')
+#22 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(365): WP_Hook->apply_filters('', Array)
+#23 C:\laragon\www\mindu\wp-includes\plugin.php(522): WP_Hook->do_action(Array)
+#24 C:\laragon\www\mindu\wp-admin\admin-ajax.php(192): do_action('wp_ajax_element...')
+#25 {main}
+  thrown in C:\laragon\www\mindu\wp-includes\blocks.php on line 2009
+[17-Jun-2026 07:10:32 UTC] PHP Fatal error:  Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in C:\laragon\www\mindu\wp-includes\blocks.php:2009
+Stack trace:
+#0 C:\laragon\www\mindu\wp-includes\blocks.php(2009): str_contains(Array, '<!--')
+#1 C:\laragon\www\mindu\wp-includes\formatting.php(5235): filter_block_content(Array, Array, Array)
+#2 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_pre_kses_block_attributes(Array, Array, Array)
+#3 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 C:\laragon\www\mindu\wp-includes\kses.php(1159): apply_filters('pre_kses', Array, Array, Array)
+#5 C:\laragon\www\mindu\wp-includes\kses.php(965): wp_kses_hook(Array, Array, Array)
+#6 C:\laragon\www\mindu\wp-content\plugins\mindu-core\inc\plugin-helper.php(85): wp_kses(Array, Array)
+#7 C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php(300): mc_kses(Array)
+#8 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(2374): Mindu_Banner_Practice->render()
+#9 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(636): Elementor\Controls_Stack->render_by_mode()
+#10 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(782): Elementor\Widget_Base->render_content()
+#11 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\element-base.php(514): Elementor\Widget_Base->print_content()
+#12 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\element-cache\module.php(71): Elementor\Element_Base->print_element()
+#13 C:\laragon\www\mindu\wp-includes\shortcodes.php(434): Elementor\Modules\ElementCache\Module->Elementor\Modules\ElementCache\{closure}(Array, '', 'elementor-eleme...')
+#14 [internal function]: do_shortcode_tag(Array)
+#15 C:\laragon\www\mindu\wp-includes\shortcodes.php(273): preg_replace_callback('/\\[(\\[?)(elemen...', 'do_shortcode_ta...', '<div class="ele...')
+#16 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1888): do_shortcode('<div class="ele...')
+#17 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1221): Elementor\Core\Base\Document->print_elements(Array)
+#18 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\frontend.php(1223): Elementor\Core\Base\Document->print_elements_with_wrapper(Array)
+#19 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\frontend.php(1105): Elementor\Frontend->get_builder_content(65)
+#20 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Frontend->apply_builder_in_content('<svg width="18"...')
+#21 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters('<svg width="18"...', Array)
+#22 C:\laragon\www\mindu\wp-includes\post-template.php(256): apply_filters('the_content', '<svg width="18"...')
+#23 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\module.php(188): the_content()
+#24 [internal function]: Elementor\Modules\PageTemplates\Module->print_callback()
+#25 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\module.php(205): call_user_func(Array)
+#26 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\templates\header-footer.php(19): Elementor\Modules\PageTemplates\Module->print_content()
+#27 C:\laragon\www\mindu\wp-includes\template-loader.php(132): include('C:\\laragon\\www\\...')
+#28 C:\laragon\www\mindu\wp-blog-header.php(19): require_once('C:\\laragon\\www\\...')
+#29 C:\laragon\www\mindu\index.php(17): require('C:\\laragon\\www\\...')
+#30 {main}
+  thrown in C:\laragon\www\mindu\wp-includes\blocks.php on line 2009
+[17-Jun-2026 07:10:38 UTC] PHP Fatal error:  Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in C:\laragon\www\mindu\wp-includes\blocks.php:2009
+Stack trace:
+#0 C:\laragon\www\mindu\wp-includes\blocks.php(2009): str_contains(Array, '<!--')
+#1 C:\laragon\www\mindu\wp-includes\formatting.php(5235): filter_block_content(Array, Array, Array)
+#2 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_pre_kses_block_attributes(Array, Array, Array)
+#3 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 C:\laragon\www\mindu\wp-includes\kses.php(1159): apply_filters('pre_kses', Array, Array, Array)
+#5 C:\laragon\www\mindu\wp-includes\kses.php(965): wp_kses_hook(Array, Array, Array)
+#6 C:\laragon\www\mindu\wp-content\plugins\mindu-core\inc\plugin-helper.php(85): wp_kses(Array, Array)
+#7 C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php(300): mc_kses(Array)
+#8 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(2374): Mindu_Banner_Practice->render()
+#9 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(636): Elementor\Controls_Stack->render_by_mode()
+#10 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(782): Elementor\Widget_Base->render_content()
+#11 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\element-base.php(514): Elementor\Widget_Base->print_content()
+#12 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\element-cache\module.php(71): Elementor\Element_Base->print_element()
+#13 C:\laragon\www\mindu\wp-includes\shortcodes.php(434): Elementor\Modules\ElementCache\Module->Elementor\Modules\ElementCache\{closure}(Array, '', 'elementor-eleme...')
+#14 [internal function]: do_shortcode_tag(Array)
+#15 C:\laragon\www\mindu\wp-includes\shortcodes.php(273): preg_replace_callback('/\\[(\\[?)(elemen...', 'do_shortcode_ta...', '<div class="ele...')
+#16 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1888): do_shortcode('<div class="ele...')
+#17 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1221): Elementor\Core\Base\Document->print_elements(Array)
+#18 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\frontend.php(1223): Elementor\Core\Base\Document->print_elements_with_wrapper(Array)
+#19 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\frontend.php(1105): Elementor\Frontend->get_builder_content(65)
+#20 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Frontend->apply_builder_in_content('<svg width="18"...')
+#21 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters('<svg width="18"...', Array)
+#22 C:\laragon\www\mindu\wp-includes\post-template.php(256): apply_filters('the_content', '<svg width="18"...')
+#23 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\module.php(188): the_content()
+#24 [internal function]: Elementor\Modules\PageTemplates\Module->print_callback()
+#25 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\module.php(205): call_user_func(Array)
+#26 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\templates\header-footer.php(19): Elementor\Modules\PageTemplates\Module->print_content()
+#27 C:\laragon\www\mindu\wp-includes\template-loader.php(132): include('C:\\laragon\\www\\...')
+#28 C:\laragon\www\mindu\wp-blog-header.php(19): require_once('C:\\laragon\\www\\...')
+#29 C:\laragon\www\mindu\index.php(17): require('C:\\laragon\\www\\...')
+#30 {main}
+  thrown in C:\laragon\www\mindu\wp-includes\blocks.php on line 2009
+[17-Jun-2026 07:10:43 UTC] PHP Fatal error:  Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in C:\laragon\www\mindu\wp-includes\blocks.php:2009
+Stack trace:
+#0 C:\laragon\www\mindu\wp-includes\blocks.php(2009): str_contains(Array, '<!--')
+#1 C:\laragon\www\mindu\wp-includes\formatting.php(5235): filter_block_content(Array, Array, Array)
+#2 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_pre_kses_block_attributes(Array, Array, Array)
+#3 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 C:\laragon\www\mindu\wp-includes\kses.php(1159): apply_filters('pre_kses', Array, Array, Array)
+#5 C:\laragon\www\mindu\wp-includes\kses.php(965): wp_kses_hook(Array, Array, Array)
+#6 C:\laragon\www\mindu\wp-content\plugins\mindu-core\inc\plugin-helper.php(85): wp_kses(Array, Array)
+#7 C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php(300): mc_kses(Array)
+#8 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(2374): Mindu_Banner_Practice->render()
+#9 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(636): Elementor\Controls_Stack->render_by_mode()
+#10 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(782): Elementor\Widget_Base->render_content()
+#11 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\element-base.php(514): Elementor\Widget_Base->print_content()
+#12 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\element-cache\module.php(71): Elementor\Element_Base->print_element()
+#13 C:\laragon\www\mindu\wp-includes\shortcodes.php(434): Elementor\Modules\ElementCache\Module->Elementor\Modules\ElementCache\{closure}(Array, '', 'elementor-eleme...')
+#14 [internal function]: do_shortcode_tag(Array)
+#15 C:\laragon\www\mindu\wp-includes\shortcodes.php(273): preg_replace_callback('/\\[(\\[?)(elemen...', 'do_shortcode_ta...', '<div class="ele...')
+#16 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1888): do_shortcode('<div class="ele...')
+#17 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1221): Elementor\Core\Base\Document->print_elements(Array)
+#18 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\frontend.php(1223): Elementor\Core\Base\Document->print_elements_with_wrapper(Array)
+#19 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\frontend.php(1105): Elementor\Frontend->get_builder_content(65)
+#20 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Frontend->apply_builder_in_content('<svg width="18"...')
+#21 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters('<svg width="18"...', Array)
+#22 C:\laragon\www\mindu\wp-includes\post-template.php(256): apply_filters('the_content', '<svg width="18"...')
+#23 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\module.php(188): the_content()
+#24 [internal function]: Elementor\Modules\PageTemplates\Module->print_callback()
+#25 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\module.php(205): call_user_func(Array)
+#26 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\templates\header-footer.php(19): Elementor\Modules\PageTemplates\Module->print_content()
+#27 C:\laragon\www\mindu\wp-includes\template-loader.php(132): include('C:\\laragon\\www\\...')
+#28 C:\laragon\www\mindu\wp-blog-header.php(19): require_once('C:\\laragon\\www\\...')
+#29 C:\laragon\www\mindu\index.php(17): require('C:\\laragon\\www\\...')
+#30 {main}
+  thrown in C:\laragon\www\mindu\wp-includes\blocks.php on line 2009
+[17-Jun-2026 07:11:00 UTC] PHP Fatal error:  Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in C:\laragon\www\mindu\wp-includes\blocks.php:2009
+Stack trace:
+#0 C:\laragon\www\mindu\wp-includes\blocks.php(2009): str_contains(Array, '<!--')
+#1 C:\laragon\www\mindu\wp-includes\formatting.php(5235): filter_block_content(Array, Array, Array)
+#2 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_pre_kses_block_attributes(Array, Array, Array)
+#3 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 C:\laragon\www\mindu\wp-includes\kses.php(1159): apply_filters('pre_kses', Array, Array, Array)
+#5 C:\laragon\www\mindu\wp-includes\kses.php(965): wp_kses_hook(Array, Array, Array)
+#6 C:\laragon\www\mindu\wp-content\plugins\mindu-core\inc\plugin-helper.php(85): wp_kses(Array, Array)
+#7 C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php(300): mc_kses(Array)
+#8 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(2374): Mindu_Banner_Practice->render()
+#9 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(636): Elementor\Controls_Stack->render_by_mode()
+#10 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(697): Elementor\Widget_Base->render_content()
+#11 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\db.php(203): Elementor\Widget_Base->render_plain_content()
+#12 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\db.php(209): Elementor\DB->render_element_plain_content(Array)
+#13 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\db.php(595): Elementor\DB->render_element_plain_content(Array)
+#14 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\db.php(576): Elementor\DB->get_plain_text_from_data(Array)
+#15 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\db.php(231): Elementor\DB->get_plain_text(65)
+#16 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1386): Elementor\DB->save_plain_text(65)
+#17 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(859): Elementor\Core\Base\Document->save_elements(Array)
+#18 C:\laragon\www\mindu\wp-content\plugins\elementor\core\documents-manager.php(548): Elementor\Core\Base\Document->save(Array)
+#19 [internal function]: Elementor\Core\Documents_Manager->ajax_save(Array, Object(Elementor\Core\Common\Modules\Ajax\Module))
+#20 C:\laragon\www\mindu\wp-content\plugins\elementor\core\common\modules\ajax\module.php(176): call_user_func(Array, Array, Object(Elementor\Core\Common\Modules\Ajax\Module))
+#21 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Core\Common\Modules\Ajax\Module->handle_ajax_request('')
+#22 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(365): WP_Hook->apply_filters('', Array)
+#23 C:\laragon\www\mindu\wp-includes\plugin.php(522): WP_Hook->do_action(Array)
+#24 C:\laragon\www\mindu\wp-admin\admin-ajax.php(192): do_action('wp_ajax_element...')
+#25 {main}
+  thrown in C:\laragon\www\mindu\wp-includes\blocks.php on line 2009
+[17-Jun-2026 07:11:08 UTC] PHP Fatal error:  Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in C:\laragon\www\mindu\wp-includes\blocks.php:2009
+Stack trace:
+#0 C:\laragon\www\mindu\wp-includes\blocks.php(2009): str_contains(Array, '<!--')
+#1 C:\laragon\www\mindu\wp-includes\formatting.php(5235): filter_block_content(Array, Array, Array)
+#2 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_pre_kses_block_attributes(Array, Array, Array)
+#3 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 C:\laragon\www\mindu\wp-includes\kses.php(1159): apply_filters('pre_kses', Array, Array, Array)
+#5 C:\laragon\www\mindu\wp-includes\kses.php(965): wp_kses_hook(Array, Array, Array)
+#6 C:\laragon\www\mindu\wp-content\plugins\mindu-core\inc\plugin-helper.php(85): wp_kses(Array, Array)
+#7 C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php(300): mc_kses(Array)
+#8 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(2374): Mindu_Banner_Practice->render()
+#9 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(636): Elementor\Controls_Stack->render_by_mode()
+#10 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(782): Elementor\Widget_Base->render_content()
+#11 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\element-base.php(514): Elementor\Widget_Base->print_content()
+#12 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\element-cache\module.php(71): Elementor\Element_Base->print_element()
+#13 C:\laragon\www\mindu\wp-includes\shortcodes.php(434): Elementor\Modules\ElementCache\Module->Elementor\Modules\ElementCache\{closure}(Array, '', 'elementor-eleme...')
+#14 [internal function]: do_shortcode_tag(Array)
+#15 C:\laragon\www\mindu\wp-includes\shortcodes.php(273): preg_replace_callback('/\\[(\\[?)(elemen...', 'do_shortcode_ta...', '<div class="ele...')
+#16 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1888): do_shortcode('<div class="ele...')
+#17 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1221): Elementor\Core\Base\Document->print_elements(Array)
+#18 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\frontend.php(1223): Elementor\Core\Base\Document->print_elements_with_wrapper(Array)
+#19 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\frontend.php(1105): Elementor\Frontend->get_builder_content(65)
+#20 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Frontend->apply_builder_in_content('<svg width="18"...')
+#21 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters('<svg width="18"...', Array)
+#22 C:\laragon\www\mindu\wp-includes\post-template.php(256): apply_filters('the_content', '<svg width="18"...')
+#23 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\module.php(188): the_content()
+#24 [internal function]: Elementor\Modules\PageTemplates\Module->print_callback()
+#25 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\module.php(205): call_user_func(Array)
+#26 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\templates\header-footer.php(19): Elementor\Modules\PageTemplates\Module->print_content()
+#27 C:\laragon\www\mindu\wp-includes\template-loader.php(132): include('C:\\laragon\\www\\...')
+#28 C:\laragon\www\mindu\wp-blog-header.php(19): require_once('C:\\laragon\\www\\...')
+#29 C:\laragon\www\mindu\index.php(17): require('C:\\laragon\\www\\...')
+#30 {main}
+  thrown in C:\laragon\www\mindu\wp-includes\blocks.php on line 2009
+[17-Jun-2026 07:11:13 UTC] PHP Fatal error:  Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in C:\laragon\www\mindu\wp-includes\blocks.php:2009
+Stack trace:
+#0 C:\laragon\www\mindu\wp-includes\blocks.php(2009): str_contains(Array, '<!--')
+#1 C:\laragon\www\mindu\wp-includes\formatting.php(5235): filter_block_content(Array, Array, Array)
+#2 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_pre_kses_block_attributes(Array, Array, Array)
+#3 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 C:\laragon\www\mindu\wp-includes\kses.php(1159): apply_filters('pre_kses', Array, Array, Array)
+#5 C:\laragon\www\mindu\wp-includes\kses.php(965): wp_kses_hook(Array, Array, Array)
+#6 C:\laragon\www\mindu\wp-content\plugins\mindu-core\inc\plugin-helper.php(85): wp_kses(Array, Array)
+#7 C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php(300): mc_kses(Array)
+#8 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(2374): Mindu_Banner_Practice->render()
+#9 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(636): Elementor\Controls_Stack->render_by_mode()
+#10 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(782): Elementor\Widget_Base->render_content()
+#11 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\element-base.php(514): Elementor\Widget_Base->print_content()
+#12 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\element-cache\module.php(71): Elementor\Element_Base->print_element()
+#13 C:\laragon\www\mindu\wp-includes\shortcodes.php(434): Elementor\Modules\ElementCache\Module->Elementor\Modules\ElementCache\{closure}(Array, '', 'elementor-eleme...')
+#14 [internal function]: do_shortcode_tag(Array)
+#15 C:\laragon\www\mindu\wp-includes\shortcodes.php(273): preg_replace_callback('/\\[(\\[?)(elemen...', 'do_shortcode_ta...', '<div class="ele...')
+#16 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1888): do_shortcode('<div class="ele...')
+#17 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1221): Elementor\Core\Base\Document->print_elements(Array)
+#18 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\frontend.php(1223): Elementor\Core\Base\Document->print_elements_with_wrapper(Array)
+#19 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\frontend.php(1105): Elementor\Frontend->get_builder_content(65)
+#20 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Frontend->apply_builder_in_content('<svg width="18"...')
+#21 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters('<svg width="18"...', Array)
+#22 C:\laragon\www\mindu\wp-includes\post-template.php(256): apply_filters('the_content', '<svg width="18"...')
+#23 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\module.php(188): the_content()
+#24 [internal function]: Elementor\Modules\PageTemplates\Module->print_callback()
+#25 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\module.php(205): call_user_func(Array)
+#26 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\templates\header-footer.php(19): Elementor\Modules\PageTemplates\Module->print_content()
+#27 C:\laragon\www\mindu\wp-includes\template-loader.php(132): include('C:\\laragon\\www\\...')
+#28 C:\laragon\www\mindu\wp-blog-header.php(19): require_once('C:\\laragon\\www\\...')
+#29 C:\laragon\www\mindu\index.php(17): require('C:\\laragon\\www\\...')
+#30 {main}
+  thrown in C:\laragon\www\mindu\wp-includes\blocks.php on line 2009
+[17-Jun-2026 07:11:17 UTC] PHP Fatal error:  Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in C:\laragon\www\mindu\wp-includes\blocks.php:2009
+Stack trace:
+#0 C:\laragon\www\mindu\wp-includes\blocks.php(2009): str_contains(Array, '<!--')
+#1 C:\laragon\www\mindu\wp-includes\formatting.php(5235): filter_block_content(Array, Array, Array)
+#2 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_pre_kses_block_attributes(Array, Array, Array)
+#3 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 C:\laragon\www\mindu\wp-includes\kses.php(1159): apply_filters('pre_kses', Array, Array, Array)
+#5 C:\laragon\www\mindu\wp-includes\kses.php(965): wp_kses_hook(Array, Array, Array)
+#6 C:\laragon\www\mindu\wp-content\plugins\mindu-core\inc\plugin-helper.php(85): wp_kses(Array, Array)
+#7 C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php(300): mc_kses(Array)
+#8 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(2374): Mindu_Banner_Practice->render()
+#9 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(636): Elementor\Controls_Stack->render_by_mode()
+#10 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(782): Elementor\Widget_Base->render_content()
+#11 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\element-base.php(514): Elementor\Widget_Base->print_content()
+#12 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\element-cache\module.php(71): Elementor\Element_Base->print_element()
+#13 C:\laragon\www\mindu\wp-includes\shortcodes.php(434): Elementor\Modules\ElementCache\Module->Elementor\Modules\ElementCache\{closure}(Array, '', 'elementor-eleme...')
+#14 [internal function]: do_shortcode_tag(Array)
+#15 C:\laragon\www\mindu\wp-includes\shortcodes.php(273): preg_replace_callback('/\\[(\\[?)(elemen...', 'do_shortcode_ta...', '<div class="ele...')
+#16 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1888): do_shortcode('<div class="ele...')
+#17 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1221): Elementor\Core\Base\Document->print_elements(Array)
+#18 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\frontend.php(1223): Elementor\Core\Base\Document->print_elements_with_wrapper(Array)
+#19 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\frontend.php(1105): Elementor\Frontend->get_builder_content(65)
+#20 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Frontend->apply_builder_in_content('<svg width="18"...')
+#21 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters('<svg width="18"...', Array)
+#22 C:\laragon\www\mindu\wp-includes\post-template.php(256): apply_filters('the_content', '<svg width="18"...')
+#23 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\module.php(188): the_content()
+#24 [internal function]: Elementor\Modules\PageTemplates\Module->print_callback()
+#25 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\module.php(205): call_user_func(Array)
+#26 C:\laragon\www\mindu\wp-content\plugins\elementor\modules\page-templates\templates\header-footer.php(19): Elementor\Modules\PageTemplates\Module->print_content()
+#27 C:\laragon\www\mindu\wp-includes\template-loader.php(132): include('C:\\laragon\\www\\...')
+#28 C:\laragon\www\mindu\wp-blog-header.php(19): require_once('C:\\laragon\\www\\...')
+#29 C:\laragon\www\mindu\index.php(17): require('C:\\laragon\\www\\...')
+#30 {main}
+  thrown in C:\laragon\www\mindu\wp-includes\blocks.php on line 2009
+[17-Jun-2026 07:11:56 UTC] PHP Fatal error:  Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in C:\laragon\www\mindu\wp-includes\blocks.php:2009
+Stack trace:
+#0 C:\laragon\www\mindu\wp-includes\blocks.php(2009): str_contains(Array, '<!--')
+#1 C:\laragon\www\mindu\wp-includes\formatting.php(5235): filter_block_content(Array, Array, Array)
+#2 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_pre_kses_block_attributes(Array, Array, Array)
+#3 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 C:\laragon\www\mindu\wp-includes\kses.php(1159): apply_filters('pre_kses', Array, Array, Array)
+#5 C:\laragon\www\mindu\wp-includes\kses.php(965): wp_kses_hook(Array, Array, Array)
+#6 C:\laragon\www\mindu\wp-content\plugins\mindu-core\inc\plugin-helper.php(85): wp_kses(Array, Array)
+#7 C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php(300): mc_kses(Array)
+#8 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(2374): Mindu_Banner_Practice->render()
+#9 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(636): Elementor\Controls_Stack->render_by_mode()
+#10 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(765): Elementor\Widget_Base->render_content()
+#11 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\element-base.php(649): Elementor\Widget_Base->get_raw_data(true)
+#12 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1105): Elementor\Element_Base->get_raw_data(true)
+#13 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(738): Elementor\Core\Base\Document->get_elements_raw_data(Array, true)
+#14 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(1071): Elementor\Core\Base\Document->get_initial_config()
+#15 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\loader\common\editor-common-scripts-settings.php(40): Elementor\Controls_Stack->get_config()
+#16 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\loader\v2\editor-v2-loader.php(176): Elementor\Core\Editor\Loader\Common\Editor_Common_Scripts_Settings::get()
+#17 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\editor.php(355): Elementor\Core\Editor\Loader\V2\Editor_V2_Loader->enqueue_scripts()
+#18 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Core\Editor\Editor->enqueue_scripts('')
+#19 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(365): WP_Hook->apply_filters('', Array)
+#20 C:\laragon\www\mindu\wp-includes\plugin.php(522): WP_Hook->do_action(Array)
+#21 C:\laragon\www\mindu\wp-includes\script-loader.php(2311): do_action('wp_enqueue_scri...')
+#22 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_enqueue_scripts('')
+#23 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(365): WP_Hook->apply_filters('', Array)
+#24 C:\laragon\www\mindu\wp-includes\plugin.php(522): WP_Hook->do_action(Array)
+#25 C:\laragon\www\mindu\wp-includes\general-template.php(3197): do_action('wp_head')
+#26 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\editor-templates\editor-wrapper.php(35): wp_head()
+#27 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\loader\v2\editor-v2-loader.php(226): include('C:\\laragon\\www\\...')
+#28 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\editor.php(160): Elementor\Core\Editor\Loader\V2\Editor_V2_Loader->print_root_template()
+#29 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Core\Editor\Editor->init('')
+#30 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(365): WP_Hook->apply_filters('', Array)
+#31 C:\laragon\www\mindu\wp-includes\plugin.php(522): WP_Hook->do_action(Array)
+#32 C:\laragon\www\mindu\wp-admin\admin.php(424): do_action('admin_action_el...')
+#33 C:\laragon\www\mindu\wp-admin\post.php(12): require_once('C:\\laragon\\www\\...')
+#34 {main}
+  thrown in C:\laragon\www\mindu\wp-includes\blocks.php on line 2009
+[17-Jun-2026 07:12:40 UTC] PHP Fatal error:  Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in C:\laragon\www\mindu\wp-includes\blocks.php:2009
+Stack trace:
+#0 C:\laragon\www\mindu\wp-includes\blocks.php(2009): str_contains(Array, '<!--')
+#1 C:\laragon\www\mindu\wp-includes\formatting.php(5235): filter_block_content(Array, Array, Array)
+#2 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_pre_kses_block_attributes(Array, Array, Array)
+#3 C:\laragon\www\mindu\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 C:\laragon\www\mindu\wp-includes\kses.php(1159): apply_filters('pre_kses', Array, Array, Array)
+#5 C:\laragon\www\mindu\wp-includes\kses.php(965): wp_kses_hook(Array, Array, Array)
+#6 C:\laragon\www\mindu\wp-content\plugins\mindu-core\inc\plugin-helper.php(85): wp_kses(Array, Array)
+#7 C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php(289): mc_kses(Array)
+#8 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(2374): Mindu_Banner_Practice->render()
+#9 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(636): Elementor\Controls_Stack->render_by_mode()
+#10 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\widget-base.php(765): Elementor\Widget_Base->render_content()
+#11 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\element-base.php(649): Elementor\Widget_Base->get_raw_data(true)
+#12 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(1105): Elementor\Element_Base->get_raw_data(true)
+#13 C:\laragon\www\mindu\wp-content\plugins\elementor\core\base\document.php(738): Elementor\Core\Base\Document->get_elements_raw_data(Array, true)
+#14 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\base\controls-stack.php(1071): Elementor\Core\Base\Document->get_initial_config()
+#15 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\loader\common\editor-common-scripts-settings.php(40): Elementor\Controls_Stack->get_config()
+#16 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\loader\v2\editor-v2-loader.php(176): Elementor\Core\Editor\Loader\Common\Editor_Common_Scripts_Settings::get()
+#17 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\editor.php(355): Elementor\Core\Editor\Loader\V2\Editor_V2_Loader->enqueue_scripts()
+#18 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Core\Editor\Editor->enqueue_scripts('')
+#19 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(365): WP_Hook->apply_filters('', Array)
+#20 C:\laragon\www\mindu\wp-includes\plugin.php(522): WP_Hook->do_action(Array)
+#21 C:\laragon\www\mindu\wp-includes\script-loader.php(2311): do_action('wp_enqueue_scri...')
+#22 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): wp_enqueue_scripts('')
+#23 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(365): WP_Hook->apply_filters('', Array)
+#24 C:\laragon\www\mindu\wp-includes\plugin.php(522): WP_Hook->do_action(Array)
+#25 C:\laragon\www\mindu\wp-includes\general-template.php(3197): do_action('wp_head')
+#26 C:\laragon\www\mindu\wp-content\plugins\elementor\includes\editor-templates\editor-wrapper.php(35): wp_head()
+#27 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\loader\v2\editor-v2-loader.php(226): include('C:\\laragon\\www\\...')
+#28 C:\laragon\www\mindu\wp-content\plugins\elementor\core\editor\editor.php(160): Elementor\Core\Editor\Loader\V2\Editor_V2_Loader->print_root_template()
+#29 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(341): Elementor\Core\Editor\Editor->init('')
+#30 C:\laragon\www\mindu\wp-includes\class-wp-hook.php(365): WP_Hook->apply_filters('', Array)
+#31 C:\laragon\www\mindu\wp-includes\plugin.php(522): WP_Hook->do_action(Array)
+#32 C:\laragon\www\mindu\wp-admin\admin.php(424): do_action('admin_action_el...')
+#33 C:\laragon\www\mindu\wp-admin\post.php(12): require_once('C:\\laragon\\www\\...')
+#34 {main}
+  thrown in C:\laragon\www\mindu\wp-includes\blocks.php on line 2009
+[17-Jun-2026 07:13:01 UTC] PHP Warning:  Undefined array key "icon" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 278
+[17-Jun-2026 07:13:01 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:43:07 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 302
+[17-Jun-2026 08:43:07 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:43:18 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 302
+[17-Jun-2026 08:43:18 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:43:24 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 302
+[17-Jun-2026 08:43:24 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:43:29 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 302
+[17-Jun-2026 08:43:29 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:43:40 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 302
+[17-Jun-2026 08:43:40 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:49:12 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:49:12 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:49:12 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:49:12 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:49:12 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:49:12 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:49:12 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:49:12 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:49:12 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:49:12 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:49:41 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:49:41 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:49:41 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:49:41 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:49:41 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:49:41 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:49:41 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:49:41 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:49:41 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:49:41 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:50:43 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:50:43 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:50:43 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:50:43 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:50:43 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:50:43 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:50:43 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:50:43 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:50:43 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 310
+[17-Jun-2026 08:50:43 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:54:24 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 302
+[17-Jun-2026 08:54:24 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:54:35 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 302
+[17-Jun-2026 08:54:35 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:54:41 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 302
+[17-Jun-2026 08:54:41 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:54:47 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 302
+[17-Jun-2026 08:54:47 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:55:09 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 302
+[17-Jun-2026 08:55:09 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
+[17-Jun-2026 08:55:41 UTC] PHP Warning:  Undefined array key "url" in C:\laragon\www\mindu\wp-content\plugins\mindu-core\widgets\banner-practice.php on line 302
+[17-Jun-2026 08:55:41 UTC] PHP Deprecated:  preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in C:\laragon\www\mindu\wp-includes\kses.php on line 2018
