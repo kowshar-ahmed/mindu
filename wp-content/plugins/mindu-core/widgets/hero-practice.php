@@ -3,17 +3,17 @@
 
 
 
-class Mindu_Banner_Practice extends \Elementor\Widget_Base
+class Mindu_Hero_Practice extends \Elementor\Widget_Base
 {
 
     public function get_name(): string
     {
-        return 'mindu-banner-practice';
+        return 'mindu-hero-practice';
     }
 
     public function get_title(): string
     {
-        return esc_html__('Theme Banner Practice', 'elementor-addon');
+        return esc_html__('Theme Hero Practice', 'elementor-addon');
     }
 
     public function get_icon(): string
@@ -23,12 +23,12 @@ class Mindu_Banner_Practice extends \Elementor\Widget_Base
 
     public function get_categories(): array
     {
-        return ['basic'];
+        return ['mindu-category'];
     }
 
     public function get_keywords(): array
     {
-        return ['Banner', 'Practice'];
+        return ['Hero', 'Practice'];
     }
 
     protected function register_controls(): void

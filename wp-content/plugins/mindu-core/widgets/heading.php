@@ -19,7 +19,7 @@ class Mindu_Heading extends \Elementor\Widget_Base
 
     public function get_categories(): array
     {
-        return ['basic'];
+        return ['mindu-category'];
     }
 
     public function get_keywords(): array

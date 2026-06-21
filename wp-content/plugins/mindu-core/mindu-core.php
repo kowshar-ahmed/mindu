@@ -21,9 +21,30 @@ function register_mindu_heading_widget($widgets_manager)
 {
 
     require_once(__DIR__ . '/widgets/heading.php');
-    require_once(__DIR__ . '/widgets/banner-practice.php');
+    require_once(__DIR__ . '/widgets/hero-practice.php');
+    require_once(__DIR__ . '/widgets/hero.php');
+    require_once(__DIR__ . '/widgets/icon-box.php');
 
     $widgets_manager->register(new \Mindu_Heading());
-    $widgets_manager->register(new \Mindu_Banner_Practice());
+    $widgets_manager->register(new \Mindu_Hero_Practice());
+    $widgets_manager->register(new \Mindu_Hero());
+    $widgets_manager->register(new \Mindu_Icon_Box());
 }
 add_action('elementor/widgets/register', 'register_mindu_heading_widget');
+
+
+
+
+function add_widget_categories($elements_manager)
+{
+
+    $elements_manager->add_category(
+        'mindu-category',
+        [
+            'title' => esc_html__('Mindu', 'textdomain'),
+            'icon' => 'fa fa-plug',
+        ]
+    );
+
+}
+add_action('elementor/elements/categories_registered', 'add_widget_categories');
