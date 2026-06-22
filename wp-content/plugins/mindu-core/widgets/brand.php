@@ -19,13 +19,14 @@ class Mindu_Brand extends \Elementor\Widget_Base
 
     public function get_categories(): array
     {
-        return ['mindu-category'];
+        return ['brand'];
     }
 
     public function get_keywords(): array
     {
         return ['brand'];
     }
+      
 
     protected function register_controls(): void
     {
@@ -114,7 +115,7 @@ class Mindu_Brand extends \Elementor\Widget_Base
 
 ?>
 
-        <div class="tp-brand-area fix pt-110">
+        <div class="tp-brand-area fix">
             <div class="swiper tp-brand-slider">
                 <div class="swiper-wrapper slide-transtion">
                     <?php foreach ($settings['list'] as $item) : ?>
@@ -130,5 +131,8 @@ class Mindu_Brand extends \Elementor\Widget_Base
 
 
 <?php
+
     }
+    
 }
+
