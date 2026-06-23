@@ -139,9 +139,6 @@ class Mindu_Button extends \Elementor\Widget_Base
     {
         $settings = $this->get_settings_for_display();
 
-
-
-
 ?>
 
 
