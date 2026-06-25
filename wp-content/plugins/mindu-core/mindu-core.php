@@ -28,6 +28,7 @@ function register_mindu_heading_widget($widgets_manager)
     require_once(__DIR__ . '/widgets/testimonial.php');
     require_once(__DIR__ . '/widgets/faq.php');
     require_once(__DIR__ . '/widgets/hero-practice-eduker.php');
+    require_once(__DIR__ . '/widgets/features-practice-eduker.php');
 
 
     $widgets_manager->register(new \Mindu_Heading());
@@ -40,6 +41,7 @@ function register_mindu_heading_widget($widgets_manager)
     $widgets_manager->register(new \Mindu_Testimonial());
     $widgets_manager->register(new \Mindu_FAQ());
     $widgets_manager->register(new \Mindu_Hero_Practice_Eduker());
+    $widgets_manager->register(new \Mindu_Features_Practice_Eduker());
 }
 add_action('elementor/widgets/register', 'register_mindu_heading_widget');
 
