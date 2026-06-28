@@ -13,6 +13,7 @@
  * Elementor Pro tested up to: 3.25.0
  */
 
+require_once(__DIR__ . '/inc/trait/common-trait.php');
 require_once(__DIR__ . '/inc/plugin-helper.php');
 
 function register_mindu_heading_widget($widgets_manager)

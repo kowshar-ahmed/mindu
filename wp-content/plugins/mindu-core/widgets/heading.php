@@ -2,6 +2,8 @@
 class Mindu_Heading extends \Elementor\Widget_Base
 {
 
+    use Common_Trait_Style;
+
     public function get_name(): string
     {
         return 'mindu-heading';
@@ -31,13 +33,13 @@ class Mindu_Heading extends \Elementor\Widget_Base
     {
         $this->register_controls_section();
         $this->register_style_section();
-
     }
 
 
 
     // Content Tab Start
-    protected function register_controls_section(){
+    protected function register_controls_section()
+    {
 
 
         $this->start_controls_section(
@@ -64,6 +66,17 @@ class Mindu_Heading extends \Elementor\Widget_Base
             [
                 'label' => esc_html__('Title', 'elementor-addon'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Hello world', 'elementor-addon'),
+                'label_block' => true,
+            ]
+        );
+
+
+        $this->add_control(
+            'content',
+            [
+                'label' => esc_html__('Content', 'elementor-addon'),
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'default' => esc_html__('Hello world', 'elementor-addon'),
                 'label_block' => true,
             ]
@@ -100,7 +113,6 @@ class Mindu_Heading extends \Elementor\Widget_Base
 
 
         $this->end_controls_section();
-
     }
     // Content Tab End
 
@@ -108,82 +120,15 @@ class Mindu_Heading extends \Elementor\Widget_Base
 
     // Style Tab Start
 
-    protected function register_style_section(){
+    protected function register_style_section()
+    {
 
-// title style start
+        $this->common_trait_style('title', 'Title', '.el-title');
 
-        $this->start_controls_section(
-            'section_title_style',
-            [
-                'label' => esc_html__('Title', 'elementor-addon'),
-                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
+        $this->common_trait_style('sub_title', 'Sub Title', '.el-sub-title');
 
-        $this->add_control(
-            'title_color',
-            [
-                'label' => esc_html__('Text Color', 'elementor-addon'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .el-title' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group_control(
-            \Elementor\Group_Control_Typography::get_type(),
-            [
-                'name' => 'title_typography',
-                'selector' => '{{WRAPPER}} .el-title',
-            ]
-        );
-
-        $this->add_control(
-            'title_margin',
-            [
-                'label' => esc_html__('Margin', 'textdomain'),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-                'default' => [
-                    'top' => " ",
-                    'right' => " ",
-                    'bottom' => " ",
-                    'left' => " ",
-                    'unit' => 'em',
-                    'isLinked' => false,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .el-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'title_padding',
-            [
-                'label' => esc_html__('Padding', 'textdomain'),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
-                'default' => [
-                    'top' => " ",
-                    'right' => " ",
-                    'bottom' => " ",
-                    'left' => " ",
-                    'unit' => 'em',
-                    'isLinked' => false,
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .el-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-        
-        // Title style end
-
-}
+        $this->common_trait_style('content', 'Content', '.el-content');
+    }
     // Style Tab End
 
 
@@ -213,6 +158,12 @@ class Mindu_Heading extends \Elementor\Widget_Base
             <?php if (!empty($settings['title'])) : ?>
                 <h2 class="tp-section-title wow fadeInUp el-title" data-wow-duration=".9s" data-wow-delay=".4s"><?php echo mc_kses($settings['title']); ?></h2>
             <?php endif; ?>
+
+
+            <?php if (!empty($settings['content'])) : ?>
+                <p class="wow fadeInUp el-content" data-wow-duration=".9s" data-wow-delay=".5s"><?php echo mc_kses($settings['content']); ?></p>
+            <?php endif; ?>
+
         </div>
 
 

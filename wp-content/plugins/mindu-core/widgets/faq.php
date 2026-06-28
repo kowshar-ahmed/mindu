@@ -2,6 +2,8 @@
 class Mindu_FAQ extends \Elementor\Widget_Base
 {
 
+    use Common_Trait_Style;
+
     public function get_name(): string
     {
         return 'mindu-faq';
@@ -30,7 +32,12 @@ class Mindu_FAQ extends \Elementor\Widget_Base
     protected function register_controls(): void
     {
 
-        // Content Tab Start
+        $this->register_controls_section();
+        $this->register_style_section();
+    }
+
+    protected function register_controls_section()
+    {
 
         $this->start_controls_section(
             'section_list',
@@ -81,40 +88,41 @@ class Mindu_FAQ extends \Elementor\Widget_Base
         );
 
         $this->end_controls_section();
+    }
+    protected function register_style_section()
+    {
 
-        // Content Tab End
+        $this->common_trait_style('title', 'Title', '.el-title');
 
+        $this->common_trait_style('content', 'Content', '.el-content');
 
-
-
-
-
-        // Style Tab Start
 
         $this->start_controls_section(
-            'section_title_style',
+            'section_title_active_style',
             [
-                'label' => esc_html__('Title', 'elementor-addon'),
+                'label' => esc_html__('Active Title', 'elementor-addon'),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
 
         $this->add_control(
-            'title_color',
+            'title_active',
             [
-                'label' => esc_html__('Text Color', 'elementor-addon'),
+                'label' => esc_html__('Active Color', 'elementor-addon'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .hello-world' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .tp-faq-item.active .el-title' => 'color: {{VALUE}};',
                 ],
             ]
         );
 
         $this->end_controls_section();
-
-        // Style Tab End
-
     }
+
+
+
+
+
 
     protected function render(): void
     {
@@ -133,16 +141,16 @@ class Mindu_FAQ extends \Elementor\Widget_Base
                     $collapsed = ($key == 0) ? '' : 'collapsed';
                     $show = ($key == 0) ? 'show' : '';
                     $active = ($key == 0) ? 'active' : '';
-                    ?>
+                ?>
                     <div class="tp-faq-item <?php echo esc_attr($active) ?> wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".3s">
                         <h2 class="accordion-header">
-                            <button class="tp-faq-button <?php echo esc_attr($collapsed) ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-<?php echo esc_attr($key); ?>" aria-expanded="true" aria-controls="collapseOne-<?php echo esc_attr($key); ?>">
+                            <button class="tp-faq-button el-title <?php echo esc_attr($collapsed) ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-<?php echo esc_attr($key); ?>" aria-expanded="true" aria-controls="collapseOne-<?php echo esc_attr($key); ?>">
                                 <?php echo esc_html($item['title']); ?>
                             </button>
                         </h2>
                         <div id="collapseOne-<?php echo esc_attr($key); ?>" class="tp-faq-collapse collapse <?php echo esc_attr($show) ?>" data-bs-parent="#accordionExample">
-                            <div class="tp-faq-body">
-                                <p> <?php echo esc_html($item['content']); ?></p>
+                            <div class="tp-faq-body el-content">
+                                <p class="el-content"> <?php echo esc_html($item['content']); ?></p>
                             </div>
                         </div>
                     </div>
