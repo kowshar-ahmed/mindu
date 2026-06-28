@@ -240,14 +240,10 @@ class Mindu_Testimonial extends \Elementor\Widget_Base
                 </div>
             </div>
 
+
+
+
         <?php else : ?>
-
-
-
-
-
-
-
 
             <div class="tp-testimonial-area">
                 <div class="container">
