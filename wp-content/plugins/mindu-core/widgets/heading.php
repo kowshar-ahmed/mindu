@@ -29,13 +29,21 @@ class Mindu_Heading extends \Elementor\Widget_Base
 
     protected function register_controls(): void
     {
+        $this->register_controls_section();
+        $this->register_style_section();
 
-        // Content Tab Start
+    }
+
+
+
+    // Content Tab Start
+    protected function register_controls_section(){
+
 
         $this->start_controls_section(
             'section_title',
             [
-                'label' => esc_html__('Title', 'elementor-addon'),
+                'label' => esc_html__('Title & Content', 'elementor-addon'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -93,10 +101,16 @@ class Mindu_Heading extends \Elementor\Widget_Base
 
         $this->end_controls_section();
 
-        // Content Tab End
+    }
+    // Content Tab End
 
 
-        // Style Tab Start
+
+    // Style Tab Start
+
+    protected function register_style_section(){
+
+// title style start
 
         $this->start_controls_section(
             'section_title_style',
@@ -112,16 +126,68 @@ class Mindu_Heading extends \Elementor\Widget_Base
                 'label' => esc_html__('Text Color', 'elementor-addon'),
                 'type' => \Elementor\Controls_Manager::COLOR,
                 'selectors' => [
-                    '{{WRAPPER}} .hello-world' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .el-title' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'title_typography',
+                'selector' => '{{WRAPPER}} .el-title',
+            ]
+        );
+
+        $this->add_control(
+            'title_margin',
+            [
+                'label' => esc_html__('Margin', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'default' => [
+                    'top' => " ",
+                    'right' => " ",
+                    'bottom' => " ",
+                    'left' => " ",
+                    'unit' => 'em',
+                    'isLinked' => false,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .el-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'title_padding',
+            [
+                'label' => esc_html__('Padding', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', '%', 'em', 'rem', 'custom'],
+                'default' => [
+                    'top' => " ",
+                    'right' => " ",
+                    'bottom' => " ",
+                    'left' => " ",
+                    'unit' => 'em',
+                    'isLinked' => false,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .el-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
             ]
         );
 
         $this->end_controls_section();
+        
+        // Title style end
 
-        // Style Tab End
+}
+    // Style Tab End
 
-    }
+
+
 
     protected function render(): void
     {
@@ -132,7 +198,7 @@ class Mindu_Heading extends \Elementor\Widget_Base
         <div class="tp-section-title-wrap el-align">
             <?php if (!empty($settings['sub_title'])) : ?>
 
-                <span class="tp-section-subtitle d-inline-block mb-10 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                <span class="tp-section-subtitle d-inline-block mb-10 wow fadeInUp el-sub-title" data-wow-duration=".9s" data-wow-delay=".3s">
                     <span>
                         <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14.625 7.76196V10.1183C14.625 10.9741 14.1019 11.7379 13.2919 12.0954C12.3075 12.5287 10.8169 13 9 13C7.18313 13 5.6925 12.5287 4.7025 12.0954C3.89812 11.7379 3.375 10.9741 3.375 10.1183V7.76196L7.37437 9.52242C7.88625 9.74993 8.4375 9.86368 9 9.86368C9.5625 9.86368 10.1137 9.74993 10.6256 9.52242L14.625 7.76196Z" fill="currentColor" />
@@ -145,7 +211,7 @@ class Mindu_Heading extends \Elementor\Widget_Base
             <?php endif; ?>
 
             <?php if (!empty($settings['title'])) : ?>
-                <h2 class="tp-section-title wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".4s"><?php echo mc_kses($settings['title']); ?></h2>
+                <h2 class="tp-section-title wow fadeInUp el-title" data-wow-duration=".9s" data-wow-delay=".4s"><?php echo mc_kses($settings['title']); ?></h2>
             <?php endif; ?>
         </div>
 
