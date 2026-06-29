@@ -1,6 +1,7 @@
 <?php
 class Mindu_Hero extends \Elementor\Widget_Base
 {
+    use \Common_Trait_Style;
 
     public function get_name(): string
     {
@@ -30,8 +31,14 @@ class Mindu_Hero extends \Elementor\Widget_Base
     protected function register_controls(): void
     {
 
-        // Content Tab Start
+        $this->register_controls_section();
+        $this->register_style_section();
+    }
 
+
+
+    protected function register_controls_section()
+    {
         $this->start_controls_section(
             'section_content',
             [
@@ -211,40 +218,18 @@ class Mindu_Hero extends \Elementor\Widget_Base
 
 
         $this->end_controls_section();
-
-        // Video Tab End
-
-
-
-
-
-
-        // Style Tab Start
-
-        $this->start_controls_section(
-            'section_title_style',
-            [
-                'label' => esc_html__('Title', 'elementor-addon'),
-                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'title_color',
-            [
-                'label' => esc_html__('Text Color', 'elementor-addon'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .hello-world' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Style Tab End
-
     }
+
+    protected function register_style_section()
+    {
+        $this->common_trait_style('sub_title', 'Sub Title', '.el-sub-title');
+        $this->common_trait_style('title', 'Title', '.el-title');
+        $this->common_trait_style('content', 'Content', '.el-content');
+        $this->common_trait_style('button_content', 'Button Content', '.el-button-content');
+        $this->common_trait_style('button_explore_content', 'Button Explore Content', '.el-button-explore-content');
+        $this->common_trait_style('video_content', 'Video Content', '.el-video-content');
+    }
+
 
     protected function render(): void
     {
@@ -252,7 +237,7 @@ class Mindu_Hero extends \Elementor\Widget_Base
 
         if (!empty($settings['button_text'])) {
             $this->add_link_attributes('button_arg', $settings['button_url']);
-            $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-square');
+            $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-square el-button-content');
         }
 
 
@@ -275,7 +260,7 @@ class Mindu_Hero extends \Elementor\Widget_Base
 
                             <?php if (!empty($settings['sub_title'])) : ?>
                                 <div class="tp-hero-ratings-wrap d-inline-flex mb-15 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".4s">
-                                    <span class="tp-hero-ratings-text mr-10 d-flex align-items-center">
+                                    <span class="tp-hero-ratings-text mr-10 d-flex align-items-center el-sub-title">
                                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z" fill="currentColor" />
                                         </svg>
@@ -311,11 +296,11 @@ class Mindu_Hero extends \Elementor\Widget_Base
                                 </div>
                             <?php endif; ?>
 
-                            <h2 class="tp-hero-title mb-25 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".5s">
+                            <h2 class="tp-hero-title mb-25 wow fadeInUp el-title" data-wow-duration=".9s" data-wow-delay=".5s">
                                 <?php echo mc_kses($settings['title']); ?>
                             </h2>
 
-                            <p class="tp-hero-dec mb-30 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".6s">
+                            <p class="tp-hero-dec mb-30 wow fadeInUp el-content" data-wow-duration=".9s" data-wow-delay=".6s">
                                 <?php echo mc_kses($settings['content']); ?>
                             </p>
 
@@ -335,7 +320,7 @@ class Mindu_Hero extends \Elementor\Widget_Base
 
                             <?php if (!empty($settings['button_explore_text'])) : ?>
                                 <div class="tp-hero-explore mt-115 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".8s">
-                                    <a href="<?php echo esc_url($settings['button_explore_url']); ?>" class="tp-hero-btn">
+                                    <a href="<?php echo esc_url($settings['button_explore_url']); ?>" class="tp-hero-btn el-button-explore-content">
                                         <svg class="mr-15" width="15" height="61" viewBox="0 0 15 61" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M8.12249 60.7077C7.73483 61.101 7.10168 61.1056 6.70832 60.718L0.298073 54.4006C-0.0952914 54.013 -0.0999129 53.3798 0.287751 52.9865C0.675414 52.5931 1.30856 52.5885 1.70193 52.9761L7.39992 58.5916L13.0153 52.8936C13.403 52.5002 14.0361 52.4956 14.4295 52.8832C14.8229 53.2709 14.8275 53.904 14.4398 54.2974L8.12249 60.7077ZM6.9723 0.00732422L7.97227 2.51429e-05L8.41022 59.9984L7.41024 60.0057L6.41027 60.013L5.97232 0.0146233L6.9723 0.00732422Z" fill="currentColor" />
                                         </svg>
@@ -352,7 +337,7 @@ class Mindu_Hero extends \Elementor\Widget_Base
                                 <video loop muted autoplay playsinline>
                                     <source src="<?php echo mc_kses($settings['video_url']); ?>" type="video/mp4">
                                 </video>
-                                <a href="<?php echo esc_url($settings['video_text_link']); ?>" class="tp-hero-video-btn d-flex align-items-center justify-content-between">
+                                <a href="<?php echo esc_url($settings['video_text_link']); ?>" class="tp-hero-video-btn d-flex align-items-center justify-content-between el-video-content">
                                     <?php echo mc_kses($settings['video_text']); ?>
                                     <span>
                                         <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">

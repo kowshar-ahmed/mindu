@@ -1,10 +1,8 @@
 <?php
 
-
-
-
 class Mindu_Hero_Practice extends \Elementor\Widget_Base
 {
+    use \Common_Trait_Style;
 
     public function get_name(): string
     {
@@ -33,9 +31,14 @@ class Mindu_Hero_Practice extends \Elementor\Widget_Base
 
     protected function register_controls(): void
     {
+        $this->register_controls_section();
+        $this->register_style_section();
+    }
 
-        // Title Tab Start
 
+
+    protected function register_controls_section()
+    {
         $this->start_controls_section(
             'section_title',
             [
@@ -222,12 +225,10 @@ class Mindu_Hero_Practice extends \Elementor\Widget_Base
 
 
         $this->end_controls_section();
+    }
 
-        // Ratings Tab End
-
-
-        // Style Tab Start
-
+    protected function register_style_section()
+    {
         $this->start_controls_section(
             'section_title_style',
             [
@@ -248,12 +249,7 @@ class Mindu_Hero_Practice extends \Elementor\Widget_Base
         );
 
         $this->end_controls_section();
-
-        // Style Tab End
-
     }
-
-
 
 
 
@@ -266,9 +262,6 @@ class Mindu_Hero_Practice extends \Elementor\Widget_Base
         $filled_stars  = isset($settings['ratings_count']) ? intval($settings['ratings_count']) : $total_stars;
 
 ?>
-
-
-
 
 
 

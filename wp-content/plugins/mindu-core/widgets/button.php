@@ -1,6 +1,7 @@
 <?php
 class Mindu_Button extends \Elementor\Widget_Base
 {
+    use \Common_Trait_Style;
 
     public function get_name(): string
     {
@@ -30,8 +31,13 @@ class Mindu_Button extends \Elementor\Widget_Base
     protected function register_controls(): void
     {
 
+        $this->register_controls_section();
+        $this->register_style_section();
+    }
 
-        // Section Layout Tab Start
+
+    protected function register_controls_section()
+    {
 
         $this->start_controls_section(
             'section_layout',
@@ -101,39 +107,15 @@ class Mindu_Button extends \Elementor\Widget_Base
         );
 
         $this->end_controls_section();
-
-        // Button Tab End
-
-
-
-
-
-        // Style Tab Start
-
-        $this->start_controls_section(
-            'section_title_style',
-            [
-                'label' => esc_html__('Title', 'elementor-addon'),
-                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'title_color',
-            [
-                'label' => esc_html__('Text Color', 'elementor-addon'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .hello-world' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Style Tab End
-
     }
+
+
+    protected function register_style_section()
+    {
+
+        $this->common_trait_style('title', 'Title', '.el-title');
+    }
+
 
     protected function render(): void
     {
@@ -147,7 +129,7 @@ class Mindu_Button extends \Elementor\Widget_Base
         <?php if ($settings['design_style'] === 'style_2') :
             if (!empty($settings['button_text'])) {
                 $this->add_link_attributes('button_arg', $settings['button_url']);
-                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-border tp-btn-xl');
+                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-border tp-btn-xl el-title');
             }
         ?>
             <?php if (!empty($settings['button_text'])) : ?>
@@ -168,7 +150,7 @@ class Mindu_Button extends \Elementor\Widget_Base
         <?php else :
             if (!empty($settings['button_text'])) {
                 $this->add_link_attributes('button_arg', $settings['button_url']);
-                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-xl');
+                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-xl el-title');
             }
         ?>
             <?php if (!empty($settings['button_text'])) : ?>

@@ -1,7 +1,8 @@
 <?php
 class Mindu_Brand extends \Elementor\Widget_Base
 {
-
+    use \Common_Trait_Style;
+    
     public function get_name(): string
     {
         return 'mindu-brand';
@@ -9,7 +10,7 @@ class Mindu_Brand extends \Elementor\Widget_Base
 
     public function get_title(): string
     {
-        return esc_html__('Brand', 'elementor-addon');
+        return esc_html__('Theme Brand', 'elementor-addon');
     }
 
     public function get_icon(): string
@@ -19,20 +20,23 @@ class Mindu_Brand extends \Elementor\Widget_Base
 
     public function get_categories(): array
     {
-        return ['brand'];
+        return ['mindu-category'];
     }
 
     public function get_keywords(): array
     {
         return ['brand'];
     }
-      
+
 
     protected function register_controls(): void
     {
+        $this->register_controls_section();
+        $this->register_style_section();
+    }
 
-        // Content Tab Start
-
+    protected function register_controls_section()
+    {
         $this->start_controls_section(
             'section_list',
             [
@@ -78,12 +82,10 @@ class Mindu_Brand extends \Elementor\Widget_Base
         );
 
         $this->end_controls_section();
+    }
 
-        // Content Tab End
-
-
-        // Style Tab Start
-
+    protected function register_style_section()
+    {
         $this->start_controls_section(
             'section_title_style',
             [
@@ -104,9 +106,6 @@ class Mindu_Brand extends \Elementor\Widget_Base
         );
 
         $this->end_controls_section();
-
-        // Style Tab End
-
     }
 
     protected function render(): void
@@ -133,6 +132,4 @@ class Mindu_Brand extends \Elementor\Widget_Base
 <?php
 
     }
-    
 }
-

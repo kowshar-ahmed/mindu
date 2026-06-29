@@ -1,6 +1,7 @@
 <?php
 class Mindu_Team extends \Elementor\Widget_Base
 {
+    use \Common_Trait_Style;
 
     public function get_name(): string
     {
@@ -29,7 +30,13 @@ class Mindu_Team extends \Elementor\Widget_Base
 
     protected function register_controls(): void
     {
+        $this->register_controls_section();
+        $this->register_style_section();
+    }
 
+
+    protected function register_controls_section()
+    {
         // Content Tab Start
 
         $this->start_controls_section(
@@ -72,7 +79,7 @@ class Mindu_Team extends \Elementor\Widget_Base
                 'label_block' => true,
 
             ]
-           
+
         );
 
 
@@ -199,46 +206,23 @@ class Mindu_Team extends \Elementor\Widget_Base
         $this->end_controls_section();
 
         // Icon Tab End
+    }
 
-
-
-
-
+    protected function register_style_section()
+    {
         // Style Tab Start
 
-        $this->start_controls_section(
-            'section_title_style',
-            [
-                'label' => esc_html__('Title', 'elementor-addon'),
-                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'title_color',
-            [
-                'label' => esc_html__('Text Color', 'elementor-addon'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .hello-world' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
+        $this->common_trait_style('title', 'Title', '.el-title');
+        $this->common_trait_style('content', 'Content', '.el-content');
 
         // Style Tab End
-
     }
 
     protected function render(): void
     {
         $settings = $this->get_settings_for_display();
 
-
 ?>
-
-
 
         <div class="tp-team-wrap">
             <div class="tp-team-thumb p-relative mb-25">
@@ -258,15 +242,12 @@ class Mindu_Team extends \Elementor\Widget_Base
                 </div>
             </div>
             <div class="tp-team-content text-center">
-                <h2 class="tp-team-title fw-600 mb-5">
+                <h2 class="tp-team-title fw-600 mb-5 el-title">
                     <a href="<?php echo esc_url($settings['url']['url']); ?>"><?php echo mc_kses($settings['title']); ?></a>
                 </h2>
-                <span class="tp-team-subtitle"><?php echo mc_kses($settings['designation']); ?></span>
+                <span class="tp-team-subtitle el-content"><?php echo mc_kses($settings['designation']); ?></span>
             </div>
         </div>
-
-
-
 
 
 <?php

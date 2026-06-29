@@ -2,7 +2,7 @@
 class Mindu_FAQ extends \Elementor\Widget_Base
 {
 
-    use Common_Trait_Style;
+    use \Common_Trait_Style;
 
     public function get_name(): string
     {
@@ -31,7 +31,6 @@ class Mindu_FAQ extends \Elementor\Widget_Base
 
     protected function register_controls(): void
     {
-
         $this->register_controls_section();
         $this->register_style_section();
     }

@@ -2,7 +2,7 @@
 class Mindu_Heading extends \Elementor\Widget_Base
 {
 
-    use Common_Trait_Style;
+    use \Common_Trait_Style;
 
     public function get_name(): string
     {

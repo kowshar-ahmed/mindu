@@ -1,6 +1,7 @@
 <?php
 class Mindu_Icon_Box extends \Elementor\Widget_Base
 {
+    use \Common_Trait_Style;
 
     public function get_name(): string
     {
@@ -29,7 +30,13 @@ class Mindu_Icon_Box extends \Elementor\Widget_Base
 
     protected function register_controls(): void
     {
+        $this->register_controls_section();
+        $this->register_style_section();
+    }
 
+
+    protected function register_controls_section()
+    {
         // Content Tab Start
 
         $this->start_controls_section(
@@ -178,38 +185,22 @@ class Mindu_Icon_Box extends \Elementor\Widget_Base
         $this->end_controls_section();
 
         // Button Tab End
+    }
 
 
 
 
-
-
+    protected function register_style_section()
+    {
         // Style Tab Start
 
-        $this->start_controls_section(
-            'section_title_style',
-            [
-                'label' => esc_html__('Title', 'elementor-addon'),
-                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'title_color',
-            [
-                'label' => esc_html__('Text Color', 'elementor-addon'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .hello-world' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
+        $this->common_trait_style('title', 'Title', '.el-title');
+        $this->common_trait_style('content', 'Content', '.el-content');
+        $this->common_trait_style('button_content', 'Button Content', '.el-button-text');
 
         // Style Tab End
-
     }
+
 
     protected function render(): void
     {
@@ -217,18 +208,13 @@ class Mindu_Icon_Box extends \Elementor\Widget_Base
 
         if (!empty($settings['button_text'])) {
             $this->add_link_attributes('button_arg', $settings['button_url']);
-            $this->add_render_attribute('button_arg', 'class', 'tp-service-btn fw-700 tp-ff-heading');
+            $this->add_render_attribute('button_arg', 'class', 'tp-service-btn fw-700 tp-ff-heading el-button-text');
         }
-
-
 ?>
 
 
-
-
-
         <div class="tp-service-item mb-30 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".3s">
-            <span class="tp-service-icon mb-25">
+            <span class="tp-service-icon mb-25 el-icon">
                 <?php if ($settings['icon_style'] === 'icon') : ?>
                     <?php \Elementor\Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
                 <?php elseif ($settings['icon_style'] === 'image') : ?>
@@ -236,11 +222,10 @@ class Mindu_Icon_Box extends \Elementor\Widget_Base
                 <?php elseif ($settings['icon_style'] === 'svg') : ?>
                     <?php echo $settings['svg']; ?>
                 <?php endif; ?>
-
             </span>
-            <h2 class="tp-service-title fw-700 mb-15"> <?php echo mc_kses($settings['title']); ?>
+            <h2 class="tp-service-title fw-700 mb-15 el-title"> <?php echo mc_kses($settings['title']); ?>
             </h2>
-            <p class="tp-service-dec fw-500"> <?php echo mc_kses($settings['content']); ?>
+            <p class="tp-service-dec fw-500 el-content"> <?php echo mc_kses($settings['content']); ?>
             </p>
 
             <?php if (!empty($settings['button_text'])) : ?>
