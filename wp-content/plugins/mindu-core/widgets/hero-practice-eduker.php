@@ -186,78 +186,56 @@ class Mindu_Hero_Practice_Eduker extends \Elementor\Widget_Base
 
 
 
+
         <section class="slider__area">
-            <div class="slider__active swiper-container"
-                style="width:100%; overflow:hidden; position:relative;">
+            <div class="slider__active swiper-container">
                 <div class="swiper-wrapper">
-                    <?php foreach ($settings['list'] as $index => $item) :
-                        $link_key = 'button_arg_' . $index;
-                        $this->add_link_attributes($link_key, $item['button_url']);
-                    ?>
-                        <div class="slider__item swiper-slide p-relative slider__height d-flex align-items-center z-index-1"
-                            style="min-height:700px; position:relative;">
-                            <div class="slider__bg slider__overlay include-bg"
-                                style="background-image: url(<?php echo esc_url($item['image']['url']); ?>);
-                                background-size: cover;
-                                background-position: center;
-                                position: absolute;
-                                width: 100%; height: 100%;
-                                top: 0; left: 0; z-index:0;">
-                            </div>
-                            <div class="container" style="position:relative; z-index:1;">
-                                <div class="row">
-                                    <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-10 col-sm-10">
-                                        <div class="slider__content p-relative z-index-1">
-                                            <span><?php echo esc_html($item['sub_title']); ?></span>
-                                            <h2 class="slider__title"><?php echo esc_html($item['title']); ?></h2>
-                                            <p><?php echo esc_html($item['content']); ?></p>
-                                            <div class="slider__btn">
-                                                <a <?php echo $this->get_render_attribute_string($link_key); ?>>
-                                                    <?php echo esc_html($item['button_text']); ?>
-                                                </a>
-                                            </div>
+                    <div class="slider__item swiper-slide p-relative slider__height d-flex align-items-center z-index-1">
+                        <div class="slider__bg slider__overlay include-bg" data-background="assets/img/slider/slider-1.jpg"></div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-10 col-sm-10">
+                                    <div class="slider__content p-relative z-index-1">
+                                        <span data-animation="fadeInUp" data-delay=".3s">eduker University</span>
+                                        <h2 class="slider__title" data-animation="fadeInUp" data-delay=".6s">Institution of Higher Education</h2>
+                                        <p data-animation="fadeInUp" data-delay=".9s">We believe everyone should have the opportunity to create progress through technolog.</p>
+                                        <div class="slider__btn" data-animation="fadeInUp" data-delay="1.1s">
+                                            <a href="course-v1.html" class="tp-btn">Find Courses</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
+                    <div class="slider__item swiper-slide p-relative slider__height d-flex align-items-center z-index-1">
+                        <div class="slider__bg slider__overlay include-bg" data-background="assets/img/slider/slider-2.jpg"></div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xxl-7 col-xl-8 col-lg-8 col-md-10 col-sm-10">
+                                    <div class="slider__content p-relative z-index-1">
+                                        <span data-animation="fadeInUp" data-delay=".3s">eduker University</span>
+                                        <h2 class="slider__title" data-animation="fadeInUp" data-delay=".6s">Together We'll Explore New Things</h2>
+                                        <p data-animation="fadeInUp" data-delay=".9s">We believe everyone should have the opportunity <br> to create progress through technolog.</p>
+                                        <div class="slider__btn" data-animation="fadeInUp" data-delay="1.1s">
+                                            <a href="course-v1.html" class="tp-btn">Find Courses</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Navigation buttons swiper-container এর ভেতরে কিন্তু swiper-wrapper এর বাইরে -->
-                <button class="slider-button-prev"
-                    style="position:absolute; left:20px; top:50%; transform:translateY(-50%); z-index:10; background:rgba(255,255,255,0.2); border:none; width:50px; height:50px; border-radius:50%; cursor:pointer; color:white; font-size:18px;">
-                    <i class="fa-regular fa-arrow-left"></i>
-                </button>
-                <button class="slider-button-next"
-                    style="position:absolute; right:20px; top:50%; transform:translateY(-50%); z-index:10; background:rgba(255,255,255,0.2); border:none; width:50px; height:50px; border-radius:50%; cursor:pointer; color:white; font-size:18px;">
-                    <i class="fa-regular fa-arrow-right"></i>
-                </button>
+                <div class="main-slider-paginations">
+                    <button class="slider-button-next"><i class="fa-regular fa-arrow-right"></i></button>
+                    <button class="slider-button-prev"><i class="fa-regular fa-arrow-left"></i></button>
+                </div>
             </div>
         </section>
 
-        <script>
-            (function initSlider() {
-                if (typeof Swiper === 'undefined') {
-                    setTimeout(initSlider, 300);
-                    return;
-                }
-                document.querySelectorAll('.slider__active').forEach(function(el) {
-                    if (el.swiper) return;
-                    new Swiper(el, {
-                        loop: true,
-                        effect: 'fade', // ← fade effect add
-                        fadeEffect: {
-                            crossFade: true
-                        },
-                        navigation: {
-                            nextEl: el.querySelector('.slider-button-next'),
-                            prevEl: el.querySelector('.slider-button-prev'),
-                        },
-                    });
-                });
-            })();
-        </script>
+
+
+
+
 
 
 <?php
