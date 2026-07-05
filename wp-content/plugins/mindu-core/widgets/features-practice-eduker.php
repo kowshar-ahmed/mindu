@@ -4,12 +4,12 @@ class Mindu_Features_Practice_Eduker extends \Elementor\Widget_Base
 
     public function get_name(): string
     {
-        return 'mindu-testimonial';
+        return 'mindu-features-practice-eduker';
     }
 
     public function get_title(): string
     {
-        return esc_html__('Theme Testimonial', 'elementor-addon');
+        return esc_html__('Theme Features Practice Eduker', 'elementor-addon');
     }
 
     public function get_icon(): string
@@ -176,7 +176,53 @@ class Mindu_Features_Practice_Eduker extends \Elementor\Widget_Base
 
 
 
+        <section class="about__area pb-120 p-relative">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xxl-7 col-xl-7 col-lg-7">
+                        <div class="about__thumb-wrapper d-sm-flex mr-20 p-relative">
+                            <div class="about__shape">
+                                <img class="about__shape-1 d-none d-sm-block" src="assets/img/about/about-shape-1.png" alt="">
+                                <img class="about__shape-2 d-none d-sm-block" src="assets/img/about/about-shape-2.png" alt="">
+                                <img class="about__shape-3" src="assets/img/about/about-shape-3.png" alt="">
+                            </div>
+                            <div class="about__thumb-left mr-10">
+                                <div class="about__thumb-1 mb-10">
+                                    <img src="assets/img/about/about-1.jpg" alt="">
+                                </div>
+                                <div class="about__thumb-1 mb-10 text-end">
+                                    <img src="assets/img/about/about-3.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="about__thumb-2 mb-10">
+                                <img src="assets/img/about/about-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-5 col-xl-5 col-lg-5">
+                        <div class="about__content pl-70 pr-25">
+                            <div class="section__title-wrapper mb-15">
+                                <span class="section__title-pre">About eduker</span>
+                                <h2 class="section__title">Degrees in Various academic Didciplines</h2>
+                            </div>
+                            <p>Not only can university offer an environment rich in our social an cultural experiences.</p>
 
+                            <div class="about__list mb-40">
+                                <ul>
+                                    <li><i class="fa-solid fa-check"></i> Access to all our courses</li>
+                                    <li><i class="fa-solid fa-check"></i> Learn the latest skills</li>
+                                    <li><i class="fa-solid fa-check"></i> Upskill your organization</li>
+                                </ul>
+                            </div>
+
+                            <div class="about__btn">
+                                <a href="about.html" class="tp-btn tp-btn-2">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 

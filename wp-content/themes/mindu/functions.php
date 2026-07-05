@@ -135,6 +135,59 @@ add_action('widgets_init', 'mindu_widgets_init');
 
 
 
+
+
+
+
+
+
+// Eduker theme assets enqueue (used by Eduker-related widgets)
+
+function mindu_eduker_theme_scripts()
+{
+    // Eduker theme folder URL (since it's not the active theme)
+    $eduker_uri = content_url('/themes/eduker-html-practice');
+
+    // css
+    wp_enqueue_style('eduker-bootstrap', $eduker_uri . '/assets/css/bootstrap.css', array(), '1.0', 'all');
+    wp_enqueue_style('eduker-swiper-bundle', $eduker_uri . '/assets/css/swiper-bundle.css', array(), '1.0', 'all');
+    wp_enqueue_style('eduker-magnific-popup', $eduker_uri . '/assets/css/magnific-popup.css', array(), '1.0', 'all');
+    wp_enqueue_style('eduker-flaticon', $eduker_uri . '/assets/css/flaticon.css', array(), '1.0', 'all');
+    wp_enqueue_style('eduker-font-awesome-pro', $eduker_uri . '/assets/css/font-awesome-pro.css', array(), '1.0', 'all');
+    wp_enqueue_style('eduker-animate', $eduker_uri . '/assets/css/animate.css', array(), '1.0', 'all');
+    wp_enqueue_style('eduker-meanmenu', $eduker_uri . '/assets/css/meanmenu.css', array(), '1.0', 'all');
+    wp_enqueue_style('eduker-nice-select', $eduker_uri . '/assets/css/nice-select.css', array(), '1.0', 'all');
+    wp_enqueue_style('eduker-owl-carousel', $eduker_uri . '/assets/css/owl-carousel.css', array(), '1.0', 'all');
+    wp_enqueue_style('eduker-spacing', $eduker_uri . '/assets/css/spacing.css', array(), '1.0', 'all');
+    wp_enqueue_style('eduker-backtotop', $eduker_uri . '/assets/css/backtotop.css', array(), '1.0', 'all');
+    wp_enqueue_style('eduker-style', $eduker_uri . '/assets/css/style.css', array(), '1.0', 'all');
+
+    // js
+    wp_enqueue_script('eduker-bootstrap-bundle', $eduker_uri . '/assets/js/bootstrap-bundle.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-swiper-bundle', $eduker_uri . '/assets/js/swiper-bundle.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-magnific-popup', $eduker_uri . '/assets/js/magnific-popup.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-nice-select', $eduker_uri . '/assets/js/nice-select.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-counterup', $eduker_uri . '/assets/js/counterup.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-imagesloaded-pkgd', $eduker_uri . '/assets/js/imagesloaded-pkgd.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-isotope-pkgd', $eduker_uri . '/assets/js/isotope-pkgd.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-owl-carousel', $eduker_uri . '/assets/js/owl-carousel.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-parallax', $eduker_uri . '/assets/js/parallax.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-wow', $eduker_uri . '/assets/js/wow.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-meanmenu', $eduker_uri . '/assets/js/meanmenu.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-backtotop', $eduker_uri . '/assets/js/backtotop.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-ajax-form', $eduker_uri . '/assets/js/ajax-form.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('eduker-main', $eduker_uri . '/assets/js/main.js', array('jquery', 'eduker-swiper-bundle'), '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'mindu_eduker_theme_scripts');
+
+
+
+
+
+
+
+
+
 function mindu_theme_scripts()
 {
 
