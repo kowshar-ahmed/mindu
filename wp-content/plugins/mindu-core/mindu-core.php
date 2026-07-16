@@ -23,11 +23,13 @@ function register_mindu_heading_widget($widgets_manager)
     require_once(__DIR__ . '/widgets/hero-practice.php');
     require_once(__DIR__ . '/widgets/hero.php');
     require_once(__DIR__ . '/widgets/icon-box.php');
+    require_once(__DIR__ . '/widgets/image-box.php');
     require_once(__DIR__ . '/widgets/brand.php');
     require_once(__DIR__ . '/widgets/button.php');
     require_once(__DIR__ . '/widgets/team.php');
     require_once(__DIR__ . '/widgets/testimonial.php');
     require_once(__DIR__ . '/widgets/faq.php');
+    require_once(__DIR__ . '/widgets/video.php');
     require_once(__DIR__ . '/widgets/hero-practice-eduker.php');
     require_once(__DIR__ . '/widgets/features-practice-eduker.php');
 
@@ -36,11 +38,13 @@ function register_mindu_heading_widget($widgets_manager)
     $widgets_manager->register(new \Mindu_Hero_Practice());
     $widgets_manager->register(new \Mindu_Hero());
     $widgets_manager->register(new \Mindu_Icon_Box());
+    $widgets_manager->register(new \Mindu_Image_Box());
     $widgets_manager->register(new \Mindu_Brand());
     $widgets_manager->register(new \Mindu_Button());
     $widgets_manager->register(new \Mindu_Team());
     $widgets_manager->register(new \Mindu_Testimonial());
     $widgets_manager->register(new \Mindu_FAQ());
+    $widgets_manager->register(new \Mindu_Video());
     $widgets_manager->register(new \Mindu_Hero_Practice_Eduker());
     $widgets_manager->register(new \Mindu_Features_Practice_Eduker());
 }
