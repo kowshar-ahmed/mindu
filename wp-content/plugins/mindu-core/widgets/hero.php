@@ -39,6 +39,39 @@ class Mindu_Hero extends \Elementor\Widget_Base
 
     protected function register_controls_section()
     {
+
+
+        // Section Layout Tab Start
+
+
+        $this->start_controls_section(
+            'section_layout',
+            [
+                'label' => esc_html__('Design Layout', 'elementor-addon'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+
+        $this->add_control(
+            'design_style',
+            [
+                'label' => esc_html__('Design Style', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => 'style_1',
+                'options' => [
+                    'style_1' => esc_html__('Layout 01', 'textdomain'),
+                    'style_2' => esc_html__('Layout 02', 'textdomain'),
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // Section Layout Tab End
+
+
+
         $this->start_controls_section(
             'section_content',
             [
@@ -235,123 +268,213 @@ class Mindu_Hero extends \Elementor\Widget_Base
     {
         $settings = $this->get_settings_for_display();
 
-        if (!empty($settings['button_text'])) {
-            $this->add_link_attributes('button_arg', $settings['button_url']);
-            $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-square el-button-content');
-        }
-
 
 ?>
 
+        <?php if ($settings['design_style'] === 'style_2') :
 
 
+        ?>
 
-        <!-- tp-hero-area-start -->
-        <div class="tp-hero-spacing z-1 tp-hero-overly p-relative bg-position" style="background-image: url(<?php echo esc_url($settings['image']['url']); ?>)">
-            <span class="tp-hero-shape upslide d-none d-lg-block">
-                <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2.08818 8.65422C-0.714225 8.37681 -0.40129 6.62425 1.29678 4.91129C4.56199 1.61743 9.05795 0.233121 12.2787 0.0151121C14.3756 -0.126863 15.7936 0.731707 16.3303 2.5831C16.7415 4.00185 16.2069 6.0211 14.9239 8.12529C13.1687 11.0042 10.0603 14.2686 9.03228 15.9063C8.98868 15.9754 8.94179 16.0713 8.89564 16.1835C9.49711 15.8348 10.1705 15.3438 10.9075 14.8303C14.5621 12.2837 18.843 8.43613 21.206 7.1371C21.8422 6.78902 25.9173 4.49199 27.6576 4.31741C29.1861 4.16408 30.1635 4.81473 30.6908 5.59582C31.3486 6.57011 31.5091 7.74687 31.1067 9.03364C30.4994 10.9752 27.9838 13.4718 27.2291 14.4047C24.1894 18.1274 20.9212 21.5988 17.8785 25.2786C16.6211 26.7994 15.4003 28.3544 14.2583 29.9846C14.012 30.3362 12.8719 31.7414 12.0786 33.1828C12.0233 33.2831 11.9672 33.3972 11.9137 33.5163C12.3893 33.3594 12.8522 33.0878 13.3064 32.7851C15.1882 31.5305 16.8442 29.5657 18.0934 28.3559C21.5936 24.9596 24.9364 21.329 28.5134 17.9693C30.9848 15.648 33.5629 13.4497 36.3954 11.5542C38.0288 10.4097 42.4742 7.54704 46.0436 6.62425C48.8327 5.9032 51.1817 6.45866 52.6248 8.18097C53.7829 9.56121 53.9204 11.5395 53.2837 13.7066C52.3942 16.7332 49.7044 20.2336 48.6063 21.4924C46.5133 23.8354 44.2602 26.0717 41.8393 28.1574C38.4237 31.1 34.7434 33.7786 31.5526 36.9075C30.2768 38.1587 29.0581 39.4577 27.9532 40.8574C27.4091 41.5543 25.4051 43.9174 23.9932 46.3148C23.6072 46.9703 23.5278 47.8726 23.3586 48.504C23.5863 48.4595 23.8213 48.3953 24.0534 48.3436C25.3009 48.0661 26.5233 47.4834 27.3663 47.031C30.4498 45.3741 32.9893 43.7971 35.366 41.9726C37.6924 40.1868 39.8507 38.1545 42.2273 35.5934L48.1648 29.9846C51.8092 26.3859 56.1915 30.8303 52.7537 34.2574L46.9682 39.8177C44.2387 42.58 41.7599 44.7505 39.1181 46.6594C36.4381 48.5959 33.6 50.2735 30.1508 52.0103C28.65 52.7678 26.3264 53.7109 24.1439 53.9412C22.0764 54.1593 20.1266 53.7822 18.6643 52.6102C17.3429 51.5512 16.748 49.7059 17.4339 47.3343C18.4162 43.9382 22.3396 38.6989 23.1902 37.5349C24.9457 35.068 26.9778 32.8208 29.1523 30.6855C32.0395 27.8502 35.1078 25.1447 38.2182 22.5227C40.2056 20.8473 42.2521 19.2631 44.096 17.4813C44.6719 16.9317 45.7873 15.7824 46.7567 14.4375C47.3092 13.6709 47.85 12.8631 48.1648 12.0674C48.2675 11.8076 48.3721 11.5622 48.4084 11.3192C48.4745 10.8743 48.0504 11.0206 47.6407 10.9875C46.755 11.0819 45.7645 11.3749 44.7834 11.768C42.3256 12.753 39.9179 14.2624 38.8442 14.9543C36.2126 16.7201 33.8096 18.7599 31.5273 20.9339C27.9936 24.2997 24.7382 27.9723 21.3015 31.3931C19.6505 33.0398 17.3076 35.7978 14.7196 37.1611C13.1486 37.9887 11.4827 38.3466 9.79356 38.0493C7.71098 37.6835 6.90253 36.4392 6.79782 34.8141C6.74357 33.9716 7.0048 32.8983 7.50711 31.7985C8.36245 29.9259 9.93509 27.8775 10.2473 27.4159C11.4329 25.6628 12.6995 23.9855 14.0125 22.3489C16.8101 18.8617 19.8194 15.5634 22.6447 12.0677C19.8459 13.9301 15.5012 17.7829 12.118 19.7673C10.3179 20.8231 8.67312 21.3842 7.47349 21.3739C5.35306 21.3556 4.33602 20.3531 3.85839 19.1117C3.60875 18.4626 3.52842 17.6685 3.66431 16.8259C3.85933 15.6172 4.48971 14.2646 4.99568 13.4927C5.92834 12.0743 8.46171 9.44457 10.3212 6.89784C10.9339 6.05871 12.118 4.91129 11.7937 4.48454C11.4694 4.0578 5.35071 7.48327 5.35071 7.48327C4.99681 7.68674 4.45261 8.03891 3.92977 8.27471C3.80283 8.35592 3.66167 8.42841 3.50573 8.49017C3.09015 8.65468 2.35026 8.68011 2.08818 8.65422Z" fill="currentColor" />
-                </svg>
-            </span>
-            <div class="container">
-                <div class="row align-items-end">
-                    <div class="col-xl-7">
-                        <div class="tp-hero-content mb-40">
-
-                            <?php if (!empty($settings['sub_title'])) : ?>
-                                <div class="tp-hero-ratings-wrap d-inline-flex mb-15 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".4s">
-                                    <span class="tp-hero-ratings-text mr-10 d-flex align-items-center el-sub-title">
-                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z" fill="currentColor" />
+            <div class="tp-hero-area tp-hero-overly p-relative z-1 tp-hero-2-overly p-relative bg-position z-1 pt-120" style="background-image: url(<?php echo esc_url($settings['image']['url']); ?>)">
+                <img class=" tp-hero-2-shape d-none d-md-block upslide" src="assets/img/hero/two/shape.png" alt="">
+                <div class="container">
+                    <div class="row align-items-end">
+                        <div class="col-xxl-8 col-xl-7">
+                            <div class="tp-hero-2-content">
+                                <span class="tp-section-subtitle text-white d-inline-block mb-10 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                                    <span class="mr-5">
+                                        <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14.625 7.76196V10.1183C14.625 10.9741 14.1019 11.7379 13.2919 12.0954C12.3075 12.5287 10.8169 13 9 13C7.18313 13 5.6925 12.5287 4.7025 12.0954C3.89812 11.7379 3.375 10.9741 3.375 10.1183V7.76196L7.37437 9.52242C7.88625 9.74993 8.4375 9.86368 9 9.86368C9.5625 9.86368 10.1137 9.74993 10.6256 9.52242L14.625 7.76196Z" fill="currentColor" />
+                                            <path d="M16.8751 6.77063V10.2915C16.8751 10.5895 16.6219 10.8332 16.3126 10.8332C16.0032 10.8332 15.7501 10.5895 15.7501 10.2915V7.26898L16.8751 6.77063Z" fill="currentColor" />
+                                            <path d="M7.84013 8.53863C8.20856 8.70059 8.604 8.78184 9 8.78184C9.396 8.78184 9.79088 8.70113 10.1599 8.53863L17.3436 5.37631C17.7486 5.19809 18 4.82054 18 4.39099C18 3.96144 17.7486 3.58335 17.3436 3.40513L10.1599 0.24335C9.42244 -0.0811165 8.57812 -0.0811165 7.84069 0.24335L0.656438 3.40459C0.251438 3.58335 0 3.9609 0 4.39045C0 4.82 0.251438 5.19755 0.656438 5.37631L7.84013 8.53863Z" fill="currentColor" />
                                         </svg>
-                                        <?php echo mc_kses($settings['sub_title']); ?>
                                     </span>
-                                    <div class="tp-hero-ratings">
-                                        <span>
-                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                        <span>
-                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                        <span>
-                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                        <span>
-                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                        <span>
-                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
-                                            </svg>
-                                        </span>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
+                                    <?php echo mc_kses($settings['sub_title']); ?>
+                                </span>
+                                <h2 class="tp-hero-2-title fw-700 mb-40 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".4s"><?php echo mc_kses($settings['title']); ?></h2>
 
-                            <h2 class="tp-hero-title mb-25 wow fadeInUp el-title" data-wow-duration=".9s" data-wow-delay=".5s">
-                                <?php echo mc_kses($settings['title']); ?>
-                            </h2>
-
-                            <p class="tp-hero-dec mb-30 wow fadeInUp el-content" data-wow-duration=".9s" data-wow-delay=".6s">
-                                <?php echo mc_kses($settings['content']); ?>
-                            </p>
-
-                            <?php if (!empty($settings['button_text'])) : ?>
-                                <div class="wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".7s">
-                                    <a <?php echo $this->get_render_attribute_string('button_arg'); ?>>
-                                        <?php echo mc_kses($settings['button_text']); ?>
-                                        <span class="ml-8">
-                                            <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M8.71527 1L13 5.28471L8.71527 9.56941" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M1 5.28473H12.88" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </span>
-                                    </a>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if (!empty($settings['button_explore_text'])) : ?>
-                                <div class="tp-hero-explore mt-115 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".8s">
-                                    <a href="<?php echo esc_url($settings['button_explore_url']); ?>" class="tp-hero-btn el-button-explore-content">
-                                        <svg class="mr-15" width="15" height="61" viewBox="0 0 15 61" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M8.12249 60.7077C7.73483 61.101 7.10168 61.1056 6.70832 60.718L0.298073 54.4006C-0.0952914 54.013 -0.0999129 53.3798 0.287751 52.9865C0.675414 52.5931 1.30856 52.5885 1.70193 52.9761L7.39992 58.5916L13.0153 52.8936C13.403 52.5002 14.0361 52.4956 14.4295 52.8832C14.8229 53.2709 14.8275 53.904 14.4398 54.2974L8.12249 60.7077ZM6.9723 0.00732422L7.97227 2.51429e-05L8.41022 59.9984L7.41024 60.0057L6.41027 60.013L5.97232 0.0146233L6.9723 0.00732422Z" fill="currentColor" />
-                                        </svg>
-                                        <?php echo mc_kses($settings['button_explore_text']); ?>
-                                    </a>
-                                </div>
-                            <?php endif; ?>
-
-                        </div>
-                    </div>
-                    <div class="col-xl-5">
-                        <div class="d-flex justify-content-xl-end mb-40">
-                            <div class="tp-hero-video wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".6s">
-                                <video loop muted autoplay playsinline>
-                                    <source src="<?php echo mc_kses($settings['video_url']); ?>" type="video/mp4">
-                                </video>
-                                <a href="<?php echo esc_url($settings['video_text_link']); ?>" class="tp-hero-video-btn d-flex align-items-center justify-content-between el-video-content">
-                                    <?php echo mc_kses($settings['video_text']); ?>
-                                    <span>
-                                        <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M15.3245 7.25217L0.75 7.25097M9.69313 0.75C9.69313 0.75 15.7499 5.63242 15.75 7.25052C15.7502 8.86869 9.69424 13.75 9.69424 13.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                <a href="course.html" class="tp-btn tp-btn-xl mr-20 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".5s">Enroll now
+                                    <span class="ml-8">
+                                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.70151 0.20932C5.83044 0.0752924 6.00528 0 6.18758 0C6.36989 0 6.54472 0.0752924 6.67365 0.20932L10.7987 4.49886C10.9276 4.63293 11 4.81474 11 5.00432C11 5.19389 10.9276 5.3757 10.7987 5.50977L6.67365 9.79931C6.54399 9.92954 6.37032 10.0016 6.19006 9.99997C6.00979 9.99834 5.83736 9.92316 5.70989 9.7906C5.58242 9.65805 5.51011 9.47874 5.50855 9.29129C5.50698 9.10384 5.57628 8.92325 5.70151 8.78841L8.65299 5.71924H0.687509C0.50517 5.71924 0.3303 5.64392 0.201367 5.50984C0.0724338 5.37577 0 5.19393 0 5.00432C0 4.81471 0.0724338 4.63286 0.201367 4.49879C0.3303 4.36471 0.50517 4.28939 0.687509 4.28939H8.65299L5.70151 1.22022C5.57263 1.08615 5.50022 0.904344 5.50022 0.714771C5.50022 0.525199 5.57263 0.343388 5.70151 0.20932Z" fill="currentColor" />
                                         </svg>
                                     </span>
                                 </a>
+                                
+                                <a href="#" class="tp-btn tp-btn-transparent wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".6s">Join free today
+                                    <span class="ml-8">
+                                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.70151 0.20932C5.83044 0.0752924 6.00528 0 6.18758 0C6.36989 0 6.54472 0.0752924 6.67365 0.20932L10.7987 4.49886C10.9276 4.63293 11 4.81474 11 5.00432C11 5.19389 10.9276 5.3757 10.7987 5.50977L6.67365 9.79931C6.54399 9.92954 6.37032 10.0016 6.19006 9.99997C6.00979 9.99834 5.83736 9.92316 5.70989 9.7906C5.58242 9.65805 5.51011 9.47874 5.50855 9.29129C5.50698 9.10384 5.57628 8.92325 5.70151 8.78841L8.65299 5.71924H0.687509C0.50517 5.71924 0.3303 5.64392 0.201367 5.50984C0.0724338 5.37577 0 5.19393 0 5.00432C0 4.81471 0.0724338 4.63286 0.201367 4.49879C0.3303 4.36471 0.50517 4.28939 0.687509 4.28939H8.65299L5.70151 1.22022C5.57263 1.08615 5.50022 0.904344 5.50022 0.714771C5.50022 0.525199 5.57263 0.343388 5.70151 0.20932Z" fill="currentColor" />
+                                        </svg>
+                                    </span>
+                                </a>
+                                <h2 class="tp-hero-2-dec mt-180 mb-50 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".7s"><?php echo mc_kses($settings['content']); ?></h2>
+                            </div>
+                        </div>
+                        <div class="col-xxl-4 col-xl-5">
+                            <div class="tp-hero-2-form text-center wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".5s">
+                                <h2 class="tp-hero-2-form-title fw-700 mb-25">We’re here to help<br> You anytime!</h2>
+                                <form action="#">
+                                    <div class="row gx-10">
+                                        <div class="col-lg-6">
+                                            <div class="tp-hero-2-form-input mb-15">
+                                                <input class="tp-input" type="text" placeholder="Fast Name*">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="tp-hero-2-form-input mb-15">
+                                                <input class="tp-input" type="text" placeholder="Last Name*">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="tp-hero-2-form-input mb-15">
+                                                <input class="tp-input" type="text" placeholder="Email*">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="tp-hero-2-form-input mb-15">
+                                                <input class="tp-input" type="text" placeholder="Company Name*">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="tp-hero-2-form-input mb-15">
+                                                <textarea class="tp-input tp-textarea" placeholder="Message*"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="tp-hero-2-form-btn-wrap">
+                                                <div class="tp-hero-2-form-checkbox d-flex align-items-start mb-25">
+                                                    <input class="tp-checkbox" type="checkbox" id="agree">
+                                                    <label class="tp-agree" for="agree">I confirm my data may be <a href="#">collected and stored.</a></label>
+                                                </div>
+                                                <button type="submit" class="tp-btn w-100 justify-content-center">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- tp-hero-area-end -->
+
+
+        <?php else :
+            if (!empty($settings['button_text'])) {
+                $this->add_link_attributes('button_arg', $settings['button_url']);
+                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-square el-button-content');
+            }
+        ?>
+
+
+            <!-- tp-hero-area-start -->
+            <div class="tp-hero-spacing z-1 tp-hero-overly p-relative bg-position" style="background-image: url(<?php echo esc_url($settings['image']['url']); ?>)">
+                <span class="tp-hero-shape upslide d-none d-lg-block">
+                    <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.08818 8.65422C-0.714225 8.37681 -0.40129 6.62425 1.29678 4.91129C4.56199 1.61743 9.05795 0.233121 12.2787 0.0151121C14.3756 -0.126863 15.7936 0.731707 16.3303 2.5831C16.7415 4.00185 16.2069 6.0211 14.9239 8.12529C13.1687 11.0042 10.0603 14.2686 9.03228 15.9063C8.98868 15.9754 8.94179 16.0713 8.89564 16.1835C9.49711 15.8348 10.1705 15.3438 10.9075 14.8303C14.5621 12.2837 18.843 8.43613 21.206 7.1371C21.8422 6.78902 25.9173 4.49199 27.6576 4.31741C29.1861 4.16408 30.1635 4.81473 30.6908 5.59582C31.3486 6.57011 31.5091 7.74687 31.1067 9.03364C30.4994 10.9752 27.9838 13.4718 27.2291 14.4047C24.1894 18.1274 20.9212 21.5988 17.8785 25.2786C16.6211 26.7994 15.4003 28.3544 14.2583 29.9846C14.012 30.3362 12.8719 31.7414 12.0786 33.1828C12.0233 33.2831 11.9672 33.3972 11.9137 33.5163C12.3893 33.3594 12.8522 33.0878 13.3064 32.7851C15.1882 31.5305 16.8442 29.5657 18.0934 28.3559C21.5936 24.9596 24.9364 21.329 28.5134 17.9693C30.9848 15.648 33.5629 13.4497 36.3954 11.5542C38.0288 10.4097 42.4742 7.54704 46.0436 6.62425C48.8327 5.9032 51.1817 6.45866 52.6248 8.18097C53.7829 9.56121 53.9204 11.5395 53.2837 13.7066C52.3942 16.7332 49.7044 20.2336 48.6063 21.4924C46.5133 23.8354 44.2602 26.0717 41.8393 28.1574C38.4237 31.1 34.7434 33.7786 31.5526 36.9075C30.2768 38.1587 29.0581 39.4577 27.9532 40.8574C27.4091 41.5543 25.4051 43.9174 23.9932 46.3148C23.6072 46.9703 23.5278 47.8726 23.3586 48.504C23.5863 48.4595 23.8213 48.3953 24.0534 48.3436C25.3009 48.0661 26.5233 47.4834 27.3663 47.031C30.4498 45.3741 32.9893 43.7971 35.366 41.9726C37.6924 40.1868 39.8507 38.1545 42.2273 35.5934L48.1648 29.9846C51.8092 26.3859 56.1915 30.8303 52.7537 34.2574L46.9682 39.8177C44.2387 42.58 41.7599 44.7505 39.1181 46.6594C36.4381 48.5959 33.6 50.2735 30.1508 52.0103C28.65 52.7678 26.3264 53.7109 24.1439 53.9412C22.0764 54.1593 20.1266 53.7822 18.6643 52.6102C17.3429 51.5512 16.748 49.7059 17.4339 47.3343C18.4162 43.9382 22.3396 38.6989 23.1902 37.5349C24.9457 35.068 26.9778 32.8208 29.1523 30.6855C32.0395 27.8502 35.1078 25.1447 38.2182 22.5227C40.2056 20.8473 42.2521 19.2631 44.096 17.4813C44.6719 16.9317 45.7873 15.7824 46.7567 14.4375C47.3092 13.6709 47.85 12.8631 48.1648 12.0674C48.2675 11.8076 48.3721 11.5622 48.4084 11.3192C48.4745 10.8743 48.0504 11.0206 47.6407 10.9875C46.755 11.0819 45.7645 11.3749 44.7834 11.768C42.3256 12.753 39.9179 14.2624 38.8442 14.9543C36.2126 16.7201 33.8096 18.7599 31.5273 20.9339C27.9936 24.2997 24.7382 27.9723 21.3015 31.3931C19.6505 33.0398 17.3076 35.7978 14.7196 37.1611C13.1486 37.9887 11.4827 38.3466 9.79356 38.0493C7.71098 37.6835 6.90253 36.4392 6.79782 34.8141C6.74357 33.9716 7.0048 32.8983 7.50711 31.7985C8.36245 29.9259 9.93509 27.8775 10.2473 27.4159C11.4329 25.6628 12.6995 23.9855 14.0125 22.3489C16.8101 18.8617 19.8194 15.5634 22.6447 12.0677C19.8459 13.9301 15.5012 17.7829 12.118 19.7673C10.3179 20.8231 8.67312 21.3842 7.47349 21.3739C5.35306 21.3556 4.33602 20.3531 3.85839 19.1117C3.60875 18.4626 3.52842 17.6685 3.66431 16.8259C3.85933 15.6172 4.48971 14.2646 4.99568 13.4927C5.92834 12.0743 8.46171 9.44457 10.3212 6.89784C10.9339 6.05871 12.118 4.91129 11.7937 4.48454C11.4694 4.0578 5.35071 7.48327 5.35071 7.48327C4.99681 7.68674 4.45261 8.03891 3.92977 8.27471C3.80283 8.35592 3.66167 8.42841 3.50573 8.49017C3.09015 8.65468 2.35026 8.68011 2.08818 8.65422Z" fill="currentColor" />
+                    </svg>
+                </span>
+                <div class="container">
+                    <div class="row align-items-end">
+                        <div class="col-xl-7">
+                            <div class="tp-hero-content mb-40">
+
+                                <?php if (!empty($settings['sub_title'])) : ?>
+                                    <div class="tp-hero-ratings-wrap d-inline-flex mb-15 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".4s">
+                                        <span class="tp-hero-ratings-text mr-10 d-flex align-items-center el-sub-title">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7 0L9.163 4.60778L14 5.35121L10.5 8.93586L11.326 14L7 11.6078L2.674 14L3.5 8.93586L0 5.35121L4.837 4.60778L7 0Z" fill="currentColor" />
+                                            </svg>
+                                            <?php echo mc_kses($settings['sub_title']); ?>
+                                        </span>
+                                        <div class="tp-hero-ratings">
+                                            <span>
+                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
+                                                </svg>
+                                            </span>
+                                            <span>
+                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
+                                                </svg>
+                                            </span>
+                                            <span>
+                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
+                                                </svg>
+                                            </span>
+                                            <span>
+                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
+                                                </svg>
+                                            </span>
+                                            <span>
+                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M4.89999 0L6.41408 3.22545L9.79997 3.74585L7.34998 6.2551L7.92818 9.8L4.89999 8.12545L1.87179 9.8L2.44999 6.2551L0 3.74585L3.38589 3.22545L4.89999 0Z" fill="currentColor" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+
+                                <h2 class="tp-hero-title mb-25 wow fadeInUp el-title" data-wow-duration=".9s" data-wow-delay=".5s">
+                                    <?php echo mc_kses($settings['title']); ?>
+                                </h2>
+
+                                <p class="tp-hero-dec mb-30 wow fadeInUp el-content" data-wow-duration=".9s" data-wow-delay=".6s">
+                                    <?php echo mc_kses($settings['content']); ?>
+                                </p>
+
+                                <?php if (!empty($settings['button_text'])) : ?>
+                                    <div class="wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".7s">
+                                        <a <?php echo $this->get_render_attribute_string('button_arg'); ?>>
+                                            <?php echo mc_kses($settings['button_text']); ?>
+                                            <span class="ml-8">
+                                                <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M8.71527 1L13 5.28471L8.71527 9.56941" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M1 5.28473H12.88" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if (!empty($settings['button_explore_text'])) : ?>
+                                    <div class="tp-hero-explore mt-115 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".8s">
+                                        <a href="<?php echo esc_url($settings['button_explore_url']); ?>" class="tp-hero-btn el-button-explore-content">
+                                            <svg class="mr-15" width="15" height="61" viewBox="0 0 15 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M8.12249 60.7077C7.73483 61.101 7.10168 61.1056 6.70832 60.718L0.298073 54.4006C-0.0952914 54.013 -0.0999129 53.3798 0.287751 52.9865C0.675414 52.5931 1.30856 52.5885 1.70193 52.9761L7.39992 58.5916L13.0153 52.8936C13.403 52.5002 14.0361 52.4956 14.4295 52.8832C14.8229 53.2709 14.8275 53.904 14.4398 54.2974L8.12249 60.7077ZM6.9723 0.00732422L7.97227 2.51429e-05L8.41022 59.9984L7.41024 60.0057L6.41027 60.013L5.97232 0.0146233L6.9723 0.00732422Z" fill="currentColor" />
+                                            </svg>
+                                            <?php echo mc_kses($settings['button_explore_text']); ?>
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+
+                            </div>
+                        </div>
+                        <div class="col-xl-5">
+                            <div class="d-flex justify-content-xl-end mb-40">
+                                <div class="tp-hero-video wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".6s">
+                                    <video loop muted autoplay playsinline>
+                                        <source src="<?php echo mc_kses($settings['video_url']); ?>" type="video/mp4">
+                                    </video>
+                                    <a href="<?php echo esc_url($settings['video_text_link']); ?>" class="tp-hero-video-btn d-flex align-items-center justify-content-between el-video-content">
+                                        <?php echo mc_kses($settings['video_text']); ?>
+                                        <span>
+                                            <svg width="17" height="15" viewBox="0 0 17 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M15.3245 7.25217L0.75 7.25097M9.69313 0.75C9.69313 0.75 15.7499 5.63242 15.75 7.25052C15.7502 8.86869 9.69424 13.75 9.69424 13.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- tp-hero-area-end -->
+        <?php endif; ?>
 
 
 

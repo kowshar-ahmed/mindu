@@ -38,6 +38,8 @@ class Mindu_Button extends \Elementor\Widget_Base
 
     protected function register_controls_section()
     {
+        // Section Layout Tab Start
+
 
         $this->start_controls_section(
             'section_layout',
