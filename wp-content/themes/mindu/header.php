@@ -16,7 +16,7 @@
    <![endif]-->
 
     <!-- Preloader Start -->
-    <div class="preloader d-none">
+    <div class="preloader d-none"></div>
         <div class="book">
             <div class="inner">
                 <div class="left"></div>
