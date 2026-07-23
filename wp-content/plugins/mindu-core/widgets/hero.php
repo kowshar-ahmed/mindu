@@ -109,6 +109,25 @@ class Mindu_Hero extends \Elementor\Widget_Base
             ]
         );
 
+
+
+        $this->end_controls_section();
+
+        // Content Tab End
+
+
+
+
+        // Image Tab Start
+
+        $this->start_controls_section(
+            'section_image',
+            [
+                'label' => esc_html__('Image', 'elementor-addon'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
         $this->add_control(
             'image',
             [
@@ -122,7 +141,7 @@ class Mindu_Hero extends \Elementor\Widget_Base
 
         $this->end_controls_section();
 
-        // Content Tab End
+        // Image Tab End
 
 
 
@@ -170,6 +189,53 @@ class Mindu_Hero extends \Elementor\Widget_Base
 
 
 
+
+        // Button_2 Tab Start
+
+        $this->start_controls_section(
+            'section_button_2',
+            [
+                'label' => esc_html__('Button 02', 'elementor-addon'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+                'condition' => [
+                    'design_style' => 'style_2',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'button_text_2',
+            [
+                'label' => esc_html__('Button Text', 'elementor-addon'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Get Started', 'elementor-addon'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
+            'button_url_2',
+            [
+                'label' => esc_html__('Link', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::URL,
+                'options' => ['url', 'is_external', 'nofollow'],
+                'default' => [
+                    'url' => '#',
+                    'is_external' => true,
+                    'nofollow' => true,
+                    // 'custom_attributes' => '',
+                ],
+                'label_block' => true,
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // Button_2 Tab End
+
+
+
+
         // Explore Button Tab Start
 
         $this->start_controls_section(
@@ -177,6 +243,9 @@ class Mindu_Hero extends \Elementor\Widget_Base
             [
                 'label' => esc_html__('Button Explore', 'elementor-addon'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+                'condition' => [
+                    'design_style' => 'style_1',
+                ],
             ]
         );
 
@@ -214,6 +283,9 @@ class Mindu_Hero extends \Elementor\Widget_Base
             [
                 'label' => esc_html__('Video', 'elementor-addon'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+                'condition' => [
+                    'design_style' => 'style_1',
+                ],
             ]
         );
 
@@ -248,9 +320,46 @@ class Mindu_Hero extends \Elementor\Widget_Base
             ]
         );
 
+        $this->end_controls_section();
+
+
+
+        // Button Tab Start
+
+        $this->start_controls_section(
+            'section_cf7',
+            [
+                'label' => esc_html__('Contact Form', 'elementor-addon'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+        $this->add_control(
+            'form_title',
+            [
+                'label' => esc_html__('Form Title', 'elementor-addon'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Get Started', 'elementor-addon'),
+                'label_block' => true,
+            ]
+        );
+
+
+        $this->add_control(
+            'form_shortcode',
+            [
+                'label' => esc_html__('Form Shortcode', 'elementor-addon'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+            ]
+        );
 
 
         $this->end_controls_section();
+
+        // Button Tab End
+
+
+
     }
 
     protected function register_style_section()
@@ -272,12 +381,19 @@ class Mindu_Hero extends \Elementor\Widget_Base
 ?>
 
         <?php if ($settings['design_style'] === 'style_2') :
-
+            if (!empty($settings['button_text'])) {
+                $this->add_link_attributes('button_arg', $settings['button_url']);
+                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-xl mr-20');
+            }
+            if (!empty($settings['button_text_2'])) {
+                $this->add_link_attributes('button_arg_2', $settings['button_url_2']);
+                $this->add_render_attribute('button_arg_2', 'class', 'tp-btn tp-btn-transparent');
+            }
 
         ?>
 
             <div class="tp-hero-area tp-hero-overly p-relative z-1 tp-hero-2-overly p-relative bg-position z-1 pt-120" style="background-image: url(<?php echo esc_url($settings['image']['url']); ?>)">
-                <img class=" tp-hero-2-shape d-none d-md-block upslide" src="assets/img/hero/two/shape.png" alt="">
+                <img class=" tp-hero-2-shape d-none d-md-block upslide" src="<?php echo get_template_directory_uri(); ?>/assets/img/hero/two/shape.png" alt="">
                 <div class="container">
                     <div class="row align-items-end">
                         <div class="col-xxl-8 col-xl-7">
@@ -294,21 +410,32 @@ class Mindu_Hero extends \Elementor\Widget_Base
                                 </span>
                                 <h2 class="tp-hero-2-title fw-700 mb-40 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".4s"><?php echo mc_kses($settings['title']); ?></h2>
 
-                                <a href="course.html" class="tp-btn tp-btn-xl mr-20 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".5s">Enroll now
-                                    <span class="ml-8">
-                                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.70151 0.20932C5.83044 0.0752924 6.00528 0 6.18758 0C6.36989 0 6.54472 0.0752924 6.67365 0.20932L10.7987 4.49886C10.9276 4.63293 11 4.81474 11 5.00432C11 5.19389 10.9276 5.3757 10.7987 5.50977L6.67365 9.79931C6.54399 9.92954 6.37032 10.0016 6.19006 9.99997C6.00979 9.99834 5.83736 9.92316 5.70989 9.7906C5.58242 9.65805 5.51011 9.47874 5.50855 9.29129C5.50698 9.10384 5.57628 8.92325 5.70151 8.78841L8.65299 5.71924H0.687509C0.50517 5.71924 0.3303 5.64392 0.201367 5.50984C0.0724338 5.37577 0 5.19393 0 5.00432C0 4.81471 0.0724338 4.63286 0.201367 4.49879C0.3303 4.36471 0.50517 4.28939 0.687509 4.28939H8.65299L5.70151 1.22022C5.57263 1.08615 5.50022 0.904344 5.50022 0.714771C5.50022 0.525199 5.57263 0.343388 5.70151 0.20932Z" fill="currentColor" />
-                                        </svg>
-                                    </span>
-                                </a>
-                                
-                                <a href="#" class="tp-btn tp-btn-transparent wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".6s">Join free today
-                                    <span class="ml-8">
-                                        <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.70151 0.20932C5.83044 0.0752924 6.00528 0 6.18758 0C6.36989 0 6.54472 0.0752924 6.67365 0.20932L10.7987 4.49886C10.9276 4.63293 11 4.81474 11 5.00432C11 5.19389 10.9276 5.3757 10.7987 5.50977L6.67365 9.79931C6.54399 9.92954 6.37032 10.0016 6.19006 9.99997C6.00979 9.99834 5.83736 9.92316 5.70989 9.7906C5.58242 9.65805 5.51011 9.47874 5.50855 9.29129C5.50698 9.10384 5.57628 8.92325 5.70151 8.78841L8.65299 5.71924H0.687509C0.50517 5.71924 0.3303 5.64392 0.201367 5.50984C0.0724338 5.37577 0 5.19393 0 5.00432C0 4.81471 0.0724338 4.63286 0.201367 4.49879C0.3303 4.36471 0.50517 4.28939 0.687509 4.28939H8.65299L5.70151 1.22022C5.57263 1.08615 5.50022 0.904344 5.50022 0.714771C5.50022 0.525199 5.57263 0.343388 5.70151 0.20932Z" fill="currentColor" />
-                                        </svg>
-                                    </span>
-                                </a>
+                                <?php if (!empty($settings['button_text'])) : ?>
+                                    <div class="d-inline-flex wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".5s">
+                                        <a <?php echo $this->get_render_attribute_string('button_arg'); ?>>
+                                            <?php echo mc_kses($settings['button_text']); ?>
+                                            <span class="ml-8">
+                                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.70151 0.20932C5.83044 0.0752924 6.00528 0 6.18758 0C6.36989 0 6.54472 0.0752924 6.67365 0.20932L10.7987 4.49886C10.9276 4.63293 11 4.81474 11 5.00432C11 5.19389 10.9276 5.3757 10.7987 5.50977L6.67365 9.79931C6.54399 9.92954 6.37032 10.0016 6.19006 9.99997C6.00979 9.99834 5.83736 9.92316 5.70989 9.7906C5.58242 9.65805 5.51011 9.47874 5.50855 9.29129C5.50698 9.10384 5.57628 8.92325 5.70151 8.78841L8.65299 5.71924H0.687509C0.50517 5.71924 0.3303 5.64392 0.201367 5.50984C0.0724338 5.37577 0 5.19393 0 5.00432C0 4.81471 0.0724338 4.63286 0.201367 4.49879C0.3303 4.36471 0.50517 4.28939 0.687509 4.28939H8.65299L5.70151 1.22022C5.57263 1.08615 5.50022 0.904344 5.50022 0.714771C5.50022 0.525199 5.57263 0.343388 5.70151 0.20932Z" fill="currentColor" />
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if (!empty($settings['button_text_2'])) : ?>
+                                    <div class="d-inline-flex wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".6s">
+                                        <a <?php echo $this->get_render_attribute_string('button_arg_2'); ?>>
+                                            <?php echo mc_kses($settings['button_text_2']); ?>
+                                            <span class="ml-8">
+                                                <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.70151 0.20932C5.83044 0.0752924 6.00528 0 6.18758 0C6.36989 0 6.54472 0.0752924 6.67365 0.20932L10.7987 4.49886C10.9276 4.63293 11 4.81474 11 5.00432C11 5.19389 10.9276 5.3757 10.7987 5.50977L6.67365 9.79931C6.54399 9.92954 6.37032 10.0016 6.19006 9.99997C6.00979 9.99834 5.83736 9.92316 5.70989 9.7906C5.58242 9.65805 5.51011 9.47874 5.50855 9.29129C5.50698 9.10384 5.57628 8.92325 5.70151 8.78841L8.65299 5.71924H0.687509C0.50517 5.71924 0.3303 5.64392 0.201367 5.50984C0.0724338 5.37577 0 5.19393 0 5.00432C0 4.81471 0.0724338 4.63286 0.201367 4.49879C0.3303 4.36471 0.50517 4.28939 0.687509 4.28939H8.65299L5.70151 1.22022C5.57263 1.08615 5.50022 0.904344 5.50022 0.714771C5.50022 0.525199 5.57263 0.343388 5.70151 0.20932Z" fill="currentColor" />
+                                                </svg>
+                                            </span>
+                                        </a>
+                                    </div>
+                                <?php endif; ?>
+
                                 <h2 class="tp-hero-2-dec mt-180 mb-50 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".7s"><?php echo mc_kses($settings['content']); ?></h2>
                             </div>
                         </div>
