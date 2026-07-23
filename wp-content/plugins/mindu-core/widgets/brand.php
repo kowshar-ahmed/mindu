@@ -2,7 +2,7 @@
 class Mindu_Brand extends \Elementor\Widget_Base
 {
     use \Common_Trait_Style;
-    
+
     public function get_name(): string
     {
         return 'mindu-brand';
@@ -37,6 +37,39 @@ class Mindu_Brand extends \Elementor\Widget_Base
 
     protected function register_controls_section()
     {
+
+
+        // Section Layout Tab Start
+
+
+        $this->start_controls_section(
+            'section_layout',
+            [
+                'label' => esc_html__('Design Layout', 'elementor-addon'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
+
+
+        $this->add_control(
+            'design_style',
+            [
+                'label' => esc_html__('Design Style', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => 'style_1',
+                'options' => [
+                    'style_1' => esc_html__('Layout 01', 'textdomain'),
+                    'style_2' => esc_html__('Layout 02', 'textdomain'),
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
+        // Section Layout Tab End
+
+
+
         $this->start_controls_section(
             'section_list',
             [
@@ -86,26 +119,12 @@ class Mindu_Brand extends \Elementor\Widget_Base
 
     protected function register_style_section()
     {
-        $this->start_controls_section(
-            'section_title_style',
-            [
-                'label' => esc_html__('Title', 'elementor-addon'),
-                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'title_color',
-            [
-                'label' => esc_html__('Text Color', 'elementor-addon'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .hello-world' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
+        $this->common_trait_style('sub_title', 'Sub Title', '.el-sub-title');
+        $this->common_trait_style('title', 'Title', '.el-title');
+        $this->common_trait_style('content', 'Content', '.el-content');
+        $this->common_trait_style('button_content', 'Button Content', '.el-button-content');
+        $this->common_trait_style('button_explore_content', 'Button Explore Content', '.el-button-explore-content');
+        $this->common_trait_style('video_content', 'Video Content', '.el-video-content');
     }
 
     protected function render(): void
@@ -114,20 +133,53 @@ class Mindu_Brand extends \Elementor\Widget_Base
 
 ?>
 
-        <div class="tp-brand-area fix">
-            <div class="swiper tp-brand-slider">
-                <div class="swiper-wrapper slide-transtion">
-                    <?php foreach ($settings['list'] as $item) : ?>
-                        <div class="swiper-slide">
-                            <div class="tp-brand-item">
-                                <img src="<?php echo esc_html($item['image']['url']); ?>" alt="">
+        <?php if ($settings['design_style'] == 'style_2') :
+
+        ?>
+
+            <div class="tp-brand-area fix p-relative m-z-1">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="swiper tp-brand-slider tp-brand-2-slider">
+                                <div class="swiper-wrapper slide-transtion">
+
+                                    <?php foreach ($settings['list'] as $item) : ?>
+                                        <div class="swiper-slide">
+                                            <div class="tp-brand-item">
+                                                <img src="<?php echo esc_url($item['image']['url']); ?>" alt="">
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+
+                                </div>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
-        </div>
 
+
+
+
+
+
+        <?php else : ?>
+
+            <div class="tp-brand-area fix">
+                <div class="swiper tp-brand-slider">
+                    <div class="swiper-wrapper slide-transtion">
+                        <?php foreach ($settings['list'] as $item) : ?>
+                            <div class="swiper-slide">
+                                <div class="tp-brand-item">
+                                    <img src="<?php echo esc_url($item['image']['url']); ?>" alt="">
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
 
 <?php
 

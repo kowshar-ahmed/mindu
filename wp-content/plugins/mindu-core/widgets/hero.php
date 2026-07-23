@@ -337,9 +337,9 @@ class Mindu_Hero extends \Elementor\Widget_Base
         $this->add_control(
             'form_title',
             [
-                'label' => esc_html__('Form Title', 'elementor-addon'),
+                'label' => esc_html__('Form Text', 'elementor-addon'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => esc_html__('Get Started', 'elementor-addon'),
+                'default' => esc_html__('Form content', 'elementor-addon'),
                 'label_block' => true,
             ]
         );
@@ -350,6 +350,8 @@ class Mindu_Hero extends \Elementor\Widget_Base
             [
                 'label' => esc_html__('Form Shortcode', 'elementor-addon'),
                 'type' => \Elementor\Controls_Manager::TEXT,
+                'label_block' => true,
+
             ]
         );
 
@@ -380,7 +382,7 @@ class Mindu_Hero extends \Elementor\Widget_Base
 
 ?>
 
-        <?php if ($settings['design_style'] === 'style_2') :
+        <?php if ($settings['design_style'] == 'style_2') :
             if (!empty($settings['button_text'])) {
                 $this->add_link_attributes('button_arg', $settings['button_url']);
                 $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-xl mr-20');
@@ -441,45 +443,15 @@ class Mindu_Hero extends \Elementor\Widget_Base
                         </div>
                         <div class="col-xxl-4 col-xl-5">
                             <div class="tp-hero-2-form text-center wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".5s">
-                                <h2 class="tp-hero-2-form-title fw-700 mb-25">We’re here to help<br> You anytime!</h2>
-                                <form action="#">
-                                    <div class="row gx-10">
-                                        <div class="col-lg-6">
-                                            <div class="tp-hero-2-form-input mb-15">
-                                                <input class="tp-input" type="text" placeholder="Fast Name*">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="tp-hero-2-form-input mb-15">
-                                                <input class="tp-input" type="text" placeholder="Last Name*">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="tp-hero-2-form-input mb-15">
-                                                <input class="tp-input" type="text" placeholder="Email*">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="tp-hero-2-form-input mb-15">
-                                                <input class="tp-input" type="text" placeholder="Company Name*">
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="tp-hero-2-form-input mb-15">
-                                                <textarea class="tp-input tp-textarea" placeholder="Message*"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="tp-hero-2-form-btn-wrap">
-                                                <div class="tp-hero-2-form-checkbox d-flex align-items-start mb-25">
-                                                    <input class="tp-checkbox" type="checkbox" id="agree">
-                                                    <label class="tp-agree" for="agree">I confirm my data may be <a href="#">collected and stored.</a></label>
-                                                </div>
-                                                <button type="submit" class="tp-btn w-100 justify-content-center">Submit</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                <h2 class="tp-hero-2-form-title fw-700 mb-25"> <?php echo mc_kses($settings['form_title']); ?>
+                                </h2>
+
+                                <?php if (!empty($settings['form_shortcode'])) : ?>
+                                    <?php echo do_shortcode($settings['form_shortcode']); ?>
+                                <?php else : ?>
+                                <p>Please insert your form shortcode!</p>
+                                <?php endif; ?>
+
                             </div>
                         </div>
                     </div>
