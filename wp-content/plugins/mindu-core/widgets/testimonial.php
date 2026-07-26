@@ -1,6 +1,7 @@
 <?php
 class Mindu_Testimonial extends \Elementor\Widget_Base
 {
+    use \Common_Trait_Style;
 
     public function get_name(): string
     {
@@ -27,7 +28,15 @@ class Mindu_Testimonial extends \Elementor\Widget_Base
         return ['testimonial'];
     }
 
+
+
     protected function register_controls(): void
+    {
+        $this->register_controls_section();
+        $this->register_style_section();
+    }
+
+    protected function register_controls_section()
     {
 
 
@@ -49,6 +58,7 @@ class Mindu_Testimonial extends \Elementor\Widget_Base
                 'options' => [
                     'style_1' => esc_html__('Layout 01', 'textdomain'),
                     'style_2' => esc_html__('Layout 02', 'textdomain'),
+                    'style_3' => esc_html__('Layout 03', 'textdomain'),
                 ],
             ]
         );
@@ -110,6 +120,17 @@ class Mindu_Testimonial extends \Elementor\Widget_Base
             ]
         );
 
+        $repeater->add_control(
+            'logo',
+            [
+                'label' => esc_html__('Choose Logo', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+                'default' => [
+                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                ],
+            ]
+        );
+
         $this->add_control(
             'list',
             [
@@ -138,33 +159,23 @@ class Mindu_Testimonial extends \Elementor\Widget_Base
 
         // Content Tab End
 
+    }
 
+
+
+    protected function register_style_section()
+    {
         // Style Tab Start
 
-        $this->start_controls_section(
-            'section_title_style',
-            [
-                'label' => esc_html__('Title', 'elementor-addon'),
-                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'title_color',
-            [
-                'label' => esc_html__('Text Color', 'elementor-addon'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .hello-world' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
+        $this->common_trait_style('title', 'Title', '.el-title');
+        $this->common_trait_style('content', 'Content', '.el-content');
+        $this->common_trait_style('button_content', 'Button Content', '.el-button-text');
 
         // Style Tab End
-
     }
+
+
+
 
     protected function render(): void
     {
@@ -240,6 +251,40 @@ class Mindu_Testimonial extends \Elementor\Widget_Base
                 </div>
             </div>
 
+
+        <?php elseif ($settings['design_style'] === 'style_3') : ?>
+
+
+
+            <div class="tp-testimonial-area">
+                <div class="container">
+                    <div class="row">
+
+                        <?php foreach ($settings['list'] as $item) : ?>
+                            <div class="col-xxl-6">
+                                <div class="tp-testimonial-3-item fix mb-30 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-4">
+                                            <div class="tp-testimonial-3-thumb">
+                                                <img class="w-100" src="<?php echo esc_html($item['image']['url']); ?>" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="tp-testimonial-3-content ml-35">
+                                                <img class="mb-50" src="<?php echo esc_html($item['logo']['url']); ?>" alt="">
+                                                <h2 class="tp-testimonial-3-dec mb-55"><?php echo esc_html($item['content']); ?></h2>
+                                                <span class="tp-testimonial-3-name fw-600 d-block"><?php echo esc_html($item['title']); ?></span>
+                                                <span class="tp-testimonial-3-designation fw-500"><?php echo esc_html($item['designation']); ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+
+                    </div>
+                </div>
+            </div>
 
 
 

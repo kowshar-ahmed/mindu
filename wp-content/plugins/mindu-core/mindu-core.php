@@ -19,6 +19,7 @@ require_once(__DIR__ . '/inc/plugin-helper.php');
 function register_mindu_heading_widget($widgets_manager)
 {
 
+    require_once(__DIR__ . '/widgets/blog-post.php');
     require_once(__DIR__ . '/widgets/heading.php');
     require_once(__DIR__ . '/widgets/hero-practice.php');
     require_once(__DIR__ . '/widgets/hero.php');
@@ -27,13 +28,16 @@ function register_mindu_heading_widget($widgets_manager)
     require_once(__DIR__ . '/widgets/brand.php');
     require_once(__DIR__ . '/widgets/button.php');
     require_once(__DIR__ . '/widgets/team.php');
+    require_once(__DIR__ . '/widgets/team-list.php');
     require_once(__DIR__ . '/widgets/testimonial.php');
     require_once(__DIR__ . '/widgets/faq.php');
     require_once(__DIR__ . '/widgets/video.php');
+    require_once(__DIR__ . '/widgets/image-flip.php');
     require_once(__DIR__ . '/widgets/hero-practice-eduker.php');
     require_once(__DIR__ . '/widgets/features-practice-eduker.php');
 
 
+    $widgets_manager->register(new \Mindu_Blog_Post());
     $widgets_manager->register(new \Mindu_Heading());
     $widgets_manager->register(new \Mindu_Hero_Practice());
     $widgets_manager->register(new \Mindu_Hero());
@@ -42,9 +46,11 @@ function register_mindu_heading_widget($widgets_manager)
     $widgets_manager->register(new \Mindu_Brand());
     $widgets_manager->register(new \Mindu_Button());
     $widgets_manager->register(new \Mindu_Team());
+    $widgets_manager->register(new \Mindu_Team_List());
     $widgets_manager->register(new \Mindu_Testimonial());
     $widgets_manager->register(new \Mindu_FAQ());
     $widgets_manager->register(new \Mindu_Video());
+    $widgets_manager->register(new \Mindu_Image_Flip());
     $widgets_manager->register(new \Mindu_Hero_Practice_Eduker());
     $widgets_manager->register(new \Mindu_Features_Practice_Eduker());
 }

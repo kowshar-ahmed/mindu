@@ -103,8 +103,6 @@ class Mindu_Image_Box extends \Elementor\Widget_Base
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
                 ],
-
-
             ]
         );
 
@@ -123,8 +121,6 @@ class Mindu_Image_Box extends \Elementor\Widget_Base
         // Style Tab Start
 
         $this->common_trait_style('title', 'Title', '.el-title');
-        $this->common_trait_style('content', 'Content', '.el-content');
-        $this->common_trait_style('button_content', 'Button Content', '.el-button-text');
 
         // Style Tab End
     }
@@ -134,39 +130,13 @@ class Mindu_Image_Box extends \Elementor\Widget_Base
     {
         $settings = $this->get_settings_for_display();
 
-        if (!empty($settings['button_text'])) {
-            $this->add_link_attributes('button_arg', $settings['button_url']);
-            $this->add_render_attribute('button_arg', 'class', 'tp-service-btn fw-700 tp-ff-heading el-button-text');
-        }
 ?>
 
-
-
-
-
-        <div class="tp-department-item mb-30 p-relative wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".4s">
-            <div class="tp-department-thumb overflow-hidden p-relative">
-                <img class="w-100" src="<?php echo esc_url($settings['image']['url']); ?>" alt="">
-            </div>
-            <div class="tp-department-content tp-bounce d-inline-flex justify-content-between align-items-center">
-                <h2 class="tp-department-title mb-0"><a href="<?php echo esc_url($settings['url']); ?>" class="common-underline"><?php echo mc_kses($settings['title']); ?></a></h2>
-                <a href="<?php echo esc_url($settings['url']); ?>" class="tp-department-btn bounce d-inline-flex justify-content-center align-items-center rounded-circle">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.900024 6.8999H12.9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M6.90002 0.899902L12.9 6.8999L6.90002 12.8999" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    <span></span>
-                </a>
-            </div>
+        <div class="tp-community-item">
+            <img src="<?php echo esc_url($settings['image']['url']); ?>" alt="">
         </div>
 
 
-
-
-
-
-
-
-<?php
+       <?php
     }
 }
