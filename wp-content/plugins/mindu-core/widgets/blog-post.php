@@ -63,6 +63,30 @@ class Mindu_Blog_Post extends \Elementor\Widget_Base
         );
 
 
+        $this->add_control(
+            'post_include',
+            [
+                'label' => esc_html__('Post In', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::SELECT2,
+                'label_block' => true,
+                'multiple' => true,
+                'options' => tp_all_post(),
+            ]
+        );
+
+
+        $this->add_control(
+            'post_exclude',
+            [
+                'label' => esc_html__('Post Exclude', 'textdomain'),
+                'type' => \Elementor\Controls_Manager::SELECT2,
+                'label_block' => true,
+                'multiple' => true,
+                'options' => tp_all_post(),
+            ]
+        );
+
+
 
         $this->end_controls_section();
 
@@ -94,11 +118,11 @@ class Mindu_Blog_Post extends \Elementor\Widget_Base
         $args = [
             'post_type'      => 'post', // e.g. 'post', 'page', or a custom post type like 'product'
             'posts_per_page' => $settings['post_per_page'],     // -1 for all posts
-            'post__in'       => array(12, 45, 78),   // only include these post IDs
-            'post__not_in'   => array(57),         // exclude these post IDs
+            'post__in'       => !empty($settings['post_include']) ? $settings['post_include'] : '',   // only include these post IDs
+            'post__not_in'   => !empty($settings['post_exclude']) ? $settings['post_exclude'] : '',         // exclude these post IDs
         ];
 
-        $query = new WP_Query($args);
+        $query = new \WP_Query($args);
 
 
 ?>
