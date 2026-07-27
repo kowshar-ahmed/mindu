@@ -87,6 +87,40 @@ class Mindu_Blog_Post extends \Elementor\Widget_Base
         );
 
 
+$this->add_control(
+    'post-order',
+    [
+        'label' => esc_html__('Post Order', 'elementor-addon'),
+        'type' => \Elementor\Controls_Manager::SELECT,
+        'default' => 'ASC',
+        'options' => [
+            'ASC' => esc_html__('Ascending', 'elementor-addon'),
+            'DESC' => esc_html__('Descending', 'elementor-addon'),
+        ],
+    ]
+);
+
+$this->add_control(
+    'post-order-by',
+    [
+        'label' => esc_html__('Post Order By', 'elementor-addon'),
+        'type' => \Elementor\Controls_Manager::SELECT,
+        'default' => 'date',
+        'options' => [
+            'date' => esc_html__('Date', 'elementor-addon'),
+            'title' => esc_html__('Title', 'elementor-addon'),
+            'menu_order' => esc_html__('Menu Order', 'elementor-addon'),
+            'ID' => esc_html__('ID', 'elementor-addon'),
+            'rand' => esc_html__('Random', 'elementor-addon'),
+            'modified' => esc_html__('Modified', 'elementor-addon'),        
+            'author' => esc_html__('Author', 'elementor-addon'),
+            'comment_count' => esc_html__('Comment Count', 'elementor-addon'),
+            'name' => esc_html__('Name', 'elementor-addon'),
+            'parent' => esc_html__('Parent', 'elementor-addon'),
+            'menu_order' => esc_html__('Menu Order', 'elementor-addon'),
+        ],
+    ]
+);
 
         $this->end_controls_section();
 
@@ -118,8 +152,17 @@ class Mindu_Blog_Post extends \Elementor\Widget_Base
         $args = [
             'post_type'      => 'post', // e.g. 'post', 'page', or a custom post type like 'product'
             'posts_per_page' => $settings['post_per_page'],     // -1 for all posts
+            'orderby'        => $settings['post-order-by'], // e.g. 'date', 'title', 'rand', etc.
+            'order'          => $settings['post-order'],   // 'ASC' or '
             'post__in'       => !empty($settings['post_include']) ? $settings['post_include'] : '',   // only include these post IDs
             'post__not_in'   => !empty($settings['post_exclude']) ? $settings['post_exclude'] : '',         // exclude these post IDs
+            'tax_query'      => [
+                [
+                    'taxonomy' => 'category', // Replace with your taxonomy name
+                    'field'    => 'slug',   // or 'slug'
+                    'terms'    => [],          // Replace with the term IDs or slugs you want to filter by
+                ],
+            ],
         ];
 
         $query = new \WP_Query($args);

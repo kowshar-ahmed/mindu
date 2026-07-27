@@ -1,6 +1,24 @@
 <?php
 
 
+//get all category
+function tp_all_category($name = 'category')
+{
+   $categories = get_terms(array(
+      'taxonomy' => $name,
+      'orderby' => 'name',
+      'order' => 'ASC',
+      'hide_empty' => false, // Set to true if you want to hide empty categories
+   ));
+
+   $category_list = [];
+   foreach ($categories as $category) {
+      $category_list[$category->slug] = $category->name;
+   }
+
+   return $category_list;
+}
+
 
 // get all post
 function tp_all_post($post_type_name = 'post')
