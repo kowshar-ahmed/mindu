@@ -25,7 +25,7 @@ function tp_all_post($post_type_name = 'post')
 {
    $posts = get_posts(array(
       'post_type' => $post_type_name,
-      'orderby' => 'name',
+      'orderby' => 'title',
       'order' => 'ASC',
       'posts_per_page' => -1, // Retrieve all posts
    ));
