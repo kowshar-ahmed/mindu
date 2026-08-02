@@ -71,7 +71,14 @@ if (! function_exists('mindu_setup')) :
         ));
 
         remove_theme_support('widgets-block-editor');
+
+
+        // add_theme_support('wc-product-gallery-lightbox');
+        // add_theme_support('wc-product-gallery-slider');
+
+        add_theme_support('woocommerce');
     }
+
 endif;
 
 // mindu_setup
@@ -232,3 +239,6 @@ add_action('after_setup_theme', 'redux_option');
 
 require get_template_directory() . '/include/nav-walker.php';
 require get_template_directory() . '/include/theme-helper.php';
+if (class_exists('WooCommerce')) {
+    require get_template_directory() . '/include/mindu-woo.php';
+}
