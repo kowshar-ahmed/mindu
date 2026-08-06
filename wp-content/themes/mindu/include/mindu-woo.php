@@ -25,6 +25,8 @@ function mindu_product()
 ?>
 
 
+
+
     <div class="tp-product-item mb-50">
         <div class="tp-product-thumb mb-15 fix p-relative z-index-1">
             <a href="<?php the_permalink(); ?>">
