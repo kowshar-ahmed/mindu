@@ -33,7 +33,7 @@
 
 
 	// 02. Nice Select Js
-	$('.tp-select').niceSelect();
+	$('.tp-select,.woocommerce-orderby select').niceSelect();
 
 	////////////////////////////////////////////////////
 	// 03. mobile menu Js

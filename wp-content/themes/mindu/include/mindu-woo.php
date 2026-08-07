@@ -22,10 +22,9 @@ remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add
 function mindu_product()
 {
 
+    $cats = get_the_terms(get_the_ID(), 'product_cat');
+
 ?>
-
-
-
 
     <div class="tp-product-item mb-50">
         <div class="tp-product-thumb mb-15 fix p-relative z-index-1">
@@ -33,7 +32,7 @@ function mindu_product()
                 <?php the_post_thumbnail('full', ['class' => 'w-100']); ?>
             </a>
             <div class="tp-product-badge">
-                <span class="product-discount">HOT</span>
+                <?php woocommerce_show_product_loop_sale_flash(); ?>
             </div>
             <!-- product action -->
             <div class="tp-product-action tp-product-action-blackStyle">
@@ -72,15 +71,27 @@ function mindu_product()
         </div>
         <div class="tp-product-content">
             <div class="al-product-tag">
-                <a href="#">Camping, </a>
-                <a href="#">Outdoor</a>
-                <a href="#">Travel</a>
+                <?php
+
+                $html = '';
+                $count = 0;
+                foreach ($cats as $key => $cat) {
+
+                    $html .= '<a href="' . get_category_link($cat->term_id) . '">' . $cat->name . '</a>,';
+
+                    $count++;
+                    if ($count == 2) {
+                        break;
+                    }
+                }
+                echo rtrim($html, ',');
+                ?>
             </div>
             <h3 class="tp-product-title">
                 <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
             </h3>
             <div class="tp-product-price-wrapper">
-                <span class="tp-product-price">$220.00</span>
+                <?php woocommerce_template_loop_price(); ?>
             </div>
         </div>
     </div>
