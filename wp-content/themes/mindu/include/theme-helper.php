@@ -1,5 +1,27 @@
 <?php
 
+
+function mindu_header()
+{
+
+    $tp_page_header = function_exists('tpmeta_field') ? tpmeta_field('tp_page_header') : '';
+
+    $test = '';
+
+    if (class_exists('\Elementor\Plugin') && $tp_page_header) {
+        $test = \Elementor\Plugin::$instance->frontend->get_builder_content($tp_page_header);
+    }
+
+    if ($test) {
+        echo $test;
+        return;
+    } else {
+        echo get_template_part('template-parts/header/header-3');
+    }
+}
+
+
+
 //header_logo
 function header_logo()
 {
@@ -132,7 +154,8 @@ add_filter('get_search_form', 'mindu_search_form');
 
 
 
-function mindu_post_tag(){
+function mindu_post_tag()
+{
     $tags = get_the_tags();
     if ($tags) {
         foreach ($tags as $tag) {
@@ -145,86 +168,87 @@ function mindu_post_tag(){
 
 
 /**
-* Sanitize SVG markup for front-end display.
-*
-* @param  string $svg SVG markup to sanitize.
-* @return string 	  Sanitized markup.
-*/
-function mindu_kses( $tag = '' ) {
-	$allowed_html = [
-         'a' => [
+ * Sanitize SVG markup for front-end display.
+ *
+ * @param  string $svg SVG markup to sanitize.
+ * @return string 	  Sanitized markup.
+ */
+function mindu_kses($tag = '')
+{
+    $allowed_html = [
+        'a' => [
             'class'    => [],
             'href'    => [],
             'title'    => [],
             'target'    => [],
             'rel'    => [],
-         ],
-         'b' => [],
-         'blockquote'  =>  [
+        ],
+        'b' => [],
+        'blockquote'  =>  [
             'cite' => [],
-         ],
-         'cite'                      => [
+        ],
+        'cite'                      => [
             'title' => [],
-         ],
-         'code'                      => [],
-         'del'                    => [
+        ],
+        'code'                      => [],
+        'del'                    => [
             'datetime'   => [],
             'title'      => [],
         ],
-         'div'                    => [
+        'div'                    => [
             'class'   => [],
             'title'   => [],
             'style'   => [],
-         ],
-         'dl'                     => [],
-         'dt'                     => [],
-         'em'                     => [],
-         'h1'                     => [],
-         'h2'                     => [],
-         'h3'                     => [],
-         'h4'                     => [],
-         'h5'                     => [],
-         'h6'                     => [],
-         'i'                         => [
+        ],
+        'dl'                     => [],
+        'dt'                     => [],
+        'em'                     => [],
+        'h1'                     => [],
+        'h2'                     => [],
+        'h3'                     => [],
+        'h4'                     => [],
+        'h5'                     => [],
+        'h6'                     => [],
+        'i'                         => [
             'class' => [],
-         ],
-         'img'                    => [
+        ],
+        'img'                    => [
             'alt'  => [],
             'class'   => [],
             'height' => [],
             'src'  => [],
             'width'   => [],
-         ],
-         'li'                     => array(
+        ],
+        'li'                     => array(
             'class' => array(),
-         ),
-         'ol'                     => array(
+        ),
+        'ol'                     => array(
             'class' => array(),
-         ),
-         'p'                         => array(
+        ),
+        'p'                         => array(
             'class' => array(),
-         ),
-         'q'                         => array(
+        ),
+        'q'                         => array(
             'cite'    => array(),
             'title'   => array(),
-         ),
-         'span'                      => array(
+        ),
+        'span'                      => array(
             'class'   => array(),
             'title'   => array(),
             'style'   => array(),
-         ),
-         'iframe'                 => array(
+        ),
+        'iframe'                 => array(
             'width'         => array(),
             'height'     => array(),
             'scrolling'     => array(),
             'frameborder'   => array(),
             'allow'         => array(),
             'src'        => array(),
-         ),
-         'strike'                 => array(),
-         'br'                     => array(),
-         'strong'                 => array(),
-	];
+        ),
+        'strike'                 => array(),
+        'br'                     => array(),
+        'strong'                 => array(),
+    ];
 
-	return wp_kses( $tag, $allowed_html );
+    return wp_kses($tag, $allowed_html);
 }

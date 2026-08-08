@@ -21,6 +21,7 @@ require_once(__DIR__ . '/inc/post-type/header-post-type.php');
 function register_mindu_heading_widget($widgets_manager)
 {
 
+    require_once(__DIR__ . '/widgets/header-menu.php');
     require_once(__DIR__ . '/widgets/blog-post.php');
     require_once(__DIR__ . '/widgets/heading.php');
     require_once(__DIR__ . '/widgets/hero-practice.php');
@@ -39,6 +40,7 @@ function register_mindu_heading_widget($widgets_manager)
     require_once(__DIR__ . '/widgets/features-practice-eduker.php');
 
 
+    $widgets_manager->register(new \Mindu_Header_Menu());
     $widgets_manager->register(new \Mindu_Blog_Post());
     $widgets_manager->register(new \Mindu_Heading());
     $widgets_manager->register(new \Mindu_Hero_Practice());

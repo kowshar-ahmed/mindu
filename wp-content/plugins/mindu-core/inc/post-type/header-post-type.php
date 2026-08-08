@@ -13,8 +13,8 @@ function tp_register_header_post_type() {
                 'edit_item'     => esc_html__( 'Edit Header', 'tp-core' ),
             ),
 
-            'public'             => false,
-            'publicly_queryable' => false,
+            'public'             => true,
+            'publicly_queryable' => true,
             'exclude_from_search'=> true,
             'show_ui'            => true,
             'show_in_menu'       => true,

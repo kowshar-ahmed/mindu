@@ -59,8 +59,7 @@
 
 
 
-    <?php echo get_template_part('template-parts/header/header-3'); ?>
-
+    <?php mindu_header(); ?>
     <!-- tp-breadcrumb-area-start -->
     <div class="tp-breadcrumb-area tp-breadcrumb-2 tp-breadcrumb-3 p-relative bg-grey-4" style="background-image: 
     url(<?php echo get_template_directory_uri(); ?>/assets/img/hero/thumb.jpg);">
