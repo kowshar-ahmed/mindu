@@ -16,7 +16,7 @@ function mindu_header()
         echo $test;
         return;
     } else {
-        echo get_template_part('template-parts/header/header-3');
+        echo get_template_part('template-parts/header/header-1');
     }
 }
 
