@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product Meta
  *
@@ -17,26 +18,63 @@
 
 use Automattic\WooCommerce\Enums\ProductType;
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit;
 }
 
 global $product;
+$cats = get_the_terms(get_the_ID(), 'product_cat');
+$tags = get_the_terms(get_the_ID(), 'product_tag');
+
 ?>
-<div class="product_meta">
 
-	<?php do_action( 'woocommerce_product_meta_start' ); ?>
 
-	<?php if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( ProductType::VARIABLE ) ) ) : ?>
+<div class="tp-product-details-query">
 
-		<span class="sku_wrapper"><?php esc_html_e( 'SKU:', 'woocommerce' ); ?> <span class="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : esc_html__( 'N/A', 'woocommerce' ); ?></span></span>
-
+	<?php if (wc_product_sku_enabled() && ($product->get_sku() || $product->is_type(ProductType::VARIABLE))) : ?>
+		<div class="tp-product-details-query-item d-flex align-items-center">
+			<span><?php esc_html_e('SKU:', 'woocommerce'); ?> </span>
+			<p><?php echo ($sku = $product->get_sku()) ? $sku : esc_html__('N/A', 'woocommerce'); ?></p>
+		</div>
 	<?php endif; ?>
 
-	<?php echo wc_get_product_category_list( $product->get_id(), ', ', '<span class="posted_in">' . _n( 'Category:', 'Categories:', count( $product->get_category_ids() ), 'woocommerce' ) . ' ', '</span>' ); ?>
+	<div class="tp-product-details-query-item d-flex align-items-center">
+		<span><?php esc_html_e('Category:', 'woocommerce'); ?> </span>
+		<p>
+			<?php
+			$html = '';
+			$count = 0;
+			foreach ($cats as $key => $cat) {
 
-	<?php echo wc_get_product_tag_list( $product->get_id(), ', ', '<span class="tagged_as">' . _n( 'Tag:', 'Tags:', count( $product->get_tag_ids() ), 'woocommerce' ) . ' ', '</span>' ); ?>
+				$html .= '<a href="' . get_category_link($cat->term_id) . '">' . $cat->name . '</a>, ';
 
-	<?php do_action( 'woocommerce_product_meta_end' ); ?>
+				$count++;
+				if ($count == 4) {
+					break;
+				}
+			}
+			echo rtrim($html, ', ');
+			?>
+		</p>
+	</div>
+	<div class="tp-product-details-query-item d-flex align-items-center">
+		<span><?php esc_html_e('Tag:', 'woocommerce'); ?> </span>
+		<p>
+			<?php
+			$html = '';
+			$count = 0;
+			foreach ($tags as $key => $tag) {
 
+				$html .= '<a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a>, ';
+
+				$count++;
+				if ($count == 4) {
+					break;
+				}
+			}
+			echo rtrim($html, ', ');
+			?>
+		</p>
+	</div>
 </div>
+
