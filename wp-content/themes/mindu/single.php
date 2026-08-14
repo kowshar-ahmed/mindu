@@ -11,7 +11,7 @@
                     <?php if (have_posts()) : ?>
                         <?php while (have_posts()) : the_post(); ?>
                             <?php echo get_template_part('template-parts/content'); ?>
-                        <?php endwhile; ?>
+                        <?php endwhile; wp_reset_postdata(); ?>
                     <?php else : ?>
                         <p><?php echo esc_html__('No posts found.', 'mindu'); ?></p>
                     <?php endif; ?>

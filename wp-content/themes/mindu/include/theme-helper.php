@@ -1,6 +1,6 @@
 <?php
 
-
+// mindu_header
 function mindu_header()
 {
 
@@ -17,6 +17,27 @@ function mindu_header()
         return;
     } else {
         echo get_template_part('template-parts/header/header-1');
+    }
+}
+
+// mindu_footer
+function mindu_footer()
+{
+
+    $tp_page_footer = function_exists('tpmeta_field') ? tpmeta_field('tp_page_footer') : '';
+
+var_dump($tp_page_footer);
+    $test = '';
+
+    if (class_exists('\Elementor\Plugin') && $tp_page_footer) {
+        $test = \Elementor\Plugin::$instance->frontend->get_builder_content($tp_page_footer);
+    }
+
+    if ($test) {
+        echo $test;
+        return;
+    } else {
+        echo get_template_part('template-parts/footer/footer-1');
     }
 }
 

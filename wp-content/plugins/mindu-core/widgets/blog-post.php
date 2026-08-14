@@ -232,7 +232,7 @@ class Mindu_Blog_Post extends \Elementor\Widget_Base
                                 </div>
                             </div>
                         </div>
-                    <?php endwhile; ?>
+                    <?php endwhile; wp_reset_postdata(); ?>
                 </div>
             </div>
         </div>

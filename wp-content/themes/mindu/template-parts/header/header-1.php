@@ -23,7 +23,7 @@ $header_menu_pos = ($header_right_switch == true) ? 'justify-content-center' : '
                     </div>
                 </div>
                 <div class="col-xxl-10 col-xl-10 col-6">
-                    <div class="tp-header-left d-none d-xl-block">
+                    <div class="tp-header-left d-none d-xl-block text-end">
                         <div class="tp-main-menu tp-main-menu-2 tp-menu-dropdown">
                             <nav class="tp-mobile-menu-active">
                                 <?php header_menu(); ?>

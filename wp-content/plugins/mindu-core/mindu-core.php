@@ -17,6 +17,7 @@ require_once(__DIR__ . '/inc/trait/common-trait.php');
 require_once(__DIR__ . '/inc/plugin-helper.php');
 require_once(__DIR__ . '/inc/post-type/portfolio-post-type.php');
 require_once(__DIR__ . '/inc/post-type/header-post-type.php');
+require_once(__DIR__ . '/inc/post-type/footer-post-type.php');
 
 function register_mindu_heading_widget($widgets_manager)
 {
