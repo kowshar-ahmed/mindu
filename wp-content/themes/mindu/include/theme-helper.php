@@ -4,40 +4,33 @@
 function mindu_header()
 {
 
+
     $tp_page_header = function_exists('tpmeta_field') ? tpmeta_field('tp_page_header') : '';
 
-    $test = '';
+    $header_id = is_object($tp_page_header) ? $tp_page_header->ID : (int) $tp_page_header;
 
-    if (class_exists('\Elementor\Plugin') && $tp_page_header) {
-        $test = \Elementor\Plugin::$instance->frontend->get_builder_content($tp_page_header);
-    }
-
-    if ($test) {
-        echo $test;
-        return;
+    if (class_exists('\Elementor\Plugin') && $header_id) {
+        echo \Elementor\Plugin::$instance->frontend->get_builder_content($header_id, true);
     } else {
         echo get_template_part('template-parts/header/header-1');
     }
 }
 
+
 // mindu_footer
+
+
 function mindu_footer()
 {
 
-    $tp_page_footer = function_exists('tpmeta_field') ? tpmeta_field('tp_page_footer') : '';
+    $tp_page_header = function_exists('tpmeta_field') ? tpmeta_field('tp_page_header') : '';
 
-var_dump($tp_page_footer);
-    $test = '';
+    $header_id = is_object($tp_page_header) ? $tp_page_header->ID : (int) $tp_page_header;
 
-    if (class_exists('\Elementor\Plugin') && $tp_page_footer) {
-        $test = \Elementor\Plugin::$instance->frontend->get_builder_content($tp_page_footer);
-    }
-
-    if ($test) {
-        echo $test;
-        return;
+    if (class_exists('\Elementor\Plugin') && $header_id) {
+        echo \Elementor\Plugin::$instance->frontend->get_builder_content($header_id, true);
     } else {
-        echo get_template_part('template-parts/footer/footer-1');
+        echo get_template_part('template-parts/header/header-1');
     }
 }
 

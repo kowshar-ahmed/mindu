@@ -18,6 +18,7 @@ require_once(__DIR__ . '/inc/plugin-helper.php');
 require_once(__DIR__ . '/inc/post-type/portfolio-post-type.php');
 require_once(__DIR__ . '/inc/post-type/header-post-type.php');
 require_once(__DIR__ . '/inc/post-type/footer-post-type.php');
+require_once(__DIR__ . '/inc/post-type/footer-offcanvas-type.php');
 
 function register_mindu_heading_widget($widgets_manager)
 {
@@ -25,6 +26,7 @@ function register_mindu_heading_widget($widgets_manager)
     require_once(__DIR__ . '/widgets/header-menu.php');
     require_once(__DIR__ . '/widgets/header-search.php');
     require_once(__DIR__ . '/widgets/header-offcanvas.php');
+    require_once(__DIR__ . '/widgets/header-language.php');
     require_once(__DIR__ . '/widgets/blog-post.php');
     require_once(__DIR__ . '/widgets/heading.php');
     require_once(__DIR__ . '/widgets/hero-practice.php');
@@ -46,6 +48,7 @@ function register_mindu_heading_widget($widgets_manager)
     $widgets_manager->register(new \Mindu_Header_Menu());
     $widgets_manager->register(new \Mindu_Header_Search());
     $widgets_manager->register(new \Mindu_Header_Offcanvas());
+    $widgets_manager->register(new \Mindu_Header_Language());
     $widgets_manager->register(new \Mindu_Blog_Post());
     $widgets_manager->register(new \Mindu_Heading());
     $widgets_manager->register(new \Mindu_Hero_Practice());
