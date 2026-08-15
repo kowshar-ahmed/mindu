@@ -85,3 +85,8 @@ Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, feature
   float: none;
   width: 100%;
 }
+
+.tp-offcanvas-overlay {
+  top: 0;
+  left: 0;
+}
