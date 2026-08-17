@@ -191,7 +191,7 @@ add_action('woocommerce_before_shop_loop_item', 'mindu_product', 10);
 function mindu_product_single()
 {
     global $product;
-// var_dump($product);
+    // var_dump($product);
     $cats = get_the_terms(get_the_ID(), 'product_cat');
 
 
@@ -223,16 +223,8 @@ function mindu_product_single()
                 <span><?php echo $product->get_stock_status() === 'instock' ? 'In Stock' : 'Out of Stock'; ?></span>
             </div>
             <div class="tp-product-details-rating-wrapper d-flex align-items-center mb-10">
-                <div class="tp-product-details-rating">
-                    <span><i class="fa-solid fa-star"></i></span>
-                    <span><i class="fa-solid fa-star"></i></span>
-                    <span><i class="fa-solid fa-star"></i></span>
-                    <span><i class="fa-solid fa-star"></i></span>
-                    <span><i class="fa-solid fa-star"></i></span>
-                </div>
-                <div class="tp-product-details-reviews">
-                    <span>(36 Reviews)</span>
-                </div>
+                <?php woocommerce_template_single_rating(); ?>
+
             </div>
         </div>
         <div class="tp-product-details-sort-desc">
@@ -249,43 +241,13 @@ function mindu_product_single()
 
         <!-- actions -->
         <div class="tp-product-details-action-wrapper">
-            <h3 class="tp-product-details-action-title">Quantity</h3>
-            <div class="tp-product-details-action-item-wrapper d-flex align-items-center">
-                <div class="tp-product-details-quantity">
-                    <div class="tp-product-quantity mb-15 mr-15">
-                        <span class="tp-cart-minus">
-                            <svg width="11" height="2" viewBox="0 0 11 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 1H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                        <input class="tp-cart-input" type="text" value="1">
-                        <span class="tp-cart-plus">
-                            <svg width="11" height="12" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 6H10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M5.5 10.5V1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                    </div>
-                </div>
-                <div class="tp-product-details-add-to-cart mb-15 w-100">
-                    <button class="tp-product-details-add-to-cart-btn w-100">Add To Cart</button>
-                </div>
-            </div>
-            <button class="tp-product-details-buy-now-btn w-100">Buy Now</button>
+            <h3 class="tp-product-details-action-title"><?php esc_html_e('Quantity', 'mindu'); ?></h3>
+            <?php woocommerce_template_single_add_to_cart(); ?>
+
         </div>
         <?php woocommerce_template_single_meta(); ?>
-        
-        <div class="tp-product-details-social">
-            <span>Share: </span>
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#">
-                <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.41177 0H0L5.23083 6.87316L0.334618 12.6389H2.59681L6.29998 8.27809L9.58823 12.5988H14L8.6172 5.52593L8.62673 5.53813L13.2614 0.0802914H10.9992L7.55741 4.13336L4.41177 0ZM2.43522 1.20371H3.80866L11.5648 11.395H10.1913L2.43522 1.20371Z" fill="currentcolor"></path>
-                </svg>
-            </a>
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-vimeo-v"></i></a>
-        </div>
+
+        <?php mindu_product_share(); ?>
         <div class="tp-product-details-msg mb-15">
             <ul>
                 <li>30 days easy returns</li>
@@ -301,7 +263,6 @@ function mindu_product_single()
 
 
 
-
 <?php
 
 
@@ -309,3 +270,80 @@ function mindu_product_single()
 
 
 add_action('woocommerce_single_product_summary', 'mindu_product_single', 20);
+
+
+
+// Add "Buy Now" button next to Add to Cart button
+
+function add_buy_now_button()
+{
+    global $product;
+
+    $product_id = $product->get_id();
+
+    $checkout_url = wc_get_checkout_url();
+
+    echo '<a href="' . esc_url($checkout_url . '?add-to-cart=' . $product_id) . '" class="tp-product-details-buy-now-btn w-100 text-center" style="margin-left: 10px;">Buy Now</a>';
+}
+
+add_action('woocommerce_after_add_to_cart_form', 'add_buy_now_button');
+
+
+// Redirect to checkout page if "Buy Now" button is clicked
+
+function custom_add_to_cart_redirect($url)
+{
+    if (isset($_REQUEST['add-to-cart']) && has_term('', 'product_cat', $_REQUEST['add-to-cart'])) {
+        return wc_get_checkout_url();
+    }
+
+    return $url;
+}
+
+add_filter('woocommerce_add_to_cart_redirect', 'custom_add_to_cart_redirect');
+
+
+
+
+function mindu_product_share()
+{
+    // Get current post URL and title
+    $post_url   = urlencode(get_permalink());
+    $post_title = urlencode(get_the_title());
+
+?>
+
+
+    <div class="tp-product-details-social">
+        <span><?php echo esc_html__('Share: ', 'mindu'); ?></span>
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $post_url; ?>" target="_blank" rel="noopener noreferrer">
+            <svg width="8" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 0H5.81818C4.85376 0 3.92883 0.383116 3.24688 1.06507C2.56493 1.74702 2.18182 2.67194 2.18182 3.63636V5.81818H0V8.72727H2.18182V14.5455H5.09091V8.72727H7.27273L8 5.81818H5.09091V3.63636C5.09091 3.44348 5.16753 3.25849 5.30392 3.1221C5.44031 2.98571 5.6253 2.90909 5.81818 2.90909H8V0Z" fill="currentColor" />
+            </svg>
+        </a>
+
+        <!-- X (Twitter) -->
+        <a href="https://twitter.com/intent/tweet?url=<?php echo $post_url; ?>&text=<?php echo $post_title; ?>" target="_blank" rel="noopener noreferrer">
+            <svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M4.41407 0H0L5.23355 6.83748L0.334792 12.5733H2.59816L6.30326 8.23512L9.59323 12.5334H14.0073L8.62168 5.49724L8.63122 5.50938L13.2683 0.0798746H11.0049L7.56134 4.1119L4.41407 0ZM2.43649 1.19746H3.81064L11.5708 11.3359H10.1966L2.43649 1.19746Z" fill="currentColor" />
+            </svg>
+        </a>
+
+        <!-- Instagram (opens profile — direct post sharing not supported) -->
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.75 7.75C0.75 4.45017 0.75 2.80025 1.77513 1.77513C2.80025 0.75 4.45017 0.75 7.75 0.75C11.0498 0.75 12.6997 0.75 13.7249 1.77513C14.75 2.80025 14.75 4.45017 14.75 7.75C14.75 11.0498 14.75 12.6997 13.7249 13.7249C12.6997 14.75 11.0498 14.75 7.75 14.75C4.45017 14.75 2.80025 14.75 1.77513 13.7249C0.75 12.6997 0.75 11.0498 0.75 7.75Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                <path d="M11.0681 7.75036C11.0681 9.58162 9.58357 11.0661 7.75231 11.0661C5.92105 11.0661 4.43652 9.58162 4.43652 7.75036C4.43652 5.9191 5.92105 4.43457 7.75231 4.43457C9.58357 4.43457 11.0681 5.9191 11.0681 7.75036Z" stroke="currentColor" stroke-width="1.5" />
+                <path d="M11.8076 3.69629L11.7974 3.69629" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </a>
+    </div>
+
+
+
+
+
+
+<?php
+}
