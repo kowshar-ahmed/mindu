@@ -7,11 +7,19 @@ function mindu_header()
 
     $tp_page_header = function_exists('tpmeta_field') ? tpmeta_field('tp_page_header') : '';
 
+    $header_global = get_theme_mod('tp_header_global',);
+
     $header_id = is_object($tp_page_header) ? $tp_page_header->ID : (int) $tp_page_header;
+
+    $header_global_id = is_object($header_global) ? $header_global->ID : (int) $header_global;
 
     if (class_exists('\Elementor\Plugin') && $header_id) {
         echo \Elementor\Plugin::$instance->frontend->get_builder_content($header_id, true);
-    } else {
+    }
+    elseif ($header_global_id) {
+        echo \Elementor\Plugin::$instance->frontend->get_builder_content($header_global_id, true);
+    } 
+    else {
         echo get_template_part('template-parts/header/header-1');
     }
 }
@@ -23,14 +31,19 @@ function mindu_header()
 function mindu_footer()
 {
 
-    $tp_page_header = function_exists('tpmeta_field') ? tpmeta_field('tp_page_header') : '';
+    $tp_footer_page = function_exists('tpmeta_field') ? tpmeta_field('tp_page_footer') : '';
 
-    $header_id = is_object($tp_page_header) ? $tp_page_header->ID : (int) $tp_page_header;
+    $footer_global = get_theme_mod('tp_footer_global',);
 
-    if (class_exists('\Elementor\Plugin') && $header_id) {
-        echo \Elementor\Plugin::$instance->frontend->get_builder_content($header_id, true);
+    $footer_id = is_object($tp_footer_page) ? $tp_footer_page->ID : (int) $tp_footer_page;
+    $footer_global_id = is_object($footer_global) ? $footer_global->ID : (int) $footer_global;
+
+    if (class_exists('\Elementor\Plugin') && $footer_id) {
+        echo \Elementor\Plugin::$instance->frontend->get_builder_content($footer_id, true);
+    } elseif ($footer_global_id) {
+        echo \Elementor\Plugin::$instance->frontend->get_builder_content($footer_global_id, true);
     } else {
-        echo get_template_part('template-parts/header/header-1');
+        echo get_template_part('template-parts/footer/footer-1');
     }
 }
 

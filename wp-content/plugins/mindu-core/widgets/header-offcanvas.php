@@ -100,10 +100,9 @@ class Mindu_Header_Offcanvas extends \Elementor\Widget_Base
     {
         $settings = $this->get_settings_for_display();
 
-        $tp_page_offcanvas = function_exists('tpmeta_field') ? tpmeta_field('tp_page_offcanvas') : '';
+        $offcanvas_id = get_theme_mod('tp_offcanvas_global',);
 
-        $offcanvas_id = is_object($tp_page_offcanvas) ? $tp_page_offcanvas->ID : (int) $tp_page_offcanvas;
-        var_dump($offcanvas_id);
+        $offcanvas = is_object($offcanvas_id) ? $offcanvas_id->ID : (int) $offcanvas_id;
 ?>
 
 
@@ -130,11 +129,11 @@ class Mindu_Header_Offcanvas extends \Elementor\Widget_Base
                 </nav>
             </div>
 
-            <?php if (class_exists('\Elementor\Plugin') && $offcanvas_id) : ?>
+            <?php if (class_exists('\Elementor\Plugin') && $offcanvas) : ?>
 
                 <div class="el-offcanvas">
 
-                    <?php echo \Elementor\Plugin::$instance->frontend->get_builder_content($offcanvas_id, true); ?>
+                    <?php echo \Elementor\Plugin::$instance->frontend->get_builder_content($offcanvas, true); ?>
 
                 </div>
             <?php endif; ?>
