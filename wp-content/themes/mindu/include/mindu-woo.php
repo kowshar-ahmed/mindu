@@ -194,7 +194,9 @@ function mindu_product_single()
     // var_dump($product);
     $cats = get_the_terms(get_the_ID(), 'product_cat');
 
-
+    $product_fea = get_theme_mod('product_feature');
+    $card_image = get_theme_mod('card_image');
+    $card_text = get_theme_mod('card_text');
 ?>
 
 
@@ -249,15 +251,18 @@ function mindu_product_single()
 
         <?php mindu_product_share(); ?>
         <div class="tp-product-details-msg mb-15">
-            <ul>
-                <li>30 days easy returns</li>
-                <li>Order yours before 2.30pm for same day dispatch</li>
-            </ul>
+            <?php if ($product_fea) : ?>
+                <p><?php echo mindu_kses($product_fea); ?></p>
+            <?php endif; ?>
         </div>
-        <div class="tp-product-details-payment d-inline-flex align-items-center flex-wrap justify-content-between">
-            <p>Guaranteed safe <br> & secure checkout</p>
-            <img src="assets/img/product/small/payment-option.png" alt="">
-        </div>
+        <?php if ($product_fea) : ?>
+
+            <div class="tp-product-details-payment d-inline-flex align-items-center flex-wrap justify-content-between">
+                <p><?php echo mindu_kses($card_text); ?></p>
+                <img src="<?php echo esc_url($card_image); ?>" alt="">
+            </div>
+        <?php endif; ?>
+
     </div>
 
 
