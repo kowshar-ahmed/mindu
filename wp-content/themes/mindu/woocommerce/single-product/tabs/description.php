@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Description tab
  *
@@ -15,16 +16,33 @@
  * @version 2.0.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 global $post;
 
-$heading = apply_filters( 'woocommerce_product_description_heading', __( 'Description', 'woocommerce' ) );
+$heading = apply_filters('woocommerce_product_description_heading', __('Description', 'woocommerce'));
 
 ?>
 
-<?php if ( $heading ) : ?>
-	<h2><?php echo esc_html( $heading ); ?></h2>
-<?php endif; ?>
 
-<?php the_content(); ?>
+
+<div class="tp-product-details-desc-wrapper pt-50">
+	<div class="row justify-content-center">
+		<div class="col-xl-10">
+			<div class="tp-product-details-desc-item">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="tp-product-details-desc-content pt-25">
+							<?php if ($heading) : ?>
+								<h3 class="tp-product-details-desc-title"><?php echo esc_html($heading); ?></h3>
+							<?php endif; ?>
+							<?php the_content(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
