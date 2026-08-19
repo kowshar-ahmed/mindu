@@ -1,7 +1,7 @@
 <?php
 class Mindu_Hero extends \Elementor\Widget_Base
 {
-    use \Common_Trait_Style;
+    use \TP_Common_Style, TP_Link_Style_Trait;
 
     public function get_name(): string
     {
@@ -366,12 +366,12 @@ class Mindu_Hero extends \Elementor\Widget_Base
 
     protected function register_style_section()
     {
-        $this->common_trait_style('sub_title', 'Sub Title', '.el-sub-title');
-        $this->common_trait_style('title', 'Title', '.el-title');
-        $this->common_trait_style('content', 'Content', '.el-content');
-        $this->common_trait_style('button_content', 'Button Content', '.el-button-content');
-        $this->common_trait_style('button_explore_content', 'Button Explore Content', '.el-button-explore-content');
-        $this->common_trait_style('video_content', 'Video Content', '.el-video-content');
+        $this->tp_text_style_controls('sub_title', 'Sub Title', '.el-sub-title');
+        $this->tp_text_style_controls('title', 'Title', '.el-title');
+        $this->tp_text_style_controls('content', 'Content', '.el-content');
+
+        $this->tp_link_controls_style('btn', 'Button', '.el-btn');
+        $this->tp_link_controls_style('btntow', 'Button 02', '.el-btn-2');
     }
 
 
@@ -385,11 +385,11 @@ class Mindu_Hero extends \Elementor\Widget_Base
         <?php if ($settings['design_style'] == 'style_2') :
             if (!empty($settings['button_text'])) {
                 $this->add_link_attributes('button_arg', $settings['button_url']);
-                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-xl mr-20');
+                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-xl mr-20 el-btn');
             }
             if (!empty($settings['button_text_2'])) {
                 $this->add_link_attributes('button_arg_2', $settings['button_url_2']);
-                $this->add_render_attribute('button_arg_2', 'class', 'tp-btn tp-btn-transparent');
+                $this->add_render_attribute('button_arg_2', 'class', 'tp-btn tp-btn-transparent el-btn-2');
             }
 
         ?>
@@ -400,17 +400,19 @@ class Mindu_Hero extends \Elementor\Widget_Base
                     <div class="row align-items-end">
                         <div class="col-xxl-8 col-xl-7">
                             <div class="tp-hero-2-content">
-                                <span class="tp-section-subtitle text-white d-inline-block mb-10 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".3s">
-                                    <span class="mr-5">
-                                        <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M14.625 7.76196V10.1183C14.625 10.9741 14.1019 11.7379 13.2919 12.0954C12.3075 12.5287 10.8169 13 9 13C7.18313 13 5.6925 12.5287 4.7025 12.0954C3.89812 11.7379 3.375 10.9741 3.375 10.1183V7.76196L7.37437 9.52242C7.88625 9.74993 8.4375 9.86368 9 9.86368C9.5625 9.86368 10.1137 9.74993 10.6256 9.52242L14.625 7.76196Z" fill="currentColor" />
-                                            <path d="M16.8751 6.77063V10.2915C16.8751 10.5895 16.6219 10.8332 16.3126 10.8332C16.0032 10.8332 15.7501 10.5895 15.7501 10.2915V7.26898L16.8751 6.77063Z" fill="currentColor" />
-                                            <path d="M7.84013 8.53863C8.20856 8.70059 8.604 8.78184 9 8.78184C9.396 8.78184 9.79088 8.70113 10.1599 8.53863L17.3436 5.37631C17.7486 5.19809 18 4.82054 18 4.39099C18 3.96144 17.7486 3.58335 17.3436 3.40513L10.1599 0.24335C9.42244 -0.0811165 8.57812 -0.0811165 7.84069 0.24335L0.656438 3.40459C0.251438 3.58335 0 3.9609 0 4.39045C0 4.82 0.251438 5.19755 0.656438 5.37631L7.84013 8.53863Z" fill="currentColor" />
-                                        </svg>
+                                <?php if (!empty($settings['sub_title'])) : ?>
+                                    <span class="tp-section-subtitle el-sub-title d-inline-block mb-10 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".3s">
+                                        <span class="mr-5">
+                                            <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M14.625 7.76196V10.1183C14.625 10.9741 14.1019 11.7379 13.2919 12.0954C12.3075 12.5287 10.8169 13 9 13C7.18313 13 5.6925 12.5287 4.7025 12.0954C3.89812 11.7379 3.375 10.9741 3.375 10.1183V7.76196L7.37437 9.52242C7.88625 9.74993 8.4375 9.86368 9 9.86368C9.5625 9.86368 10.1137 9.74993 10.6256 9.52242L14.625 7.76196Z" fill="currentColor" />
+                                                <path d="M16.8751 6.77063V10.2915C16.8751 10.5895 16.6219 10.8332 16.3126 10.8332C16.0032 10.8332 15.7501 10.5895 15.7501 10.2915V7.26898L16.8751 6.77063Z" fill="currentColor" />
+                                                <path d="M7.84013 8.53863C8.20856 8.70059 8.604 8.78184 9 8.78184C9.396 8.78184 9.79088 8.70113 10.1599 8.53863L17.3436 5.37631C17.7486 5.19809 18 4.82054 18 4.39099C18 3.96144 17.7486 3.58335 17.3436 3.40513L10.1599 0.24335C9.42244 -0.0811165 8.57812 -0.0811165 7.84069 0.24335L0.656438 3.40459C0.251438 3.58335 0 3.9609 0 4.39045C0 4.82 0.251438 5.19755 0.656438 5.37631L7.84013 8.53863Z" fill="currentColor" />
+                                            </svg>
+                                        </span>
+                                        <?php echo mc_kses($settings['sub_title']); ?>
                                     </span>
-                                    <?php echo mc_kses($settings['sub_title']); ?>
-                                </span>
-                                <h2 class="tp-hero-2-title fw-700 mb-40 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".4s"><?php echo mc_kses($settings['title']); ?></h2>
+                                <?php endif; ?>
+                                <h2 class="tp-hero-2-title el-title fw-700 mb-40 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".4s"><?php echo mc_kses($settings['title']); ?></h2>
 
                                 <?php if (!empty($settings['button_text'])) : ?>
                                     <div class="d-inline-flex wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".5s">
@@ -438,22 +440,27 @@ class Mindu_Hero extends \Elementor\Widget_Base
                                     </div>
                                 <?php endif; ?>
 
-                                <h2 class="tp-hero-2-dec mt-180 mb-50 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".7s"><?php echo mc_kses($settings['content']); ?></h2>
-                            </div>
-                        </div>
-                        <div class="col-xxl-4 col-xl-5">
-                            <div class="tp-hero-2-form text-center wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".5s">
-                                <h2 class="tp-hero-2-form-title fw-700 mb-25"> <?php echo mc_kses($settings['form_title']); ?>
-                                </h2>
-
-                                <?php if (!empty($settings['form_shortcode'])) : ?>
-                                    <?php echo do_shortcode($settings['form_shortcode']); ?>
-                                <?php else : ?>
-                                <p>Please insert your form shortcode!</p>
+                                <?php if (!empty($settings['content'])) : ?>
+                                    <h2 class="tp-hero-2-dec el-content mt-180 mb-50 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".7s"><?php echo mc_kses($settings['content']); ?></h2>
                                 <?php endif; ?>
-
                             </div>
                         </div>
+
+                        <?php if (!empty($settings['form_shortcode'])) : ?>
+                            <div class="col-xxl-4 col-xl-5">
+                                <div class="tp-hero-2-form text-center wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".5s">
+                                    <h2 class="tp-hero-2-form-title fw-700 mb-25"> <?php echo mc_kses($settings['form_title']); ?>
+                                    </h2>
+
+                                    <?php if (!empty($settings['form_shortcode'])) : ?>
+                                        <?php echo do_shortcode($settings['form_shortcode']); ?>
+                                    <?php else : ?>
+                                        <p>Please insert your form shortcode!</p>
+                                    <?php endif; ?>
+
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -462,7 +469,7 @@ class Mindu_Hero extends \Elementor\Widget_Base
         <?php else :
             if (!empty($settings['button_text'])) {
                 $this->add_link_attributes('button_arg', $settings['button_url']);
-                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-square el-button-content');
+                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-square el-btn');
             }
         ?>
 
@@ -478,7 +485,6 @@ class Mindu_Hero extends \Elementor\Widget_Base
                     <div class="row align-items-end">
                         <div class="col-xl-7">
                             <div class="tp-hero-content mb-40">
-
                                 <?php if (!empty($settings['sub_title'])) : ?>
                                     <div class="tp-hero-ratings-wrap d-inline-flex mb-15 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".4s">
                                         <span class="tp-hero-ratings-text mr-10 d-flex align-items-center el-sub-title">
@@ -517,13 +523,17 @@ class Mindu_Hero extends \Elementor\Widget_Base
                                     </div>
                                 <?php endif; ?>
 
-                                <h2 class="tp-hero-title mb-25 wow fadeInUp el-title" data-wow-duration=".9s" data-wow-delay=".5s">
-                                    <?php echo mc_kses($settings['title']); ?>
-                                </h2>
+                                <?php if (!empty($settings['title'])) : ?>
+                                    <h2 class="tp-hero-title mb-25 wow fadeInUp el-title" data-wow-duration=".9s" data-wow-delay=".5s">
+                                        <?php echo mc_kses($settings['title']); ?>
+                                    </h2>
+                                <?php endif; ?>
 
-                                <p class="tp-hero-dec mb-30 wow fadeInUp el-content" data-wow-duration=".9s" data-wow-delay=".6s">
-                                    <?php echo mc_kses($settings['content']); ?>
-                                </p>
+                                <?php if (!empty($settings['content'])) : ?>
+                                    <p class="tp-hero-dec mb-30 wow fadeInUp el-content" data-wow-duration=".9s" data-wow-delay=".6s">
+                                        <?php echo mc_kses($settings['content']); ?>
+                                    </p>
+                                <?php endif; ?>
 
                                 <?php if (!empty($settings['button_text'])) : ?>
                                     <div class="wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".7s">
@@ -541,7 +551,7 @@ class Mindu_Hero extends \Elementor\Widget_Base
 
                                 <?php if (!empty($settings['button_explore_text'])) : ?>
                                     <div class="tp-hero-explore mt-115 wow fadeInUp" data-wow-duration=".9s" data-wow-delay=".8s">
-                                        <a href="<?php echo esc_url($settings['button_explore_url']); ?>" class="tp-hero-btn el-button-explore-content">
+                                        <a href="<?php echo esc_url($settings['button_explore_url']); ?>" class="tp-hero-btn el-btn-2">
                                             <svg class="mr-15" width="15" height="61" viewBox="0 0 15 61" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M8.12249 60.7077C7.73483 61.101 7.10168 61.1056 6.70832 60.718L0.298073 54.4006C-0.0952914 54.013 -0.0999129 53.3798 0.287751 52.9865C0.675414 52.5931 1.30856 52.5885 1.70193 52.9761L7.39992 58.5916L13.0153 52.8936C13.403 52.5002 14.0361 52.4956 14.4295 52.8832C14.8229 53.2709 14.8275 53.904 14.4398 54.2974L8.12249 60.7077ZM6.9723 0.00732422L7.97227 2.51429e-05L8.41022 59.9984L7.41024 60.0057L6.41027 60.013L5.97232 0.0146233L6.9723 0.00732422Z" fill="currentColor" />
                                             </svg>

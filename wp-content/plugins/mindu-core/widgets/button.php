@@ -1,7 +1,7 @@
 <?php
 class Mindu_Button extends \Elementor\Widget_Base
 {
-    use \Common_Trait_Style;
+    use \TP_Link_Style_Trait;
 
     public function get_name(): string
     {
@@ -115,7 +115,7 @@ class Mindu_Button extends \Elementor\Widget_Base
     protected function register_style_section()
     {
 
-        $this->common_trait_style('title', 'Title', '.el-title');
+        $this->tp_link_controls_style('btn', 'Button', '.el-btn');
     }
 
 
@@ -131,7 +131,7 @@ class Mindu_Button extends \Elementor\Widget_Base
         <?php if ($settings['design_style'] === 'style_2') :
             if (!empty($settings['button_text'])) {
                 $this->add_link_attributes('button_arg', $settings['button_url']);
-                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-border tp-btn-xl el-title');
+                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-border tp-btn-xl el-btn');
             }
         ?>
             <?php if (!empty($settings['button_text'])) : ?>
@@ -152,7 +152,7 @@ class Mindu_Button extends \Elementor\Widget_Base
         <?php else :
             if (!empty($settings['button_text'])) {
                 $this->add_link_attributes('button_arg', $settings['button_url']);
-                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-xl el-title');
+                $this->add_render_attribute('button_arg', 'class', 'tp-btn tp-btn-xl el-btn');
             }
         ?>
             <?php if (!empty($settings['button_text'])) : ?>
