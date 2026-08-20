@@ -35,6 +35,8 @@ function register_mindu_heading_widget($widgets_manager)
     require_once(__DIR__ . '/widgets/header-offcanvas.php');
     require_once(__DIR__ . '/widgets/header-language.php');
     require_once(__DIR__ . '/widgets/blog-post.php');
+    require_once(__DIR__ . '/widgets/fact.php');
+    require_once(__DIR__ . '/widgets/text-slide.php');
     require_once(__DIR__ . '/widgets/heading.php');
     require_once(__DIR__ . '/widgets/hero-practice.php');
     require_once(__DIR__ . '/widgets/hero.php');
@@ -57,6 +59,8 @@ function register_mindu_heading_widget($widgets_manager)
     $widgets_manager->register(new \Mindu_Header_Offcanvas());
     $widgets_manager->register(new \Mindu_Header_Language());
     $widgets_manager->register(new \Mindu_Blog_Post());
+    $widgets_manager->register(new \Mindu_Fact());
+    $widgets_manager->register(new \Mindu_Text_Slide());
     $widgets_manager->register(new \Mindu_Heading());
     $widgets_manager->register(new \Mindu_Hero_Practice());
     $widgets_manager->register(new \Mindu_Hero());
