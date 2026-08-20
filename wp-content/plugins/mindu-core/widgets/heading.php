@@ -2,7 +2,7 @@
 class Mindu_Heading extends \Elementor\Widget_Base
 {
 
-    use \Common_Trait_Style;
+    use \TP_Common_Style, TP_Link_Style_Trait;
 
     public function get_name(): string
     {
@@ -122,12 +122,9 @@ class Mindu_Heading extends \Elementor\Widget_Base
 
     protected function register_style_section()
     {
-
-        $this->common_trait_style('title', 'Title', '.el-title');
-
-        $this->common_trait_style('sub_title', 'Sub Title', '.el-sub-title');
-
-        $this->common_trait_style('content', 'Content', '.el-content');
+        $this->tp_text_style_controls('sub_title', 'Sub Title', '.el-sub-title');
+        $this->tp_text_style_controls('title', 'Title', '.el-title');
+        $this->tp_text_style_controls('content', 'Content', '.el-content');
     }
     // Style Tab End
 

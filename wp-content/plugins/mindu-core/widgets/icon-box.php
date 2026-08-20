@@ -1,7 +1,7 @@
 <?php
 class Mindu_Icon_Box extends \Elementor\Widget_Base
 {
-    use \Common_Trait_Style;
+    use \TP_Common_Style, TP_Link_Style_Trait, TP_Icon_Style_Trait;
 
     public function get_name(): string
     {
@@ -227,9 +227,11 @@ class Mindu_Icon_Box extends \Elementor\Widget_Base
     {
         // Style Tab Start
 
-        $this->common_trait_style('title', 'Title', '.el-title');
-        $this->common_trait_style('content', 'Content', '.el-content');
-        $this->common_trait_style('button_content', 'Button Content', '.el-button-text');
+        $this->tp_text_style_controls('title', 'Title', '.el-title');
+        $this->tp_text_style_controls('content', 'Content', '.el-content');
+
+        $this->tp_link_controls_style('btn', 'Button', '.el-btn');
+        $this->tp_icon_style_controls('icon', 'Icon', '.el-icon');
 
         // Style Tab End
     }
@@ -247,12 +249,12 @@ class Mindu_Icon_Box extends \Elementor\Widget_Base
         <?php if ($settings['design_style'] == 'style_2') :
             if (!empty($settings['button_text'])) {
                 $this->add_link_attributes('button_arg', $settings['button_url']);
-                $this->add_render_attribute('button_arg', 'class', 'tp-service-btn fw-700 tp-ff-heading el-button-text');
+                $this->add_render_attribute('button_arg', 'class', 'tp-service-btn fw-700 tp-ff-heading el-btn');
             }
         ?>
 
             <div class="tp-service-item tp-service-2-item mb-30">
-                <span class="tp-service-icon mb-70">
+                <span class="tp-service-icon mb-70 el-icon">
                     <?php if ($settings['icon_style'] === 'icon') : ?>
                         <?php \Elementor\Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
                     <?php elseif ($settings['icon_style'] === 'image') : ?>
@@ -261,8 +263,8 @@ class Mindu_Icon_Box extends \Elementor\Widget_Base
                         <?php echo $settings['svg']; ?>
                     <?php endif; ?>
                 </span>
-                <h2 class="tp-service-title fw-700 mb-15"><?php echo mc_kses($settings['title']); ?></h2>
-                <p class="tp-service-dec fw-500 mb-35"><?php echo mc_kses($settings['content']); ?></p>
+                <h2 class="tp-service-title fw-700 mb-15 el-title"><?php echo mc_kses($settings['title']); ?></h2>
+                <p class="tp-service-dec fw-500 mb-35 el-content"><?php echo mc_kses($settings['content']); ?></p>
                 <a <?php echo $this->get_render_attribute_string('button_arg'); ?>>
                     <?php echo mc_kses($settings['button_text']); ?>
                     <svg class="ml-5" width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -276,7 +278,7 @@ class Mindu_Icon_Box extends \Elementor\Widget_Base
         <?php elseif ($settings['design_style'] == 'style_3') : ?>
 
             <div class="tp-feature-item text-center mb-30 mt-40">
-                <span class="tp-feature-icon p-relative mb-20">
+                <span class="tp-feature-icon p-relative mb-20 el-icon">
                     <?php if ($settings['icon_style'] === 'icon') : ?>
                         <?php \Elementor\Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
                     <?php elseif ($settings['icon_style'] === 'image') : ?>
@@ -285,8 +287,8 @@ class Mindu_Icon_Box extends \Elementor\Widget_Base
                         <?php echo $settings['svg']; ?>
                     <?php endif; ?>
                 </span>
-                <h2 class="tp-feature-title fw-700 mb-10"><?php echo mc_kses($settings['title']); ?></h2>
-                <p class="tp-feature-dec fw-500"><?php echo mc_kses($settings['content']); ?></p>
+                <h2 class="tp-feature-title fw-700 mb-10 el-title"><?php echo mc_kses($settings['title']); ?></h2>
+                <p class="tp-feature-dec fw-500 el-content"><?php echo mc_kses($settings['content']); ?></p>
             </div>
 
 
@@ -294,7 +296,7 @@ class Mindu_Icon_Box extends \Elementor\Widget_Base
 
 
             <div class="tp-service-3-item tp-about-mission-item d-flex align-items-center">
-                <span class="tp-about-mission-icon mr-20 d-inline-flex justify-content-center align-items-center">
+                <span class="tp-about-mission-icon mr-20 d-inline-flex justify-content-center align-items-center el-icon">
                     <?php if ($settings['icon_style'] === 'icon') : ?>
                         <?php \Elementor\Icons_Manager::render_icon($settings['icon'], ['aria-hidden' => 'true']); ?>
                     <?php elseif ($settings['icon_style'] === 'image') : ?>
@@ -304,8 +306,8 @@ class Mindu_Icon_Box extends \Elementor\Widget_Base
                     <?php endif; ?>
                 </span>
                 <div>
-                    <h3 class="tp-about-mission-title fw-700 mb-5"><?php echo mc_kses($settings['title']); ?></h3>
-                    <p class="fw-500 mb-0"><?php echo mc_kses($settings['content']); ?></p>
+                    <h3 class="tp-about-mission-title fw-700 mb-5 el-title"><?php echo mc_kses($settings['title']); ?></h3>
+                    <p class="fw-500 mb-0 el-content"><?php echo mc_kses($settings['content']); ?></p>
                 </div>
             </div>
 
@@ -314,7 +316,7 @@ class Mindu_Icon_Box extends \Elementor\Widget_Base
         <?php else :
             if (!empty($settings['button_text'])) {
                 $this->add_link_attributes('button_arg', $settings['button_url']);
-                $this->add_render_attribute('button_arg', 'class', 'tp-service-btn fw-700 tp-ff-heading el-button-text');
+                $this->add_render_attribute('button_arg', 'class', 'tp-service-btn fw-700 tp-ff-heading el-btn');
             }
         ?>
 
