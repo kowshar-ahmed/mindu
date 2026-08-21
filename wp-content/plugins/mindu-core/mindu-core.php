@@ -22,6 +22,7 @@ require_once(__DIR__ . '/inc/traits/icon-style.php');
 //plugin helper functions
 require_once(__DIR__ . '/inc/trait/common-trait.php');
 require_once(__DIR__ . '/inc/plugin-helper.php');
+require_once(__DIR__ . '/inc/breadcrumb.php');
 require_once(__DIR__ . '/inc/post-type/portfolio-post-type.php');
 require_once(__DIR__ . '/inc/post-type/header-post-type.php');
 require_once(__DIR__ . '/inc/post-type/footer-post-type.php');

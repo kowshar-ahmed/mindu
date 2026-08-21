@@ -239,6 +239,8 @@ add_action('after_setup_theme', 'redux_option');
 
 require get_template_directory() . '/include/nav-walker.php';
 require get_template_directory() . '/include/theme-helper.php';
+require get_template_directory() . '/include/breadcrumb.php';
+
 if (class_exists('WooCommerce')) {
     require get_template_directory() . '/include/mindu-woo.php';
 }

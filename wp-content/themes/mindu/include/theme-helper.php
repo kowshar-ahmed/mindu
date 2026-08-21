@@ -34,7 +34,7 @@ function mindu_header()
 
 
 
-
+add_action('mindu_before_header','mindu_header',10);
 
 
 // mindu_footer
