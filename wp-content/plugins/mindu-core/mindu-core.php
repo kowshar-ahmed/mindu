@@ -50,6 +50,7 @@ function register_mindu_heading_widget($widgets_manager)
     require_once(__DIR__ . '/widgets/faq.php');
     require_once(__DIR__ . '/widgets/video.php');
     require_once(__DIR__ . '/widgets/image-flip.php');
+    require_once(__DIR__ . '/widgets/storie-list.php');
     require_once(__DIR__ . '/widgets/hero-practice-eduker.php');
     require_once(__DIR__ . '/widgets/features-practice-eduker.php');
 
@@ -74,6 +75,7 @@ function register_mindu_heading_widget($widgets_manager)
     $widgets_manager->register(new \Mindu_FAQ());
     $widgets_manager->register(new \Mindu_Video());
     $widgets_manager->register(new \Mindu_Image_Flip());
+    $widgets_manager->register(new \Mindu_Storie_List());
     $widgets_manager->register(new \Mindu_Hero_Practice_Eduker());
     $widgets_manager->register(new \Mindu_Features_Practice_Eduker());
 }

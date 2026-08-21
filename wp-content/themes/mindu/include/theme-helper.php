@@ -1,28 +1,40 @@
 <?php
 
+// mindu_get_post_id_by_slug
+function mindu_get_post_id_by_slug($slug = '', $post_type = '') {
+    if (empty($slug) || empty($post_type)) {
+        return 0;
+    }
+    $post = get_page_by_path($slug, OBJECT, $post_type);
+
+    return $post ? $post->ID : 0;
+}
+
+
 // mindu_header
+
 function mindu_header()
 {
-
-
     $tp_page_header = function_exists('tpmeta_field') ? tpmeta_field('tp_page_header') : '';
+    $header_id = mindu_get_post_id_by_slug($tp_page_header, 'tp_header');
 
-    $header_global = get_theme_mod('tp_header_global',);
-
-    $header_id = is_object($tp_page_header) ? $tp_page_header->ID : (int) $tp_page_header;
-
-    $header_global_id = is_object($header_global) ? $header_global->ID : (int) $header_global;
+    $header_global = get_theme_mod('tp_header_global', '');
+    $header_global_id = mindu_get_post_id_by_slug($header_global, 'tp_header');
 
     if (class_exists('\Elementor\Plugin') && $header_id) {
-        echo \Elementor\Plugin::$instance->frontend->get_builder_content($header_id, true);
-    }
-    elseif ($header_global_id) {
-        echo \Elementor\Plugin::$instance->frontend->get_builder_content($header_global_id, true);
+        echo \Elementor\Plugin::$instance->frontend->get_builder_content( $header_id, true);
+    } 
+    elseif (class_exists('\Elementor\Plugin') && $header_global_id) {
+        echo \Elementor\Plugin::$instance->frontend->get_builder_content( $header_global_id, true );
     } 
     else {
-        echo get_template_part('template-parts/header/header-1');
+        get_template_part('template-parts/header/header-1');
     }
 }
+
+
+
+
 
 
 // mindu_footer
@@ -32,11 +44,10 @@ function mindu_footer()
 {
 
     $tp_footer_page = function_exists('tpmeta_field') ? tpmeta_field('tp_page_footer') : '';
+    $footer_id = mindu_get_post_id_by_slug($tp_footer_page, 'tp_footer');
 
     $footer_global = get_theme_mod('tp_footer_global',);
-
-    $footer_id = is_object($tp_footer_page) ? $tp_footer_page->ID : (int) $tp_footer_page;
-    $footer_global_id = is_object($footer_global) ? $footer_global->ID : (int) $footer_global;
+    $footer_global_id = mindu_get_post_id_by_slug($footer_global, 'tp_footer');
 
     if (class_exists('\Elementor\Plugin') && $footer_id) {
         echo \Elementor\Plugin::$instance->frontend->get_builder_content($footer_id, true);
