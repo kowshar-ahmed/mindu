@@ -241,6 +241,10 @@ require get_template_directory() . '/include/nav-walker.php';
 require get_template_directory() . '/include/theme-helper.php';
 require get_template_directory() . '/include/breadcrumb.php';
 
+if(function_exists('tutor_lms')) {
+    require get_template_directory() . '/include/mindu-tutor.php';
+}
+
 if (class_exists('WooCommerce')) {
     require get_template_directory() . '/include/mindu-woo.php';
 }
