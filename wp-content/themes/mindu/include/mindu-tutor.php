@@ -4,9 +4,12 @@
 function mindu_course_grid()
 {
 
-$course_id = get_the_ID();
-$total_lessons = tutor_utils()->get_lesson_count_by_course($course_id);
-$students_count = tutor_utils()->count_enrolled_users_by_course($course_id);
+    $course_id = get_the_ID();
+    $total_lessons = tutor_utils()->get_lesson_count_by_course($course_id);
+    $students_count = tutor_utils()->count_enrolled_users_by_course($course_id);
+    $course_rating = tutor_utils()->get_course_rating();
+    $show_course_ratings = apply_filters('tutor_show_course_ratings', true, get_the_ID());
+$price = tutor_utils()->get_course_price($course_id);
 
     $cats = get_the_terms($course_id, 'course-category');
 
@@ -61,22 +64,24 @@ $students_count = tutor_utils()->count_enrolled_users_by_course($course_id);
             </h2>
             <div class="tp-course-rating d-flex align-items-end justify-content-between">
                 <div class="tp-course-rating-star">
-                    <p>5.0<span> /5</span></p>
+
+                 
+                    <p> <?php echo esc_html(apply_filters('tutor_course_rating_average', $course_rating->rating_avg)); ?>
+                        <span> / <?php echo esc_html($course_rating->rating_count > 0 ? $course_rating->rating_count : 0); ?></span>
+                    </p>
                     <div class="tp-course-rating-icon">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                        <?php
+                        tutor_utils()->star_rating_generator_course($course_rating->rating_avg);
+                        ?>
                     </div>
                 </div>
                 <div class="tp-course-pricing home-2">
-                    <span>Free</span>
+                    <span><?php echo $price ? $price : 'Free'; ?></span>
                 </div>
             </div>
         </div>
         <div class="tp-course-btn">
-            <a href="<?php the_permalink(); ?>">Preview this Course</a>
+            <a href="<?php the_permalink(); ?>"><?php esc_html_e('Preview this Course', 'mindu'); ?></a>
         </div>
     </div>
 

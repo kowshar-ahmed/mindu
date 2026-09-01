@@ -13,4 +13,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="tutor-card tutor-course-card">
+<div class="mindu-course-card">
